@@ -11,19 +11,19 @@ const assert = (condition, message) => {
 };
 const count = (source, pattern) => [...source.matchAll(pattern)].length;
 
-const calculatorPath = 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/AndroidStorageStatsCalculator.java';
-const pluginPath = 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/AndroidStorageStatsPlugin.java';
-const calculatorTestPath = 'android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/AndroidStorageStatsCalculatorTest.java';
-const pluginTestPath = 'android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/AndroidStorageStatsPluginContractTest.java';
+const calculatorPath = 'android/app/src/main/java/com/rohittrimukhe/happypdf/AndroidStorageStatsCalculator.java';
+const pluginPath = 'android/app/src/main/java/com/rohittrimukhe/happypdf/AndroidStorageStatsPlugin.java';
+const calculatorTestPath = 'android/app/src/test/java/com/rohittrimukhe/happypdf/AndroidStorageStatsCalculatorTest.java';
+const pluginTestPath = 'android/app/src/test/java/com/rohittrimukhe/happypdf/AndroidStorageStatsPluginContractTest.java';
 const clientPath = 'services/platform/android/androidStorageStats.ts';
 const clientTestPath = 'tests/platform/androidStorageStats.test.ts';
 const calculator = read(calculatorPath);
 const plugin = read(pluginPath);
 const client = read(clientPath);
-const mainActivity = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/MainActivity.java');
+const mainActivity = read('android/app/src/main/java/com/rohittrimukhe/happypdf/MainActivity.java');
 
 assert(/MAXIMUM_SAFE_INTEGER\s*=\s*9_007_199_254_740_991L/.test(calculator), 'safe integer bound missing');
-assert(calculator.includes('pdfchef_documents') && calculator.includes('owned'), 'approved owned root missing');
+assert(calculator.includes('happypdf_documents') && calculator.includes('owned'), 'approved owned root missing');
 assert(/Files\.newDirectoryStream\(ownedDirectory\)/.test(calculator), 'immediate directory enumeration missing');
 assert(!/Files\.walk\s*\(|walkFileTree\s*\(|list\s*\(/.test(calculator), 'recursive or broad traversal forbidden');
 assert(calculator.includes('LinkOption.NOFOLLOW_LINKS') && calculator.includes('Files.isSymbolicLink'), 'no-follow checks missing');

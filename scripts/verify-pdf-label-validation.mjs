@@ -4,8 +4,8 @@ import { resolve } from 'node:path';
 import { PDFDocument } from 'pdf-lib';
 import { chromium } from 'playwright';
 
-const output = resolve(process.env.PDF_CHEF_VALIDATION_OUTPUT || 'output/pdf-label-validation');
-const base = process.env.PDF_CHEF_BASE_URL || 'http://127.0.0.1:4195';
+const output = resolve(process.env.HAPPY_PDF_VALIDATION_OUTPUT || 'output/pdf-label-validation');
+const base = process.env.HAPPY_PDF_BASE_URL || 'http://127.0.0.1:4195';
 await mkdir(output, { recursive: true });
 const pdf = await PDFDocument.create();
 pdf.addPage([400, 600]);
@@ -20,10 +20,10 @@ try {
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.addInitScript(() => {
-      localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({ autoDownload: false, keepLocalHistory: false, confirmLargeJobs: false, onboardingComplete: true }));
-      sessionStorage.setItem('pdfchef.mobileAppWelcome.dismissed', '1');
+      localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({ autoDownload: false, keepLocalHistory: false, confirmLargeJobs: false, onboardingComplete: true }));
+      sessionStorage.setItem('happypdf.mobileAppWelcome.dismissed', '1');
       window.__labelOutputs = [];
-      window.addEventListener('pdfchef:output-ready', event => window.__labelOutputs.push(event.detail.name));
+      window.addEventListener('happypdf:output-ready', event => window.__labelOutputs.push(event.detail.name));
     });
     await page.goto(`${base}/${route}`);
     await page.locator('input[type=file]').setInputFiles({ name: 'labels.pdf', mimeType: 'application/pdf', buffer });

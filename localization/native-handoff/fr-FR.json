@@ -60,7 +60,7 @@
   "android.pdf_reader_signature_timestamp_unverified": "Présent mais non validé hors ligne",
   "android.pdf_reader_signature_sha1_warning": "Avertissement : cette signature utilise l'ancien SHA-1.",
   "android.pdf_reader_signature_offline_note": "La confiance repose sur le magasin de certificats de cet appareil. La révocation et l'état en ligne du certificat ne sont pas vérifiés. La date de signature d'un PDF n'est pas considérée comme un horodatage de confiance.",
-  "ios.NSCameraUsageDescription": "PDF Chef utilise l'appareil photo uniquement lorsque vous choisissez Numériser avec l'appareil photo pour ajouter des pages à un PDF.",
+  "ios.NSCameraUsageDescription": "Happy PDF utilise l'appareil photo uniquement lorsque vous choisissez Numériser avec l'appareil photo pour ajouter des pages à un PDF.",
   "ios.ce47f2d3b8": "Signatures numériques",
   "ios.b55dcc62d4": "Vérification des signatures terminée",
   "ios.fd19818dfb": "Vérification des signatures numériques",

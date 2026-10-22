@@ -12,8 +12,8 @@ const entry = read('index.tsx');
 const continuity = read('services/platform/android/androidOnboardingContinuity.ts');
 const workspace = read('services/workspace.ts');
 const onboarding = read('components/UI/Onboarding.tsx');
-const mainActivity = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/MainActivity.java');
-const inspectorPlugin = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/AndroidLegacyInspectorPlugin.java');
+const mainActivity = read('android/app/src/main/java/com/rohittrimukhe/happypdf/MainActivity.java');
+const inspectorPlugin = read('android/app/src/main/java/com/rohittrimukhe/happypdf/legacy/AndroidLegacyInspectorPlugin.java');
 
 assert.equal(
   sha256(onboarding),
@@ -60,8 +60,8 @@ for (const required of [
 }
 assert.doesNotMatch(continuity, /legacy === 'ROBOTO'|legacy === 'POPPINS'|legacy === 'MONTSERRAT'/);
 for (const required of [
-  "pdfchef.workspace.interface-font-authority.v1",
-  "pdfchef.android.legacy-interface-font.v1",
+  "happypdf.workspace.interface-font-authority.v1",
+  "happypdf.android.legacy-interface-font.v1",
   "window.localStorage.getItem(WORKSPACE_INTERFACE_FONT_AUTHORITY_KEY) !== 'shared'",
   "window.localStorage.setItem(WORKSPACE_INTERFACE_FONT_AUTHORITY_KEY, 'shared')",
 ]) {

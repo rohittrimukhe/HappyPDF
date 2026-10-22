@@ -2,7 +2,7 @@
 
 ## Scope
 
-PDF Chef will let a user click a selectable text line in Edit PDF, edit that line in place, and save a visually replaced result. Image-only and scanned text is deliberately ignored; OCR is out of scope.
+Happy PDF will let a user click a selectable text line in Edit PDF, edit that line in place, and save a visually replaced result. Image-only and scanned text is deliberately ignored; OCR is out of scope.
 
 ## Interaction
 

@@ -5,7 +5,7 @@
          over a surface that already matches the product. The Material 3 parent
          is what the bundled AndroidX PDF resources resolve against: they read
          colorOnSurface, the surface containers and the Material text
-         appearances, none of which the AppCompat parent defines. Every PDF Chef
+         appearances, none of which the AppCompat parent defines. Every Happy PDF
          value below still overrides it, so the reader looks unchanged. -->
     <style name="PdfReaderTheme" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="windowActionBar">false</item>

@@ -29,10 +29,10 @@ import type {
 import { installOutputDeliveryHandler } from '../../pdfShared.ts';
 import { announceRecordsChanged } from '../../workspace.ts';
 import {
-  PdfChefDocumentsBridge,
-  isPdfChefDocumentsAvailable,
+  HappyPdfDocumentsBridge,
+  isHappyPdfDocumentsAvailable,
   type ListedDocument,
-} from './pdfChefDocuments.ts';
+} from './happyPdfDocuments.ts';
 import { createLocalWorkspaceRepositories } from '../local/localWorkspaceRepositories.ts';
 import {
   IndexedDbLegacyWorkspaceSource,
@@ -162,7 +162,7 @@ const readAll = async (stream: ReadableStream<Uint8Array>): Promise<BlobPart[]> 
 export const createIOSWorkspacePlatform = (
   options: IOSWorkspacePlatformOptions = {},
 ): IOSWorkspacePlatform => {
-  const bridge = options.bridge ?? new PdfChefDocumentsBridge();
+  const bridge = options.bridge ?? new HappyPdfDocumentsBridge();
   const repositories =
     options.settings && options.recent
       ? { settings: options.settings, recent: options.recent }
@@ -551,4 +551,4 @@ export const createIOSWorkspacePlatform = (
   return platform;
 };
 
-export { isPdfChefDocumentsAvailable };
+export { isHappyPdfDocumentsAvailable };

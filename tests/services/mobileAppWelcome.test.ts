@@ -4,7 +4,7 @@ import { isMobileAppWelcomeRoute, smartphonePlatform } from '../../services/mobi
 
 const iphone = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1';
 const android = 'Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 Chrome/130.0.0.0 Mobile Safari/537.36';
-const origin = 'https://pdfchef.dhananjaytech.app';
+const origin = 'https://happypdf.app';
 
 test('Android and iPhone browsers receive the correct app choice', () => {
   assert.equal(smartphonePlatform(iphone, 'web', origin), 'ios');
@@ -33,7 +33,7 @@ test('installed apps never receive a download screen, including an uninitialized
 });
 
 test('legal routes remain directly readable while tool links receive the screen', () => {
-  for (const path of ['/privacy', '/privacy-policy', '/pdf-chef-privacy', '/terms', '/terms-and-conditions', '/privacy/']) {
+  for (const path of ['/privacy', '/privacy-policy', '/happy-pdf-privacy', '/terms', '/terms-and-conditions', '/privacy/']) {
     assert.equal(isMobileAppWelcomeRoute(path), false, path);
   }
   for (const path of ['/', '/edit', '/compress', '/make-pdf', '/settings']) {

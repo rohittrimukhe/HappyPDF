@@ -8,17 +8,17 @@ const assert = (condition, message) => {
   if (!condition) throw new Error(`ANDROID_DOCUMENT_UNDO: ${message}`);
 };
 
-const writer = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/OwnedDocumentWriter.java');
-const coordinator = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/DocumentLifecycleCoordinator.java');
-const plugin = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentsPlugin.java');
+const writer = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/OwnedDocumentWriter.java');
+const coordinator = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/DocumentLifecycleCoordinator.java');
+const plugin = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentsPlugin.java');
 const client = read('services/platform/android/androidDocuments.ts');
 const workspace = read('services/platform/android/androidWorkspacePlatform.ts');
 const recent = read('components/Pages/RecentPage.tsx');
-const writerTest = read('android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/OwnedDocumentWriterTest.java');
-const coordinatorTest = read('android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/DocumentLifecycleCoordinatorTest.java');
-const pluginTest = read('android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentsPluginContractTest.java');
+const writerTest = read('android/app/src/test/java/com/rohittrimukhe/happypdf/documents/OwnedDocumentWriterTest.java');
+const coordinatorTest = read('android/app/src/test/java/com/rohittrimukhe/happypdf/documents/DocumentLifecycleCoordinatorTest.java');
+const pluginTest = read('android/app/src/test/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentsPluginContractTest.java');
 const clientTest = read('tests/platform/androidDocuments.test.ts');
-const runtimeTest = read('android/app/src/androidTest/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentsPluginInstrumentedTest.java');
+const runtimeTest = read('android/app/src/androidTest/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentsPluginInstrumentedTest.java');
 
 for (const invariant of [
   'UNDO_EXPIRY_MILLIS = 10L * 60L * 1000L',

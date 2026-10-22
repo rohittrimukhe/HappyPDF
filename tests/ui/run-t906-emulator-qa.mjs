@@ -100,7 +100,7 @@ try {
   await command('Page.enable');
   await waitFor('globalThis.Capacitor?.Plugins?.AndroidDocuments', 'AndroidDocuments bridge');
 
-  for (const label of ['Get started', 'Continue', 'Start using PDF Chef', 'Done']) {
+  for (const label of ['Get started', 'Continue', 'Start using Happy PDF', 'Done']) {
     const expression = controlExpression(label);
     if (await evaluate(`Boolean(${expression})`)) {
       await evaluate(`(${expression}).click()`);

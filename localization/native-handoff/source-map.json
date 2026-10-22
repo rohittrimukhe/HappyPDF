@@ -248,312 +248,312 @@
     "resource": "NSCameraUsageDescription"
   },
   "ios.ce47f2d3b8": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "line": 35
   },
   "ios.b55dcc62d4": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "line": 52
   },
   "ios.fd19818dfb": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "line": 88
   },
   "ios.8a8b4bbde8": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "line": 94
   },
   "ios.02678d114a": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "line": 111
   },
   "ios.6d02efcade": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "line": 112
   },
   "ios.2cfeb1a226": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "line": 120
   },
   "ios.c2a6ad16c0": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "line": 125
   },
   "ios.908504cce9": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "line": 126
   },
   "ios.658a96e1b1": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "line": 127
   },
   "ios.56d74049d1": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "line": 129
   },
   "ios.a2f3e65705": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "line": 138
   },
   "ios.c614098b83": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "statusLabel": true
   },
   "ios.7dd16af437": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "statusLabel": true
   },
   "ios.978f31e626": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "statusLabel": true
   },
   "ios.3372d1ec53": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "statusLabel": true
   },
   "ios.5c19b2f989": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "statusLabel": true
   },
   "ios.96498ab937": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 61
   },
   "ios.f444b18c1f": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 180
   },
   "ios.047a16985e": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 103
   },
   "ios.5ac0a8d6a9": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 324
   },
   "ios.2f2bb03b94": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 119
   },
   "ios.c8bdc3242d": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 132
   },
   "ios.d4f922eb49": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 137
   },
   "ios.a448aecc11": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 141
   },
   "ios.2104a15c69": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 145
   },
   "ios.72bd78c1dd": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 152
   },
   "ios.71d7920fbb": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 153
   },
   "ios.9076399041": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 153
   },
   "ios.14cb1c6e7f": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 155
   },
   "ios.82a8426fa1": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 156
   },
   "ios.4d32b7db6f": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 157
   },
   "ios.347772ee82": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 159
   },
   "ios.48b89b63fc": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 170
   },
   "ios.ab6a6df21c": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 188
   },
   "ios.38449f2bd7": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 214
   },
   "ios.4beb6ce6a8": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 223
   },
   "ios.3bb8cdaf1f": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 229
   },
   "ios.9e6a520856": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 267
   },
   "ios.63517a2382": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 270
   },
   "ios.d52377a67a": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 277
   },
   "ios.9b66d98ecc": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 473
   },
   "ios.d765e7a66e": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 478
   },
   "ios.ab4e69efef": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 484
   },
   "ios.7bc5c4f6b4": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 488
   },
   "ios.a58ada2fe5": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 494
   },
   "ios.29aaf49593": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 497
   },
   "ios.f70c13b4ea": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 500
   },
   "ios.3aad569a9f": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 502
   },
   "ios.3a11a556ce": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 545
   },
   "ios.97a0696641": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 546
   },
   "ios.9b540850ca": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 547
   },
   "ios.bd7f9c0b0e": {
-    "path": "ios/App/App/PdfChefSignatureVerifier.swift",
+    "path": "ios/App/App/HappyPdfSignatureVerifier.swift",
     "line": 548
   },
   "ios.f516220631": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "statusLabel": true
   },
   "ios.96c34a0719": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "statusLabel": true
   },
   "ios.639538c63b": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "statusLabel": true
   },
   "ios.424a2551d3": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "statusLabel": true
   },
   "ios.f6f738d043": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "statusLabel": true
   },
   "ios.d5db1eba72": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "statusLabel": true
   },
   "ios.54324658e2": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "statusLabel": true
   },
   "ios.signatureSectionTitle": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "line": 121,
     "note": "Named placeholders must be bound in native localized formatting; do not translate user-provided values."
   },
   "ios.signatureAccessibilityValue": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "line": 188,
     "note": "Named placeholders must be bound in native localized formatting; do not translate user-provided values."
   },
   "ios.revocation": {
-    "path": "ios/App/App/PdfChefSignatureReportViewController.swift",
+    "path": "ios/App/App/HappyPdfSignatureReportViewController.swift",
     "line": 130,
     "note": "Named placeholders must be bound in native localized formatting; do not translate user-provided values."
   },
   "ios.productsUnavailable": {
-    "path": "ios/App/App/PdfChefPurchasesPlugin.swift",
+    "path": "ios/App/App/HappyPdfPurchasesPlugin.swift",
     "line": 56,
     "note": "Named placeholders must be bound in native localized formatting; do not translate user-provided values."
   },
   "ios.purchaseFailed": {
-    "path": "ios/App/App/PdfChefPurchasesPlugin.swift",
+    "path": "ios/App/App/HappyPdfPurchasesPlugin.swift",
     "line": 120,
     "note": "Named placeholders must be bound in native localized formatting; do not translate user-provided values."
   },
   "ios.restoreFailed": {
-    "path": "ios/App/App/PdfChefPurchasesPlugin.swift",
+    "path": "ios/App/App/HappyPdfPurchasesPlugin.swift",
     "line": 133,
     "note": "Named placeholders must be bound in native localized formatting; do not translate user-provided values."
   },
   "ios.noActiveWindow": {
-    "path": "ios/App/App/PdfChefPurchasesPlugin.swift",
+    "path": "ios/App/App/HappyPdfPurchasesPlugin.swift",
     "line": 143,
     "note": "Named placeholders must be bound in native localized formatting; do not translate user-provided values."
   },
   "ios.manageSubscriptionsFailed": {
-    "path": "ios/App/App/PdfChefPurchasesPlugin.swift",
+    "path": "ios/App/App/HappyPdfPurchasesPlugin.swift",
     "line": 151,
     "note": "Named placeholders must be bound in native localized formatting; do not translate user-provided values."
   },
   "ios.documentReferenceInvalid": {
-    "path": "ios/App/App/PdfChefDocumentStore.swift",
+    "path": "ios/App/App/HappyPdfDocumentStore.swift",
     "line": 14,
     "note": "Named placeholders must be bound in native localized formatting; do not translate user-provided values."
   },
   "ios.writeSessionInvalid": {
-    "path": "ios/App/App/PdfChefDocumentStore.swift",
+    "path": "ios/App/App/HappyPdfDocumentStore.swift",
     "line": 15,
     "note": "Named placeholders must be bound in native localized formatting; do not translate user-provided values."
   },
   "ios.chunkTooLarge": {
-    "path": "ios/App/App/PdfChefDocumentStore.swift",
+    "path": "ios/App/App/HappyPdfDocumentStore.swift",
     "line": 16,
     "note": "Named placeholders must be bound in native localized formatting; do not translate user-provided values."
   },
   "ios.readOffsetInvalid": {
-    "path": "ios/App/App/PdfChefDocumentStore.swift",
+    "path": "ios/App/App/HappyPdfDocumentStore.swift",
     "line": 17,
     "note": "Named placeholders must be bound in native localized formatting; do not translate user-provided values."
   },
   "ios.documentMissing": {
-    "path": "ios/App/App/PdfChefDocumentStore.swift",
+    "path": "ios/App/App/HappyPdfDocumentStore.swift",
     "line": 18,
     "note": "Named placeholders must be bound in native localized formatting; do not translate user-provided values."
   },
   "ios.presentationNameInvalid": {
-    "path": "ios/App/App/PdfChefDocumentStore.swift",
+    "path": "ios/App/App/HappyPdfDocumentStore.swift",
     "line": 19,
     "note": "Named placeholders must be bound in native localized formatting; do not translate user-provided values."
   }

@@ -3,15 +3,15 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { chromium, webkit, devices } from 'playwright';
 import { PDFDocument, StandardFonts } from 'pdf-lib';
 
-const origin = process.env.PDF_CHEF_URL || 'http://127.0.0.1:4191';
-const output = process.env.PDF_CHEF_PREVIEW_OUTPUT || 'output/pdf-preview-progress';
+const origin = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:4191';
+const output = process.env.HAPPY_PDF_PREVIEW_OUTPUT || 'output/pdf-preview-progress';
 await mkdir(output, { recursive: true });
 const pdf = await PDFDocument.create();
 const font = await pdf.embedFont(StandardFonts.Helvetica);
 for (let n = 1; n <= 48; n++) pdf.addPage([300, 420]).drawText(`Preview control page ${n}`, { x: 24, y: 370, size: 16, font });
 const fixture = { name: 'previews-48.pdf', mimeType: 'application/pdf', buffer: Buffer.from(await pdf.save()) };
 const results = [];
-const phases = new Set((process.env.PDF_CHEF_PREVIEW_CASES || 'tools,failure,locales,api,iphone').split(','));
+const phases = new Set((process.env.HAPPY_PDF_PREVIEW_CASES || 'tools,failure,locales,api,iphone').split(','));
 const browser = await chromium.launch();
 const engines = [browser];
 const contexts = [];
@@ -20,9 +20,9 @@ async function setup(options = {}, locale = 'en-US', engine = browser) {
   contexts.push(context);
   await context.route('**/*', route => route.request().url().startsWith(origin) ? route.continue() : route.abort());
   await context.addInitScript(locale => {
-    localStorage.setItem('pdfchef.locale.v1', locale);
-    localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({ onboardingComplete: true, keepLocalHistory: false, autoDownload: false, confirmLargeJobs: false }));
-    sessionStorage.setItem('pdfchef.mobile-app-welcome.dismissed.v1', 'true');
+    localStorage.setItem('happypdf.locale.v1', locale);
+    localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({ onboardingComplete: true, keepLocalHistory: false, autoDownload: false, confirmLargeJobs: false }));
+    sessionStorage.setItem('happypdf.mobile-app-welcome.dismissed.v1', 'true');
   }, locale);
   const page = await context.newPage();
   page.setDefaultTimeout(60_000);
@@ -63,10 +63,10 @@ async function layout(page) {
 function pass(message) { results.push(message); console.log(`PASS ${message}`); }
 
 try {
-  if (process.env.PDF_CHEF_HEAVY_PDF_PATH) {
+  if (process.env.HAPPY_PDF_HEAVY_PDF_PATH) {
     const { page } = await setup();
     const started = Date.now();
-    await open(page, '/split', process.env.PDF_CHEF_HEAVY_PDF_PATH);
+    await open(page, '/split', process.env.HAPPY_PDF_HEAVY_PDF_PATH);
     await page.waitForFunction(() => {
       const bar = document.querySelector('[data-pdf-loading-progress] progress');
       return bar?.hasAttribute('value') && bar.value > 0 && bar.value < 100;
@@ -143,7 +143,7 @@ try {
   }
 
   // A real browser PDF.js render exercises completed counts and partial-URL cleanup.
-  if (phases.has('api') && new URL(origin).hostname === '127.0.0.1' && process.env.PDF_CHEF_PREVIEW_API_TESTS !== 'false') {
+  if (phases.has('api') && new URL(origin).hostname === '127.0.0.1' && process.env.HAPPY_PDF_PREVIEW_API_TESTS !== 'false') {
     const { context, page } = await setup();
     await page.goto(origin + '/split', { waitUntil: 'domcontentloaded' });
     const outcome = await page.evaluate(async base64 => {

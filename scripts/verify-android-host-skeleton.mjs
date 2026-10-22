@@ -47,7 +47,7 @@ for (const name of ['@capacitor/core', '@capacitor/ios', '@capacitor/android']) 
 }
 check('installed @capacitor/android is exactly 8.5.3', JSON.parse(read('node_modules/@capacitor/android/package.json')).version === '8.5.3');
 
-match('capacitor.config.ts', /appId:\s*'com\.dhananjaytech\.pdfchef'/, 'base Capacitor application ID');
+match('capacitor.config.ts', /appId:\s*'com\.rohittrimukhe\.happypdf'/, 'base Capacitor application ID');
 match('capacitor.config.ts', /webDir:\s*'dist'/, 'bundled dist web directory');
 match('capacitor.config.ts', /cordova:\s*\{\s*accessOrigins:\s*\[\s*\]/s, 'Cordova accessOrigins is empty');
 absent('capacitor.config.ts', /\bserver\s*:/, 'no Capacitor remote server configuration');
@@ -55,8 +55,8 @@ absent('capacitor.config.ts', /\bserver\s*:/, 'no Capacitor remote server config
 match('android/variables.gradle', /minSdkVersion\s*=\s*29/, 'minSdk 29');
 match('android/variables.gradle', /compileSdkVersion\s*=\s*36/, 'compileSdk 36');
 match('android/variables.gradle', /targetSdkVersion\s*=\s*36/, 'targetSdk 36');
-match('android/app/build.gradle', /namespace\s*=\s*"com\.dhananjaytech\.zenpdf_allpdftoolsinoneplace"/, 'legacy namespace');
-match('android/app/build.gradle', /applicationId\s+"com\.dhananjaytech\.pdfchef"/, 'base Android application ID');
+match('android/app/build.gradle', /namespace\s*=\s*"com\.rohittrimukhe\.happypdf"/, 'legacy namespace');
+match('android/app/build.gradle', /applicationId\s+"com\.rohittrimukhe\.happypdf"/, 'base Android application ID');
 match('android/app/build.gradle', /debug\s*\{\s*applicationIdSuffix\s+"\.debug"/s, 'debug application ID suffix');
 match('android/app/build.gradle', /compileSdk\s*\{\s*version\s*=\s*release\(36\)\s*\{\s*minorApiLevel\s*=\s*1\s*\}\s*\}/s,
   'app compiles against Android 36.1 (extension 20)');
@@ -96,8 +96,8 @@ for (const path of ['android/app/src/main/res/xml/backup_rules.xml', 'android/ap
   match(path, /domain="sharedpref" path="app_settings\.preferences_pb"/, `${path} retains legacy shared-preference exclusion`);
 }
 
-const mainActivity = 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/MainActivity.java';
-match(mainActivity, /package com\.dhananjaytech\.zenpdf_allpdftoolsinoneplace;/, 'legacy MainActivity package');
+const mainActivity = 'android/app/src/main/java/com/rohittrimukhe/happypdf/MainActivity.java';
+match(mainActivity, /package com\.rohittrimukhe\.happypdf;/, 'legacy MainActivity package');
 match(mainActivity, /extends BridgeActivity/, 'MainActivity extends BridgeActivity');
 const activity = read(mainActivity);
 const registrationEntries = [

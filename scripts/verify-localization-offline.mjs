@@ -4,9 +4,9 @@ import { resolve } from 'node:path';
 import { chromium } from 'playwright';
 
 const root = resolve(import.meta.dirname, '..');
-const dist = resolve(process.env.PDF_CHEF_DIST_DIR || 'dist');
-const origin = process.env.PDF_CHEF_URL || 'http://127.0.0.1:3075';
-const output = process.env.PDF_CHEF_I18N_OUTPUT || 'output/localization-20260918/offline';
+const dist = resolve(process.env.HAPPY_PDF_DIST_DIR || 'dist');
+const origin = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:3075';
+const output = process.env.HAPPY_PDF_I18N_OUTPUT || 'output/localization-20260918/offline';
 await mkdir(output, { recursive: true });
 const mapping = JSON.parse(await readFile(resolve(root, 'localization/locale-mapping.json'), 'utf8'));
 const worker = await readFile(resolve(dist, 'sw.js'), 'utf8');
@@ -28,7 +28,7 @@ try {
   page.on('pageerror', error => errors.push(error.message));
   await page.goto(origin + '/settings');
   await page.evaluate(() => {
-    localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({ onboardingComplete: true }));
+    localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({ onboardingComplete: true }));
   });
   await page.reload();
   // Keep the predicate synchronous: an async predicate can be treated as a

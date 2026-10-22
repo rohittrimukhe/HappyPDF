@@ -1002,7 +1002,7 @@ html[data-text-scale='larger'] .chef-clamp-2 {
    the matched range lands exactly on the words the reader can see. Registered through the
    browser's highlight registry, which leaves the paragraph's own child nodes alone — they belong
    to the browser while someone is typing into them. */
-::highlight(pdfchef-find) {
+::highlight(happypdf-find) {
   background-color: color-mix(in srgb, var(--accent-rest) 30%, transparent);
 }
 

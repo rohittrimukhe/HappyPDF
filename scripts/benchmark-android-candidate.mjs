@@ -5,8 +5,8 @@ import { homedir } from 'node:os';
 import { basename, dirname, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 
-const EXPECTED_PACKAGE = 'com.dhananjaytech.pdfchef.debug';
-const EXPECTED_ACTIVITY = 'com.dhananjaytech.zenpdf_allpdftoolsinoneplace.MainActivity';
+const EXPECTED_PACKAGE = 'com.rohittrimukhe.happypdf.debug';
+const EXPECTED_ACTIVITY = 'com.rohittrimukhe.happypdf.MainActivity';
 const PROTECTED_SERIALS = new Set(['emulator-5554']);
 const MAXIMUM_ITERATIONS = 20;
 const READY_TIMEOUT_MS = 15_000;
@@ -165,7 +165,7 @@ const distribution = values => ({
 });
 
 const selfTest = () => {
-  const metadata = parseBadging("package: name='com.dhananjaytech.pdfchef.debug' versionCode='21' versionName='2.2.4-debug'\nlaunchable-activity: name='com.dhananjaytech.zenpdf_allpdftoolsinoneplace.MainActivity'");
+  const metadata = parseBadging("package: name='com.rohittrimukhe.happypdf.debug' versionCode='21' versionName='2.2.4-debug'\nlaunchable-activity: name='com.rohittrimukhe.happypdf.MainActivity'");
   if (metadata.packageName !== EXPECTED_PACKAGE || metadata.versionCode !== 21
       || metadata.activity !== EXPECTED_ACTIVITY) fail('badging parser self-test failed');
   if (parseSigner('Signer #1 certificate SHA-256 digest: ' + 'a'.repeat(64)) !== 'a'.repeat(64)) {

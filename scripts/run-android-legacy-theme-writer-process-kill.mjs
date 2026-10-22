@@ -8,14 +8,14 @@ import { fileURLToPath } from 'node:url';
 
 const execFile = promisify(execFileCallback);
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const TARGET = 'com.dhananjaytech.pdfchef.debug';
-const PRODUCTION = 'com.dhananjaytech.pdfchef';
+const TARGET = 'com.rohittrimukhe.happypdf.debug';
+const PRODUCTION = 'com.rohittrimukhe.happypdf';
 const TEST_PACKAGE = `${TARGET}.test`;
 const TEST_RUNNER = `${TEST_PACKAGE}/androidx.test.runner.AndroidJUnitRunner`;
-const TEST_CLASS = 'com.dhananjaytech.zenpdf_allpdftoolsinoneplace.legacy.AndroidLegacySettingsWriterInstrumentedTest';
-const COORDINATOR_CLASS = 'com.dhananjaytech.zenpdf_allpdftoolsinoneplace.legacy.LegacyMutationCoordinator';
+const TEST_CLASS = 'com.rohittrimukhe.happypdf.legacy.AndroidLegacySettingsWriterInstrumentedTest';
+const COORDINATOR_CLASS = 'com.rohittrimukhe.happypdf.legacy.LegacyMutationCoordinator';
 const COORDINATOR_SOURCE = resolve(root,
-  'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/LegacyMutationCoordinator.java');
+  'android/app/src/main/java/com/rohittrimukhe/happypdf/legacy/LegacyMutationCoordinator.java');
 const COMMAND_TIMEOUT_MS = 30_000;
 const PROCESS_TIMEOUT_MS = 45_000;
 const BREAKPOINT_TIMEOUT_MS = 60_000;

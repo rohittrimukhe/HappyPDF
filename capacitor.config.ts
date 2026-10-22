@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.dhananjaytech.pdfchef',
-  appName: 'PDF Chef',
+  appId: 'com.rohittrimukhe.happypdf',
+  appName: 'Happy PDF',
   webDir: 'dist',
   android: {
     allowMixedContent: false,

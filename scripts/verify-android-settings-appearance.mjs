@@ -14,7 +14,7 @@ const appearance = read('hooks/useAppearance.tsx');
 const surface = read('components/Pages/SettingsPage.tsx');
 const contractTest = read('tests/platform/androidSettings.test.ts');
 const surfaceTest = read('tests/ui/androidSettingsAppearance.test.ts');
-const activity = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/MainActivity.java');
+const activity = read('android/app/src/main/java/com/rohittrimukhe/happypdf/MainActivity.java');
 const manifest = read('android/app/src/main/AndroidManifest.xml');
 
 for (const registration of [
@@ -40,7 +40,7 @@ assert(!/androidThemeModeFor[\s\S]{0,500}DYNAMIC/.test(settings),
   'shared appearance must never write legacy DYNAMIC');
 
 for (const required of [
-  "export const THEME_MARKER_KEY = 'pdfchef.appearance.android-theme-write.v1'",
+  "export const THEME_MARKER_KEY = 'happypdf.appearance.android-theme-write.v1'",
   'Reflect.ownKeys(value)',
   'reconcilePendingTheme(marker, resolution)',
   'if (launchSequence !== sequence) return',

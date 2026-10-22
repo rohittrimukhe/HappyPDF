@@ -12,8 +12,8 @@ const requireAbsent = (text, pattern, label) => {
 };
 const occurrences = (text, value) => text.split(value).length - 1;
 
-const activity = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/MainActivity.java');
-const policy = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/security/PdfChefWebViewPolicy.java');
+const activity = read('android/app/src/main/java/com/rohittrimukhe/happypdf/MainActivity.java');
+const policy = read('android/app/src/main/java/com/rohittrimukhe/happypdf/security/HappyPdfWebViewPolicy.java');
 const config = read('capacitor.config.ts');
 
 const inspector = 'registerPlugin(AndroidLegacyInspectorPlugin.class)';
@@ -53,13 +53,13 @@ for (const [method, label] of [
   ['WebView\\.setWebContentsDebuggingEnabled\\(false\\)', 'WebView debugging block'],
 ]) requireMatch(policy, new RegExp(method), label);
 
-requireMatch(activity, /bridge\.setWebViewClient\(new PdfChefWebViewClient\(bridge\)\)/, 'policy WebView client installation');
-requireMatch(activity, /config = CapConfig\.loadDefault\(this\)[\s\S]*PdfChefWebViewPolicy\.apply\(webView\);\s*(?:configureGraphicsLayer\(webView\);\s*)?super\.load\(\);/, 'pre-bridge WebView hardening');
-requireMatch(activity, /!PdfChefWebViewPolicy\.isTrustedConfig\(bridge\.getConfig\(\)\)[\s\S]*!PdfChefWebViewPolicy\.isPackagedOrigin\(bridge\.getAppUrl\(\)\)/, 'fail-closed configured bridge origin');
+requireMatch(activity, /bridge\.setWebViewClient\(new HappyPdfWebViewClient\(bridge\)\)/, 'policy WebView client installation');
+requireMatch(activity, /config = CapConfig\.loadDefault\(this\)[\s\S]*HappyPdfWebViewPolicy\.apply\(webView\);\s*(?:configureGraphicsLayer\(webView\);\s*)?super\.load\(\);/, 'pre-bridge WebView hardening');
+requireMatch(activity, /!HappyPdfWebViewPolicy\.isTrustedConfig\(bridge\.getConfig\(\)\)[\s\S]*!HappyPdfWebViewPolicy\.isPackagedOrigin\(bridge\.getAppUrl\(\)\)/, 'fail-closed configured bridge origin');
 requireMatch(activity, /OPEN_EXTERNAL_BROWSER[\s\S]*startActivity\(new Intent\(Intent\.ACTION_VIEW, request\.getUrl\(\)\)\)/, 'visible external HTTP(S) link handoff');
 requireMatch(policy, /"mailto"\.equals\(scheme\)/, 'existing email-link handoff');
 requireMatch(activity, /ServiceWorkerController\.getInstance\(\)\.setServiceWorkerClient/, 'service-worker request boundary');
-requireMatch(activity, /onPageStarted[\s\S]*!PdfChefWebViewPolicy\.isPackagedOrigin\(url\)[\s\S]*view\.stopLoading\(\)/, 'redirect fail-closed guard');
+requireMatch(activity, /onPageStarted[\s\S]*!HappyPdfWebViewPolicy\.isPackagedOrigin\(url\)[\s\S]*view\.stopLoading\(\)/, 'redirect fail-closed guard');
 requireMatch(activity, /return blockedResponse\(\)/, 'remote subresource block');
 requireAbsent(activity, /bridge\.launchIntent\(/, 'Capacitor broad intent launcher');
 requireMatch(activity, /PlayInAppUpdateController\.create\(this, inAppUpdateLauncher\)/,

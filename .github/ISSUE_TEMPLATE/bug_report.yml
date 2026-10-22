@@ -1,5 +1,5 @@
 name: Bug report
-description: Report something that is broken in PDF Chef.
+description: Report something that is broken in Happy PDF.
 title: "[Bug]: "
 labels: ["bug"]
 body:

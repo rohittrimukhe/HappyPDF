@@ -3,26 +3,26 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { chromium } from 'playwright';
 import { PDFDocument, StandardFonts } from 'pdf-lib';
 
-const origin = process.env.PDF_CHEF_URL || 'http://127.0.0.1:3074';
-const output = process.env.PDF_CHEF_I18N_OUTPUT || 'output/localization-20260918/browser';
+const origin = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:3074';
+const output = process.env.HAPPY_PDF_I18N_OUTPUT || 'output/localization-20260918/browser';
 await mkdir(output, { recursive: true });
 const app = await readFile(new URL('../App.tsx', import.meta.url), 'utf8');
 const routes = [...new Set([...app.matchAll(/<Route\s+path="([^"]+)"/g)].map(match => match[1]))]
   .map(route => route === '*' ? '/localization-unknown-route' : route);
-const languages = process.env.PDF_CHEF_TEST_LOCALES?.split(',').filter(Boolean) || ['en-US', 'de-DE', 'fr-FR', 'ja-JP', 'zh-Hans', 'hi-IN', 'ar-SA'];
+const languages = process.env.HAPPY_PDF_TEST_LOCALES?.split(',').filter(Boolean) || ['en-US', 'de-DE', 'fr-FR', 'ja-JP', 'zh-Hans', 'hi-IN', 'ar-SA'];
 const reports = [];
 const browser = await chromium.launch({ headless: true });
 const document = await PDFDocument.create();
 const font = await document.embedFont(StandardFonts.Helvetica);
-document.addPage([595, 842]).drawText('PDF Chef localization control. Keep this document unchanged.', { x: 40, y: 740, size: 12, font });
+document.addPage([595, 842]).drawText('Happy PDF localization control. Keep this document unchanged.', { x: 40, y: 740, size: 12, font });
 const fixture = Buffer.from(await document.save());
 
 try {
   for (const locale of languages) {
     const context = await browser.newContext({ viewport: { width: 393, height: 852 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, locale });
     await context.addInitScript(({ locale }) => {
-      localStorage.setItem('pdfchef.locale.v1', locale);
-      localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({ onboardingComplete: true, keepLocalHistory: false, autoDownload: false }));
+      localStorage.setItem('happypdf.locale.v1', locale);
+      localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({ onboardingComplete: true, keepLocalHistory: false, autoDownload: false }));
     }, { locale });
     const page = await context.newPage();
     const errors = [], warnings = [], loadedCatalogs = new Set();
@@ -40,7 +40,7 @@ try {
         width: document.documentElement.clientWidth,
         scrollWidth: document.documentElement.scrollWidth,
         text: document.querySelector('main')?.textContent?.trim(),
-        logoTransform: [...document.querySelectorAll('img[src*="pdf-chef-logo"]')].map(image => getComputedStyle(image).transform),
+        logoTransform: [...document.querySelectorAll('img[src*="happy-pdf-logo"]')].map(image => getComputedStyle(image).transform),
       }));
       assert.equal(layout.lang, locale, route);
       assert.equal(layout.dir, locale === 'ar-SA' ? 'rtl' : 'ltr', route);
@@ -73,7 +73,7 @@ try {
     assert.equal(await language.locator('option').count(), 25);
     await page.screenshot({ path: `${output}/${locale}-settings.png`, fullPage: true });
     if (['de-DE', 'fr-FR', 'ar-SA'].includes(locale)) {
-      await page.evaluate(() => localStorage.setItem('pdfchef.appearance.text-scale.v1', 'larger'));
+      await page.evaluate(() => localStorage.setItem('happypdf.appearance.text-scale.v1', 'larger'));
       checkedRoutes.push(await check('/settings'));
       checkedRoutes.push(await check('/'));
       await page.screenshot({ path: `${output}/${locale}-large-text.png`, fullPage: true });
@@ -148,7 +148,7 @@ try {
   const context = await browser.newContext({ viewport: { width: 393, height: 852 }, isMobile: true, hasTouch: true, locale: 'de-DE' });
   const page = await context.newPage();
   await page.goto(origin);
-  await page.evaluate(() => localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({ onboardingComplete: true })));
+  await page.evaluate(() => localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({ onboardingComplete: true })));
   await page.goto(origin + '/settings');
   await page.locator('main').waitFor();
   assert.equal(await page.locator('html').getAttribute('lang'), 'de-DE');
@@ -166,8 +166,8 @@ try {
   for (const preference of ['system', 'fr-CA']) {
     const context = await browser.newContext({ viewport: { width: 393, height: 852 }, isMobile: true, hasTouch: true, locale: 'fr-CA', serviceWorkers: 'block' });
     await context.addInitScript(preference => {
-      localStorage.setItem('pdfchef.locale.v1', preference);
-      localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({ onboardingComplete: true }));
+      localStorage.setItem('happypdf.locale.v1', preference);
+      localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({ onboardingComplete: true }));
     }, preference);
     await context.route(/(?:\/i18n\/locales\/fr-CA\.ts|\/assets\/fr-CA-[\w-]+\.js)/, route => route.abort());
     const page = await context.newPage();
@@ -189,13 +189,13 @@ try {
   }
   console.log('PASS catalog failure preserves explicit preference and System language recovery');
   const imageLabels = [];
-  for (const locale of process.env.PDF_CHEF_TEST_IMAGE_LOCALES?.split(',').filter(Boolean) || []) {
+  for (const locale of process.env.HAPPY_PDF_TEST_IMAGE_LOCALES?.split(',').filter(Boolean) || []) {
     const catalog = JSON.parse(await readFile(new URL(`../localization/drafts/${locale}.json`, import.meta.url), 'utf8'));
     const context = await browser.newContext({ viewport: { width: 393, height: 852 }, isMobile: true, hasTouch: true, locale });
     context.setDefaultTimeout(30_000);
     await context.addInitScript(locale => {
-      localStorage.setItem('pdfchef.locale.v1', locale);
-      localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({ onboardingComplete: true, keepLocalHistory: false, autoDownload: false }));
+      localStorage.setItem('happypdf.locale.v1', locale);
+      localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({ onboardingComplete: true, keepLocalHistory: false, autoDownload: false }));
     }, locale);
     const page = await context.newPage();
     await page.goto(origin + '/edit');
@@ -224,13 +224,13 @@ try {
     const german = JSON.parse(await readFile(new URL('../localization/drafts/de-DE.json', import.meta.url), 'utf8'));
     const context = await browser.newContext({ viewport: { width: 393, height: 852 }, isMobile: true, hasTouch: true, locale: 'en-US' });
     context.setDefaultTimeout(30_000);
-    await context.addInitScript(() => localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({ onboardingComplete: true, keepLocalHistory: false, autoDownload: false })));
+    await context.addInitScript(() => localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({ onboardingComplete: true, keepLocalHistory: false, autoDownload: false })));
     const page = await context.newPage();
     await page.goto(origin + '/edit');
     await page.locator('input[type="file"]').first().setInputFiles({ name: 'locale-switch.pdf', mimeType: 'application/pdf', buffer: fixture });
     const editable = page.locator('[data-testid="pdf-text-block"][contenteditable="plaintext-only"]').first();
     await editable.waitFor({ timeout: 60_000 });
-    await editable.fill('PDF Chef localization control. Keep this document edited.');
+    await editable.fill('Happy PDF localization control. Keep this document edited.');
     await page.getByLabel('Typeface', { exact: true }).selectOption('serif');
     const provenance = page.getByTestId('pdf-paragraph-provenance');
     await page.waitForFunction(() => document.querySelector('[data-testid="pdf-paragraph-provenance"]')?.textContent.includes('font overridden for this paragraph'));

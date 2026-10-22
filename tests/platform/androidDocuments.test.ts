@@ -573,7 +573,7 @@ test('refused external PDF events carry only an allow-listed reason', async () =
 // rename never reached the saved copy. Export now reports the stored name and a rename handle.
 test('export reports the name Downloads kept, and only that copy can be renamed', async () => {
   const native = nativeStub();
-  const exportRef = `pdfchef-${'B'.repeat(22)}`;
+  const exportRef = `happypdf-${'B'.repeat(22)}`;
   native.exportItem = async () => ({ status: 'completed', exportRef, savedName: 'Report (1).pdf' });
   const calls: unknown[] = [];
   native.renameExport = async options => {

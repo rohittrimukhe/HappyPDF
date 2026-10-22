@@ -30,11 +30,11 @@ const browser = await chromium.launch({ headless: true });
 try {
   const page = await browser.newPage();
   await page.addInitScript(() => {
-    localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({
+    localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({
       autoDownload: false, keepLocalHistory: false, confirmLargeJobs: false, onboardingComplete: true,
     }));
   });
-  await page.goto(process.env.PDF_CHEF_URL || 'http://127.0.0.1:3000');
+  await page.goto(process.env.HAPPY_PDF_URL || 'http://127.0.0.1:3000');
   const result = await page.evaluate(async (input) => {
     const document = await import('/services/pdfDocument.ts');
     const pdfBrowser = await import('/services/pdfBrowser.ts');
@@ -111,7 +111,7 @@ try {
   }
   for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844 }]) {
     await page.setViewportSize(viewport);
-    await page.goto(`${process.env.PDF_CHEF_URL || 'http://127.0.0.1:3000'}/compare`);
+    await page.goto(`${process.env.HAPPY_PDF_URL || 'http://127.0.0.1:3000'}/compare`);
     await page.locator('input[type=file]').nth(0).setInputFiles({ name: 'red-scan.pdf', mimeType: 'application/pdf', buffer: scans[0] });
     await page.getByText('Document A ready.', { exact: true }).waitFor();
     await page.locator('input[type=file]').nth(1).setInputFiles({ name: 'blue-scan.pdf', mimeType: 'application/pdf', buffer: scans[1] });

@@ -1,207 +1,207 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/</loc>
+    <loc>https://happypdf.app/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/privacy</loc>
+    <loc>https://happypdf.app/privacy</loc>
     <priority>0.6</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/terms</loc>
+    <loc>https://happypdf.app/terms</loc>
     <priority>0.6</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/view</loc>
+    <loc>https://happypdf.app/view</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/compress</loc>
+    <loc>https://happypdf.app/compress</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/merge</loc>
+    <loc>https://happypdf.app/merge</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/split</loc>
+    <loc>https://happypdf.app/split</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/edit</loc>
+    <loc>https://happypdf.app/edit</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/pdf-to-jpg</loc>
+    <loc>https://happypdf.app/pdf-to-jpg</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/pdf-to-word</loc>
+    <loc>https://happypdf.app/pdf-to-word</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/word-to-pdf</loc>
+    <loc>https://happypdf.app/word-to-pdf</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/powerpoint-to-pdf</loc>
+    <loc>https://happypdf.app/powerpoint-to-pdf</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/make-fillable</loc>
+    <loc>https://happypdf.app/make-fillable</loc>
     <priority>0.5</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/image-to-pdf</loc>
+    <loc>https://happypdf.app/image-to-pdf</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/make-pdf</loc>
+    <loc>https://happypdf.app/make-pdf</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/sign</loc>
+    <loc>https://happypdf.app/sign</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/delete-pages</loc>
+    <loc>https://happypdf.app/delete-pages</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/reorder</loc>
+    <loc>https://happypdf.app/reorder</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/rotate</loc>
+    <loc>https://happypdf.app/rotate</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/protect</loc>
+    <loc>https://happypdf.app/protect</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/unlock</loc>
+    <loc>https://happypdf.app/unlock</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/extract</loc>
+    <loc>https://happypdf.app/extract</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/metadata</loc>
+    <loc>https://happypdf.app/metadata</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/flatten</loc>
+    <loc>https://happypdf.app/flatten</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/compare</loc>
+    <loc>https://happypdf.app/compare</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/ocr</loc>
+    <loc>https://happypdf.app/ocr</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/watermark</loc>
+    <loc>https://happypdf.app/watermark</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/page-numbers</loc>
+    <loc>https://happypdf.app/page-numbers</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/repair</loc>
+    <loc>https://happypdf.app/repair</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/crop</loc>
+    <loc>https://happypdf.app/crop</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/header-footer</loc>
+    <loc>https://happypdf.app/header-footer</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/remove-metadata</loc>
+    <loc>https://happypdf.app/remove-metadata</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/remove-annotations</loc>
+    <loc>https://happypdf.app/remove-annotations</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/remove-blank-pages</loc>
+    <loc>https://happypdf.app/remove-blank-pages</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/extract-images</loc>
+    <loc>https://happypdf.app/extract-images</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/sanitize</loc>
+    <loc>https://happypdf.app/sanitize</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/batch</loc>
+    <loc>https://happypdf.app/batch</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/invoice</loc>
+    <loc>https://happypdf.app/invoice</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/receipt</loc>
+    <loc>https://happypdf.app/receipt</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/quote</loc>
+    <loc>https://happypdf.app/quote</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://pdfchef.dhananjaytech.app/help</loc>
+    <loc>https://happypdf.app/help</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>

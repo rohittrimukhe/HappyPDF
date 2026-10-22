@@ -35,7 +35,7 @@ import {
  */
 
 /** Your own details are the part nobody wants to retype every month. */
-const REMEMBERED_KEY = 'pdfchef.documents.sender.v1';
+const REMEMBERED_KEY = 'happypdf.documents.sender.v1';
 
 interface RememberedSender {
   name: string;

@@ -1,7 +1,7 @@
 import componentData from './thirdPartyComponents.json';
 
 /**
- * The third-party components PDF Chef ships, as shown on Settings > Open-source
+ * The third-party components Happy PDF ships, as shown on Settings > Open-source
  * licenses. THIRD_PARTY_NOTICES.md is generated from the same two JSON files by
  * `scripts/generate-third-party-notices.mjs`, so the page and the file cannot disagree.
  *

@@ -91,7 +91,7 @@ const SECTIONS: HelpSection[] = [
         get answer() {
           return isAndroid()
             ? t("help-page.on.android.results.are.saved.in.5d9a54", {
-              v0: 'Download/PDF Chef',
+              v0: 'Download/Happy PDF',
               v1: t("settings-page.download.automatically.when.a.job.finishes.dcf3b4"),
               v2: t("settings-page.keep.results.in.recent.bf522d"),
             })

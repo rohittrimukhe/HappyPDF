@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { chromium } from 'playwright';
 
-const baseUrl = process.env.PDF_CHEF_URL || 'http://127.0.0.1:4173';
+const baseUrl = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:4173';
 const root = process.cwd();
 const fixture = path.join(root, 'qa-sample.pdf');
 const outputDir = path.join(root, 'output', 'edit-pdf-mobile-verification');
@@ -24,7 +24,7 @@ page.on('console', message => {
 page.on('pageerror', error => consoleErrors.push(error.message));
 
 await page.addInitScript(() => {
-  localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({
+  localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({
     autoDownload: false,
     keepLocalHistory: false,
     confirmLargeJobs: false,
@@ -378,7 +378,7 @@ try {
   await canvas().waitFor({ state: 'visible', timeout: 60_000 });
   await place('text');
   await page.evaluate(() => {
-    localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({
+    localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({
       autoDownload: false,
       keepLocalHistory: true,
       confirmLargeJobs: false,

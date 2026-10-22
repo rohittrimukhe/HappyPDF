@@ -61,7 +61,7 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <StoreKitConfigurationFileReference
-         identifier = "../../App/PDFChef.storekit">
+         identifier = "../../App/HappyPDF.storekit">
       </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction

@@ -6,14 +6,14 @@ import { PDFDocument, PDFArray, decodePDFRawStream } from 'pdf-lib';
 import JSZip from 'jszip';
 
 // These regressions use the current source modules exposed by the Vite dev server.
-const baseUrl = process.env.PDF_CHEF_URL || 'http://127.0.0.1:3000';
-const outputDir = process.env.PDF_CHEF_CONVERSION_OUTPUT || 'output/conversion-form-integrity';
+const baseUrl = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:3000';
+const outputDir = process.env.HAPPY_PDF_CONVERSION_OUTPUT || 'output/conversion-form-integrity';
 await fs.mkdir(outputDir, { recursive: true });
 const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 1100 }, acceptDownloads: true });
 await page.addInitScript(() => {
   delete window.showSaveFilePicker;
-  localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({
+  localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({
     autoDownload: true, keepLocalHistory: false, confirmLargeJobs: false, onboardingComplete: true,
   }));
 });

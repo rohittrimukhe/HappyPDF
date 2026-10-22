@@ -11,7 +11,7 @@ const runMiddleware = async (url: string) => onRequest({
 });
 
 test('the production website narrowly permits Cloudflare Web Analytics', async () => {
-  const response = await runMiddleware('https://pdfchef.dhananjaytech.app/edit');
+  const response = await runMiddleware('https://happypdf.app/edit');
   const html = await response.text();
 
   assert.match(html, /script-src 'self' https:\/\/static\.cloudflareinsights\.com/);

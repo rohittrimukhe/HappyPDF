@@ -374,7 +374,7 @@ P1: prioritize because of privacy or destructive data-handling consequences. P2:
 <a id="bug-21"></a>
 ### BUG-21 — P2 — Protected-PDF search can leave decrypted scratch after process death
 
-**Source:** [PdfReaderSearchEngine.java:62](</Users/dhananjaybhosale/Documents/PDFTools-main/android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/reader/PdfReaderSearchEngine.java:62>)
+**Source:** [PdfReaderSearchEngine.java:62](</Users/dhananjaybhosale/Documents/PDFTools-main/android/app/src/main/java/com/rohittrimukhe/happypdf/reader/PdfReaderSearchEngine.java:62>)
 
 **Trigger:** Unlock a protected PDF, search a document large enough to exceed the 8 MiB PDFBox memory limit, then the process dies before the document closes.
 
@@ -391,7 +391,7 @@ P1: prioritize because of privacy or destructive data-handling consequences. P2:
 <a id="bug-22"></a>
 ### BUG-22 — P2 — Shared collection files report a generic per-file MIME type
 
-**Source:** [AndroidDocumentSharer.java:610](</Users/dhananjaybhosale/Documents/PDFTools-main/android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentSharer.java:610>)
+**Source:** [AndroidDocumentSharer.java:610](</Users/dhananjaybhosale/Documents/PDFTools-main/android/app/src/main/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentSharer.java:610>)
 
 **Trigger:** Share PDF or image children from a migrated legacy collection to a recipient that queries each content URI’s MIME type.
 
@@ -408,7 +408,7 @@ P1: prioritize because of privacy or destructive data-handling consequences. P2:
 <a id="bug-23"></a>
 ### BUG-23 — P2 — Canceled incoming PDFs leave hidden files that Settings cannot clear
 
-**Source:** [OwnedPendingImportStore.java:115](</Users/dhananjaybhosale/Documents/PDFTools-main/android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/OwnedPendingImportStore.java:115>), [OwnedPendingImportStore.java:138](</Users/dhananjaybhosale/Documents/PDFTools-main/android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/OwnedPendingImportStore.java:138>)
+**Source:** [OwnedPendingImportStore.java:115](</Users/dhananjaybhosale/Documents/PDFTools-main/android/app/src/main/java/com/rohittrimukhe/happypdf/documents/OwnedPendingImportStore.java:115>), [OwnedPendingImportStore.java:138](</Users/dhananjaybhosale/Documents/PDFTools-main/android/app/src/main/java/com/rohittrimukhe/happypdf/documents/OwnedPendingImportStore.java:138>)
 
 **Trigger:** A single incoming PDF is interrupted after its payload is published but before its pending record/batch becomes complete.
 
@@ -425,7 +425,7 @@ P1: prioritize because of privacy or destructive data-handling consequences. P2:
 <a id="bug-24"></a>
 ### BUG-24 — P2 — Canceled or failed large-PDF splitting consumes iOS free jobs
 
-**Source:** [PdfChefDocumentsPlugin.swift:344](</Users/dhananjaybhosale/Documents/PDFTools-main/ios/App/App/PdfChefDocumentsPlugin.swift:344>), [PdfChefDocumentsPlugin.swift:396](</Users/dhananjaybhosale/Documents/PDFTools-main/ios/App/App/PdfChefDocumentsPlugin.swift:396>)
+**Source:** [HappyPdfDocumentsPlugin.swift:344](</Users/dhananjaybhosale/Documents/PDFTools-main/ios/App/App/HappyPdfDocumentsPlugin.swift:344>), [HappyPdfDocumentsPlugin.swift:396](</Users/dhananjaybhosale/Documents/PDFTools-main/ios/App/App/HappyPdfDocumentsPlugin.swift:396>)
 
 **Trigger:** For a large PDF, start Create Smaller Parts and then cancel, or let preparation fail before producing an output. Repeat with distinct documents.
 

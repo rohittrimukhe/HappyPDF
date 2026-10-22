@@ -13,33 +13,33 @@ const requireText = (condition, message) => {
 const count = (source, pattern) => [...source.matchAll(pattern)].length;
 
 const frozen = new Map([
-  ['android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/OwnedPendingImportStore.java', '2a880d7090315dc2adae26feeb5adea6f815a8d0b6edd7fe77d1f9532e6338f6'],
-  ['android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/PendingImportBatch.java', '363b55b5feb5f53dc785d549984d52409e395f1f744ceacace2ee38c7398ad16'],
-  ['android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/PendingImportRecord.java', '78739adf5462f6899ca39f0efa4038db2d51268487f7e38ee27beee8050ce0a1'],
-  ['android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentPickerController.java', 'a71e265fc6993e4bd8925ccebb5ca72f0c818c53d40df360285e0563a0b080ee'],
-  ['android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/PickerRequestPolicy.java', '3a8ae90c005fff0c702ca05b9c4c4a06d7bae19a82f3fafa1d47c07582c87a52'],
-  ['android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/BoundedDocumentReader.java', 'a17bc32bbb030994fc2e6468a045bd23053b0e5060340f59fd8a25948da3a1e4'],
-  ['android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/OwnedPendingImportStoreTest.java', 'b2ec483873ea45a3903cace6297ac8217c532d42a102828a76033d9ff68cf185'],
-  ['android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentPickerControllerTest.java', '72956ec4737367566f267a57f798a7fc7339d159794d9272609bf7b9b4b78c05'],
-  ['android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/PickerRequestPolicyTest.java', 'c7af51502fc20906a5c51207063bbb1622914a6e00f76daeb2f9abb064e01ac5'],
-  ['android/app/src/androidTest/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentPickerControllerInstrumentedTest.java', '66c90f2136f99c5ffb85a3ee545c072a7f1b0ba668d2f1ee60d734ca703b40aa'],
-  ['android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/BoundedDocumentReaderTest.java', 'ca2c7c44b2bad374bbe44cd4d1b36339c441d754ccc1b1482a479b25fca28187'],
+  ['android/app/src/main/java/com/rohittrimukhe/happypdf/documents/OwnedPendingImportStore.java', 'b8e86536ae9a41425dc7dad202d9bee1e365fc4958ecd45eae9a61f211cf39c9'],
+  ['android/app/src/main/java/com/rohittrimukhe/happypdf/documents/PendingImportBatch.java', '409049cc9710115506f73f30ac9ad79f894b137a3b927710b0400a726dd8ad87'],
+  ['android/app/src/main/java/com/rohittrimukhe/happypdf/documents/PendingImportRecord.java', '1be9cab639d6c2938b4b548b07291821f7dde8fd4e71cf07195c24c2af97566b'],
+  ['android/app/src/main/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentPickerController.java', 'adff94b278cd13c8cb7a5d7cfda6d4a4a2f7890b0e327b7931e73c5f77c73dd6'],
+  ['android/app/src/main/java/com/rohittrimukhe/happypdf/documents/PickerRequestPolicy.java', 'a9d840adf47515f244bba4f40e5fb75a6332367b75b4319d51b8e2c2ad0c8c98'],
+  ['android/app/src/main/java/com/rohittrimukhe/happypdf/documents/BoundedDocumentReader.java', '7d5aa243fd9467ec597f368cc236587279c2c102c3b6f0009ec0be33f9e19ad5'],
+  ['android/app/src/test/java/com/rohittrimukhe/happypdf/documents/OwnedPendingImportStoreTest.java', 'a27a99033fe177dd9a566940dac0dffb46a36d6b0a6f6082acd2ec9641887ac4'],
+  ['android/app/src/test/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentPickerControllerTest.java', 'bf2c5fdeb186d82c3c4a21b174f290e21559fb76af43ec6831cd40471d9adafb'],
+  ['android/app/src/test/java/com/rohittrimukhe/happypdf/documents/PickerRequestPolicyTest.java', '7f40bf15f738d1cefab86faafe4cc7655d1af364174037f8b52d71109b676cf8'],
+  ['android/app/src/androidTest/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentPickerControllerInstrumentedTest.java', '18f62934e2660041f3c2db98a58e72afb00524085f0b069dbd0f7448f577e07b'],
+  ['android/app/src/test/java/com/rohittrimukhe/happypdf/documents/BoundedDocumentReaderTest.java', '90ff98775fd0704e461667e1bd472d8a9f06f8272a58ce2c6b4c6a0c41ad34af'],
 ]);
 for (const [path, expected] of frozen) {
   requireText(sha256(path) === expected, `frozen source drift: ${path}`);
 }
 
-const coordinator = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/DocumentLifecycleCoordinator.java');
-const writer = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/OwnedDocumentWriter.java');
-const legacyResolver = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/LegacyDocumentOpenResolver.java');
-const legacyResolverTest = read('android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/LegacyDocumentOpenResolverTest.java');
-const exporter = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentExporter.java');
-const sharer = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentSharer.java');
+const coordinator = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/DocumentLifecycleCoordinator.java');
+const writer = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/OwnedDocumentWriter.java');
+const legacyResolver = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/LegacyDocumentOpenResolver.java');
+const legacyResolverTest = read('android/app/src/test/java/com/rohittrimukhe/happypdf/documents/LegacyDocumentOpenResolverTest.java');
+const exporter = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentExporter.java');
+const sharer = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentSharer.java');
 const manifest = read('android/app/src/main/AndroidManifest.xml');
-const releaseApp = read('android/app/src/release/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/PdfChefApplication.java');
-const debugApp = read('android/app/src/debug/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/PdfChefApplication.java');
-const plugin = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentsPlugin.java');
-const provider = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/ReadOnlyDocumentFileProvider.java');
+const releaseApp = read('android/app/src/release/java/com/rohittrimukhe/happypdf/HappyPdfApplication.java');
+const debugApp = read('android/app/src/debug/java/com/rohittrimukhe/happypdf/HappyPdfApplication.java');
+const plugin = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentsPlugin.java');
+const provider = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/ReadOnlyDocumentFileProvider.java');
 
 for (const [literal, expected] of [
   ['MAXIMUM_CHUNK_BYTES = 524_288', writer],
@@ -109,11 +109,11 @@ requireText(provider.includes('if (!"r".equals(mode))')
 // The one write exception: the device camera writes a single file directly inside the
 // capture root. Everything else (other roots, nested paths, insert/update/delete) stays refused.
 const compactProvider = provider.replace(/\s+/g, ' ');
-requireText(compactProvider.includes('static final String CAPTURE_ROOT = "pdfchef_captures";')
+requireText(compactProvider.includes('static final String CAPTURE_ROOT = "happypdf_captures";')
   && compactProvider.includes('if (!"r".equals(mode)) { if (!isCapturePath(uri == null ? null : uri.getPathSegments())) { throw new SecurityException("Read-only document provider"); } } return super.openFile(uri, mode);')
   && count(provider, /isCapturePath\(/g) === 2
   && compactProvider.includes('static boolean isCapturePath(List<String> segments) { if (segments == null || segments.size() != 2 || !CAPTURE_ROOT.equals(segments.get(0))) { return false; } String name = segments.get(1); return !name.isEmpty() && !".".equals(name) && !"..".equals(name); }'),
-  'the only FileProvider write exception must be one file directly inside pdfchef_captures');
+  'the only FileProvider write exception must be one file directly inside happypdf_captures');
 for (const method of ['insert(Uri uri, ContentValues values)',
   'update(Uri uri, ContentValues values, String selection, String[] selectionArgs)',
   'delete(Uri uri, String selection, String[] selectionArgs)']) {
@@ -137,7 +137,7 @@ requireText(sharer.includes('new Intent(Intent.ACTION_SEND_MULTIPLE)')
   'collection share must use ACTION_SEND_MULTIPLE with every staged child in ClipData');
 requireText(sharer.includes('intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)'),
   'share intent must set only read grant');
-requireText(sharer.includes('appendPath("pdfchef_share_staging")')
+requireText(sharer.includes('appendPath("happypdf_share_staging")')
   && sharer.includes('if (!matchesCanonicalShareUri(expected, contentUri))')
   && sharer.includes('if (canonical.equals(candidate)) return true')
   && sharer.includes('getQueryParameterNames().equals(java.util.Set.of(DISPLAY_NAME_QUERY))')
@@ -198,15 +198,15 @@ requireText(writer.includes('validateOwnedTarget') && writer.includes('sameIdent
   'owned recovery must revalidate identity, size, hash, and MIME magic');
 
 const xml = read('android/app/src/main/res/xml/file_paths.xml').replace(/<!--[\s\S]*?-->/g, '').replace(/\s+/g, ' ').trim();
-const expectedXml = `<?xml version="1.0" encoding="utf-8"?> <paths xmlns:android="http://schemas.android.com/apk/res/android"> <cache-path name="pdfchef_verified_copies" path="pdfchef_verified_copies/" /> <files-path name="pdfchef_share_staging" path="pdfchef_documents/share/" /> <external-files-path name="pdfchef_captures" path="Pictures/" /> </paths>`;
-requireText(xml === expectedXml, 'file_paths.xml must expose exactly pdfchef_documents/share/, the reader\'s verified copies and the camera capture folder');
+const expectedXml = `<?xml version="1.0" encoding="utf-8"?> <paths xmlns:android="http://schemas.android.com/apk/res/android"> <cache-path name="happypdf_verified_copies" path="happypdf_verified_copies/" /> <files-path name="happypdf_share_staging" path="happypdf_documents/share/" /> <external-files-path name="happypdf_captures" path="Pictures/" /> </paths>`;
+requireText(xml === expectedXml, 'file_paths.xml must expose exactly happypdf_documents/share/, the reader\'s verified copies and the camera capture folder');
 for (const forbidden of ['cache-path', 'external-path', 'external-files-path',
   'external-cache-path', 'external-media-path', 'root-path', 'path="."', 'processed',
   'datastore', 'webview', 'pending']) {
   // The reader's verified-copy folder is the one cache path allowed (see PdfVerifiedCopy).
   // The camera capture folder is the one external-files path allowed (see ReadOnlyDocumentFileProvider).
-  const rest = xml.replace('<cache-path name="pdfchef_verified_copies" path="pdfchef_verified_copies/" />', '')
-    .replace('<external-files-path name="pdfchef_captures" path="Pictures/" />', '');
+  const rest = xml.replace('<cache-path name="happypdf_verified_copies" path="happypdf_verified_copies/" />', '')
+    .replace('<external-files-path name="happypdf_captures" path="Pictures/" />', '');
   requireText(!rest.toLowerCase().includes(forbidden), `broad provider path forbidden: ${forbidden}`);
 }
 

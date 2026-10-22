@@ -201,7 +201,7 @@ const routeMeta: Record<string, RouteMeta> = {
     get title() { return t("route-seo.privacy.policy.pdf.chef.f0035d"); },
     get description() { return t("route-seo.read.the.pdf.chef.privacy.policy.for.a89265"); },
   },
-  '/pdf-chef-privacy': {
+  '/happy-pdf-privacy': {
     canonical: '/privacy',
     get title() { return t("route-seo.privacy.policy.pdf.chef.f0035d"); },
     get description() { return t("route-seo.read.the.pdf.chef.privacy.policy.covering.0cdf8e"); },
@@ -253,7 +253,7 @@ export const RouteSEO: React.FC = () => {
   useEffect(() => {
     const origin = typeof window !== 'undefined'
       ? window.location.origin
-      : 'https://pdfchef.dhananjaytech.app';
+      : 'https://happypdf.app';
     const canonicalPath = meta.canonical ?? (normalizedPath === '/' ? '/' : normalizedPath);
     const canonicalUrl = `${origin}${canonicalPath}`;
 

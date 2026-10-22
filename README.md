@@ -1,23 +1,23 @@
 <p align="center">
-  <img src=".github/assets/logo.svg" alt="PDF Chef logo" width="120" height="120">
+  <img src=".github/assets/logo.svg" alt="Happy PDF logo" width="120" height="120">
 </p>
 
 <p align="center">
-  <a href="https://pdfchef.dhananjaytech.app/">
-    <img src=".github/assets/repo-hero.svg" alt="PDF Chef - open-source, privacy-first PDF tools that run locally in the browser" width="100%">
+  <a href="https://happypdf.app/">
+    <img src=".github/assets/repo-hero.svg" alt="Happy PDF - privacy-first PDF tools that run locally in the browser" width="100%">
   </a>
 </p>
 
-<h1 align="center">PDF Chef</h1>
+<h1 align="center">Happy PDF</h1>
 
 <p align="center">
-  <strong>Open-source PDF tools for private documents.</strong>
+  <strong>Free PDF tools for private documents.</strong>
   <br>
   Merge, split, convert, sign, clean, OCR, compare, and secure PDFs in your browser with no server upload for PDF processing.
 </p>
 
 <p align="center">
-  <a href="https://pdfchef.dhananjaytech.app/"><strong>Use the app</strong></a>
+  <a href="https://happypdf.app/"><strong>Use the app</strong></a>
   ·
   <a href="#privacy-first-by-design">Privacy model</a>
   ·
@@ -26,18 +26,15 @@
   <a href="#run-locally">Run locally</a>
   ·
   <a href="#download-a-release">Download</a>
-  ·
-  <a href="#contributing">Contribute</a>
 </p>
 
 <p align="center">
-  <a href="https://pdfchef.dhananjaytech.app/">
-    <img alt="Live app" src="https://img.shields.io/badge/live-pdfchef.dhananjaytech.app-f97316?style=flat-square&logo=cloudflarepages&logoColor=white">
+  <a href="https://happypdf.app/">
+    <img alt="Live app" src="https://img.shields.io/badge/live-happypdf.app-f97316?style=flat-square&logo=cloudflarepages&logoColor=white">
   </a>
   <a href="./LICENSE">
-    <img alt="MIT license" src="https://img.shields.io/badge/license-MIT-111827?style=flat-square">
+    <img alt="Proprietary license" src="https://img.shields.io/badge/license-proprietary-111827?style=flat-square">
   </a>
-  <img alt="Open source" src="https://img.shields.io/badge/open%20source-yes-059669?style=flat-square">
   <img alt="No server uploads" src="https://img.shields.io/badge/PDF%20uploads-none-10b981?style=flat-square">
   <img alt="Browser processing" src="https://img.shields.io/badge/processing-browser%20local-2563eb?style=flat-square">
   <img alt="Tools" src="https://img.shields.io/badge/tools-34-7c3aed?style=flat-square">
@@ -48,16 +45,16 @@
 
 ---
 
-## Why PDF Chef
+## Why Happy PDF
 
-Online PDF tools often ask users to upload sensitive documents before doing anything useful. PDF Chef is built around the opposite promise: serve the app, then process the document locally in the browser.
+Online PDF tools often ask users to upload sensitive documents before doing anything useful. Happy PDF is built around the opposite promise: serve the app, then process the document locally in the browser.
 
 That matters for contracts, invoices, tax forms, school records, IDs, resumes, internal reports, legal drafts, and every other file users should not casually upload to a random conversion server.
 
 <table>
   <tr>
     <td><strong>Private by default</strong><br>No PDF file upload for normal tool workflows.</td>
-    <td><strong>Open source</strong><br>MIT licensed and inspectable on GitHub.</td>
+    <td><strong>Free to use</strong><br>No sign-up, no watermark, no upload.</td>
     <td><strong>Browser local</strong><br>PDF.js, pdf-lib, jsPDF, JSZip, and Tesseract.js run client-side.</td>
   </tr>
   <tr>
@@ -69,14 +66,14 @@ That matters for contracts, invoices, tax forms, school records, IDs, resumes, i
 
 ## Privacy-first by design
 
-PDF Chef is not a cloud conversion pipeline. It is a static web app with client-side PDF operations.
+Happy PDF is not a cloud conversion pipeline. It is a static web app with client-side PDF operations.
 
-| User concern | PDF Chef answer |
+| User concern | Happy PDF answer |
 | --- | --- |
-| Will my PDF be uploaded? | No PDF file is uploaded to a PDF Chef server for the core tools. |
+| Will my PDF be uploaded? | No PDF file is uploaded to a Happy PDF server for the core tools. |
 | Where does processing happen? | In the browser on the user's device. |
 | Do I need an account? | No account is required. |
-| Can I inspect the code? | Yes. The project is open source under MIT. |
+| Can I inspect the code? | You can view the source here. Copying, reuse and resale are not allowed; see [LICENSE](./LICENSE). |
 | What network requests exist? | The browser downloads app assets, scripts, styles, and workers from the deployed site. User PDFs are handled locally by the app. |
 | Can this be self-hosted? | Yes. Build the Vite app and serve the static output. |
 
@@ -87,11 +84,10 @@ PDF Chef is not a cloud conversion pipeline. It is a static web app with client-
 - No required login, workspace, or cloud storage account.
 - No third-party document conversion API.
 - Security-sensitive reports are handled privately through [SECURITY.md](./SECURITY.md).
-- New contributions are expected to preserve the no-upload model.
 
 ## Toolkit
 
-PDF Chef currently ships 34 browser tools. Twenty-six catalog entries map to Android app
+Happy PDF currently ships 34 browser tools. Twenty-six catalog entries map to Android app
 surfaces (including the Android reader); the remaining tools are browser-only additions.
 The catalog verifier keeps names, routes, and Android mappings aligned.
 
@@ -189,7 +185,7 @@ npm run lint
 npm run test:catalog
 npm run build
 # With a production preview already running:
-PDF_CHEF_URL=http://127.0.0.1:4173 npm run test:browser:parity
+HAPPY_PDF_URL=http://127.0.0.1:4173 npm run test:browser:parity
 ```
 
 `test:catalog` verifies that catalog tools (`components/Tools/toolCatalog.ts`) have matching
@@ -200,11 +196,11 @@ catalog entry, in the app's own order.
 ## Privacy limitations
 
 “Local processing” means the document bytes are processed by this browser and are not sent to
-a PDF Chef document-processing backend. It does not make the browser or device an isolated
+a Happy PDF document-processing backend. It does not make the browser or device an isolated
 environment: the deployed site still receives normal requests needed to deliver its assets,
 and Cloudflare may process standard delivery and security metadata such as IP address, user
 agent, and request URL. Browser extensions, compromised devices, shared-device users, browser
-storage policies, and operating-system backups are outside PDF Chef's control.
+storage policies, and operating-system backups are outside Happy PDF's control.
 
 The optional local history stores generated output blobs in IndexedDB until you delete them or
 clear history; disable it for shared devices. Offline startup is limited to assets already
@@ -217,7 +213,7 @@ also depend on the device's available CPU, memory, and browser capabilities.
 
 The production app is deployed on Cloudflare Pages:
 
-[https://pdfchef.dhananjaytech.app/](https://pdfchef.dhananjaytech.app/)
+[https://happypdf.app/](https://happypdf.app/)
 
 Build output lives in `dist`:
 
@@ -227,10 +223,10 @@ npm run build
 
 ## Download a release
 
-PDF Chef releases include a ready-to-serve static ZIP. This is useful when you want to run the app locally or host it yourself without setting up the development toolchain.
+Happy PDF releases include a ready-to-serve static ZIP. This is useful when you want to run the app locally or host it yourself without setting up the development toolchain.
 
-1. Open the [latest release](https://github.com/DhananjayBhosale/PDFChef/releases/latest).
-2. Download `pdfchef-<version>.zip`.
+1. Open the [latest release](https://github.com/rohittrimukhe/HappyPDF/releases/latest).
+2. Download `happypdf-<version>.zip`.
 3. Extract the ZIP.
 4. Serve the extracted folder with any static HTTP server.
 
@@ -238,7 +234,7 @@ Quick start:
 
 ```bash
 # Using Python
-cd pdfchef
+cd happypdf
 python -m http.server 8080
 
 # Or using Node.js
@@ -270,17 +266,7 @@ design-system/   Durable product and UI decisions
 
 ## Contributing
 
-Contributions are welcome when they strengthen the local-first PDF model.
-
-High-value areas:
-
-- new tools that preserve the no-upload privacy model
-- browser-side performance improvements for large PDFs
-- accessibility fixes
-- focused tests around PDF operations and route coverage
-- documentation that makes privacy and local processing easier to verify
-
-Read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a pull request.
+Happy PDF does not accept outside code contributions at this time. Please report bugs and ideas as GitHub issues.
 
 ## Security
 
@@ -288,4 +274,13 @@ Please do not open public issues for security-sensitive reports. See [SECURITY.m
 
 ## License
 
-PDF Chef is open source under the [MIT License](./LICENSE).
+Happy PDF is proprietary software. Copyright (c) 2026 Rohit Trimukhe. All rights reserved.
+You may not copy, clone, modify, redistribute or sell it without written permission.
+See [LICENSE](./LICENSE) for the full terms.
+
+## Credits
+
+Happy PDF is based on [PDF Chef](https://github.com/DhananjayBhosale/PDFChef) by Dhananjay Bhosale.
+The original PDF Chef code is licensed under the MIT License, which is reproduced in
+[LICENSES/PDF-CHEF-MIT.txt](./LICENSES/PDF-CHEF-MIT.txt). Third-party components are listed in
+[THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).

@@ -53,7 +53,7 @@ after(() => rmSync(outDir, { recursive: true, force: true }));
 /* ------------------------------------------------------------ harness --- */
 
 const THEME_KEY = 'theme';
-const MARKER_KEY = 'pdfchef.appearance.android-theme-write.v1';
+const MARKER_KEY = 'happypdf.appearance.android-theme-write.v1';
 
 interface StorageStub {
   values: Map<string, string>;
@@ -528,7 +528,7 @@ test('text size paints the Settings surface and persists during the press', () =
   const storage = storageStub();
   assert.equal(appearance.applyTextScaleImmediately('larger', root as never, storage), true);
   assert.equal(root.dataset.textScale, 'larger');
-  assert.equal(storage.values.get('pdfchef.appearance.text-scale.v1'), 'larger');
+  assert.equal(storage.values.get('happypdf.appearance.text-scale.v1'), 'larger');
 });
 
 test('the browser and iOS keep the one-store behaviour they already had', async () => {

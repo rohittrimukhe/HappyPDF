@@ -9,16 +9,16 @@ const hash = path => createHash('sha256').update(readFileSync(resolve(root, path
 const assert = (condition, message) => { if (!condition) throw new Error(`ANDROID_DOCUMENTS: ${message}`); };
 const count = (source, pattern) => [...source.matchAll(pattern)].length;
 
-const plugin = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentsPlugin.java');
-const coordinator = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/DocumentLifecycleCoordinator.java');
-const provider = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/ReadOnlyDocumentFileProvider.java');
+const plugin = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentsPlugin.java');
+const coordinator = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/DocumentLifecycleCoordinator.java');
+const provider = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/ReadOnlyDocumentFileProvider.java');
 const manifest = read('android/app/src/main/AndroidManifest.xml');
-const releaseApp = read('android/app/src/release/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/PdfChefApplication.java');
-const debugApp = read('android/app/src/debug/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/PdfChefApplication.java');
+const releaseApp = read('android/app/src/release/java/com/rohittrimukhe/happypdf/HappyPdfApplication.java');
+const debugApp = read('android/app/src/debug/java/com/rohittrimukhe/happypdf/HappyPdfApplication.java');
 const testManifest = read('android/app/src/androidTest/AndroidManifest.xml');
-const recipient = read('android/app/src/androidTest/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/DocumentRecipientProbeService.java');
-const pluginRuntime = read('android/app/src/androidTest/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentsPluginInstrumentedTest.java');
-const providerRuntime = read('android/app/src/androidTest/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentFileProviderInstrumentedTest.java');
+const recipient = read('android/app/src/androidTest/java/com/rohittrimukhe/happypdf/documents/DocumentRecipientProbeService.java');
+const pluginRuntime = read('android/app/src/androidTest/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentsPluginInstrumentedTest.java');
+const providerRuntime = read('android/app/src/androidTest/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentFileProviderInstrumentedTest.java');
 
 assert(/@CapacitorPlugin\s*\(\s*name\s*=\s*"AndroidDocuments"\s*\)/.test(plugin), 'plugin name drift');
 const documentMethods = [
@@ -43,7 +43,7 @@ assert(plugin.includes('Base64.NO_WRAP') && count(plugin, /output\.put\("(?:data
   'exact bounded response missing');
 assert(!/getMessage\s*\(|printStackTrace\s*\(|\bLog\.|System\.out/.test(plugin), 'plugin detail leak');
 assert(count(plugin, /getDocumentLifecycleCoordinator\(\)/g) >= 8
-  && plugin.includes('private PdfChefApplication application()')
+  && plugin.includes('private HappyPdfApplication application()')
   && !/new\s+DocumentLifecycleCoordinator\s*\(/.test(plugin), 'plugin must use Application ownership only');
 for (const operation of ['listOwnedDocuments()', 'renameOwnedDocument(',
   'deleteOwnedDocument(', 'clearOwnedDocuments()', 'clearOwnedDocumentPayloads()',

@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { PendingExport, authorizeExport } from '../../services/monetization/exportAccess.ts';
-import type { PdfChefPurchaseAccess } from '../../services/platform/capacitor/pdfChefPurchases.ts';
+import type { HappyPdfPurchaseAccess } from '../../services/platform/capacitor/happyPdfPurchases.ts';
 
-const access = (overrides: Partial<PdfChefPurchaseAccess> = {}): PdfChefPurchaseAccess => ({
+const access = (overrides: Partial<HappyPdfPurchaseAccess> = {}): HappyPdfPurchaseAccess => ({
   unlocked: false,
   lifetimeOwned: false,
   monthlyActive: false,
@@ -13,7 +13,7 @@ const access = (overrides: Partial<PdfChefPurchaseAccess> = {}): PdfChefPurchase
   ...overrides,
 });
 
-const nativeQuota = (native: PdfChefPurchaseAccess, status: 'allowed' | 'exhausted') => {
+const nativeQuota = (native: HappyPdfPurchaseAccess, status: 'allowed' | 'exhausted') => {
   const recorded: string[] = [];
   return {
     recorded,

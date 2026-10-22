@@ -1,11 +1,11 @@
 export type SmartphonePlatform = 'android' | 'ios';
 
 export const mobileAppLinks = {
-  android: 'https://play.google.com/store/apps/details?id=com.dhananjaytech.pdfchef',
-  ios: 'https://apps.apple.com/app/pdf-chef/id6811619417',
+  android: 'https://play.google.com/store/apps/details?id=com.rohittrimukhe.happypdf',
+  ios: 'https://apps.apple.com/app/happy-pdf/id0000000000',
 } as const;
 
-export const mobileAppWelcomeDismissedKey = 'pdfchef.mobile-app-welcome.dismissed.v1';
+export const mobileAppWelcomeDismissedKey = 'happypdf.mobile-app-welcome.dismissed.v1';
 
 /** Phone browsers only. Tablets and the installed apps keep their normal entry. */
 export function smartphonePlatform(userAgent: string, nativePlatform: string, origin: string): SmartphonePlatform | null {
@@ -18,5 +18,5 @@ export function smartphonePlatform(userAgent: string, nativePlatform: string, or
 
 /** Store reviewers and readers can open legal links directly. */
 export function isMobileAppWelcomeRoute(pathname: string): boolean {
-  return !['/privacy', '/privacy-policy', '/pdf-chef-privacy', '/terms', '/terms-and-conditions'].includes(pathname.replace(/\/$/, '') || '/');
+  return !['/privacy', '/privacy-policy', '/happy-pdf-privacy', '/terms', '/terms-and-conditions'].includes(pathname.replace(/\/$/, '') || '/');
 }

@@ -14,7 +14,7 @@ body:
     id: solution
     attributes:
       label: Proposed solution
-      description: What should PDF Chef do?
+      description: What should Happy PDF do?
     validations:
       required: true
   - type: dropdown

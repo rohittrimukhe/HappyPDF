@@ -20,7 +20,7 @@ const buildPdf = ({ matrix = [1, 0, 0, 1, 435, 700], cropBox, rotate = 0, inheri
     '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>',
     `<< /Length ${Buffer.byteLength(content)} >>\nstream\n${content}\nendstream`,
   ];
-  let source = '%PDF-1.7\n%PDFChef\n';
+  let source = '%PDF-1.7\n%HappyPDF\n';
   const offsets = [0];
   objects.forEach((object, index) => {
     offsets.push(Buffer.byteLength(source));

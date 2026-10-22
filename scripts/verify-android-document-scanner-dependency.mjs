@@ -16,7 +16,7 @@ const delegate = 'com.google.mlkit.vision.documentscanner.internal.GmsDocumentSc
 const paths = {
   build: 'android/app/build.gradle',
   proguard: 'android/app/proguard-rules.pro',
-  test: 'android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/HostDocumentScannerDependencyContractTest.java',
+  test: 'android/app/src/test/java/com/rohittrimukhe/happypdf/HostDocumentScannerDependencyContractTest.java',
   debugManifest: 'android/app/build/intermediates/merged_manifests/debug/processDebugManifest/AndroidManifest.xml',
   releaseManifest: 'android/app/build/intermediates/merged_manifests/release/processReleaseManifest/AndroidManifest.xml',
 };

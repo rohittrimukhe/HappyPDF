@@ -13,15 +13,15 @@ const assert = (condition, message) => {
 const count = (source, pattern) => [...source.matchAll(pattern)].length;
 
 const paths = {
-  plugin: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/scanner/AndroidDocumentScannerPlugin.java',
-  importer: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/scanner/AndroidDocumentScannerImporter.java',
-  resultSource: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/scanner/AndroidDocumentScannerResultSource.java',
-  importerTest: 'android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/scanner/AndroidDocumentScannerImporterTest.java',
-  resultSourceTest: 'android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/scanner/AndroidDocumentScannerResultSourceTest.java',
-  pluginTest: 'android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/scanner/AndroidDocumentScannerPluginContractTest.java',
+  plugin: 'android/app/src/main/java/com/rohittrimukhe/happypdf/scanner/AndroidDocumentScannerPlugin.java',
+  importer: 'android/app/src/main/java/com/rohittrimukhe/happypdf/scanner/AndroidDocumentScannerImporter.java',
+  resultSource: 'android/app/src/main/java/com/rohittrimukhe/happypdf/scanner/AndroidDocumentScannerResultSource.java',
+  importerTest: 'android/app/src/test/java/com/rohittrimukhe/happypdf/scanner/AndroidDocumentScannerImporterTest.java',
+  resultSourceTest: 'android/app/src/test/java/com/rohittrimukhe/happypdf/scanner/AndroidDocumentScannerResultSourceTest.java',
+  pluginTest: 'android/app/src/test/java/com/rohittrimukhe/happypdf/scanner/AndroidDocumentScannerPluginContractTest.java',
   client: 'services/platform/android/androidDocumentScanner.ts',
   clientTest: 'tests/platform/androidDocumentScanner.test.ts',
-  activity: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/MainActivity.java',
+  activity: 'android/app/src/main/java/com/rohittrimukhe/happypdf/MainActivity.java',
 };
 const plugin = read(paths.plugin);
 const importer = read(paths.importer);

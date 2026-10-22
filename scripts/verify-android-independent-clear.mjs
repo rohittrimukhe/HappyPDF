@@ -16,9 +16,9 @@ const workspace = read('services/workspace.ts');
 const runtime = read('hooks/useWorkspaceRuntime.tsx');
 const client = read('services/platform/android/androidDocuments.ts');
 const platform = read('services/platform/android/androidWorkspacePlatform.ts');
-const plugin = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentsPlugin.java');
-const coordinator = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/DocumentLifecycleCoordinator.java');
-const writer = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/OwnedDocumentWriter.java');
+const plugin = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentsPlugin.java');
+const coordinator = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/DocumentLifecycleCoordinator.java');
+const writer = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/OwnedDocumentWriter.java');
 
 requireText(hash('components/Pages/RecentPage.tsx')
   === 'ced30798fc358ae49b0d26089c75aa65b7144485879e927f03a20c38232ac274',

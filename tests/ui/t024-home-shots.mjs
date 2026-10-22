@@ -6,13 +6,13 @@
  * pitch, the practical target sizes, and whether the page ever scrolls
  * sideways. Screenshots plus a metrics JSON land in output/t024-home/.
  *
- * Usage: PDF_CHEF_URL=http://127.0.0.1:3000 node tests/ui/t024-home-shots.mjs
+ * Usage: HAPPY_PDF_URL=http://127.0.0.1:3000 node tests/ui/t024-home-shots.mjs
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { chromium } from 'playwright';
 
-const baseUrl = process.env.PDF_CHEF_URL || 'http://127.0.0.1:3000';
+const baseUrl = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:3000';
 const outputDir = path.join(process.cwd(), 'output', 't024-home');
 
 /** Viewports the acceptance list asks for, plus the two adaptation widths. */
@@ -169,9 +169,9 @@ const makeContext = async ({ width, height, dark = false, textScale = null, redu
   });
   await context.addInitScript(
     ([serialisedSettings, theme, scale]) => {
-      localStorage.setItem('pdfchef.workspace.settings.v1', serialisedSettings);
+      localStorage.setItem('happypdf.workspace.settings.v1', serialisedSettings);
       localStorage.setItem('theme', theme);
-      if (scale) localStorage.setItem('pdfchef.appearance.text-scale.v1', scale);
+      if (scale) localStorage.setItem('happypdf.appearance.text-scale.v1', scale);
     },
     [JSON.stringify(settings), dark ? 'dark' : 'light', textScale],
   );
@@ -186,7 +186,7 @@ const open = async (context) => {
   });
   page.on('pageerror', (error) => consoleErrors.push(error.message));
   await page.goto(`${baseUrl}/`, { waitUntil: 'networkidle' });
-  await page.getByRole('heading', { name: 'PDF Chef' }).waitFor();
+  await page.getByRole('heading', { name: 'Happy PDF' }).waitFor();
   await page.waitForTimeout(350);
   return page;
 };

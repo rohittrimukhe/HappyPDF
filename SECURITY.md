@@ -1,12 +1,12 @@
 # Security Policy
 
-PDF Chef is a browser-first PDF toolkit. The core privacy promise is that user PDF files are processed locally in the browser and are not uploaded to a PDF Chef server for normal tool workflows.
+Happy PDF is a browser-first PDF toolkit. The core privacy promise is that user PDF files are processed locally in the browser and are not uploaded to a Happy PDF server for normal tool workflows.
 
 ## Reporting a vulnerability
 
 If you find a security issue, please report it privately instead of opening a public issue.
 
-Email: yt.dhananjay@gmail.com
+Email: support@happypdf.app
 
 Please include:
 
@@ -34,4 +34,4 @@ Security reports that matter most:
 
 ## Supported version
 
-Only the current production version at `pdfchef.dhananjaytech.app` is supported.
+Only the current production version at `happypdf.app` is supported.

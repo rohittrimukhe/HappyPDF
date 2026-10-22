@@ -3,9 +3,9 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { chromium } from 'playwright';
 import { PDFDocument, PDFName, PDFRawStream } from 'pdf-lib';
 
-const base = process.env.PDF_CHEF_URL || 'http://127.0.0.1:4207';
-const output = process.env.PDF_CHEF_PREVIEW_OUTPUT || 'output/preview-lifecycle';
-const phases = new Set((process.env.PDF_CHEF_PREVIEW_PHASES || 'pan,workers,compression').split(','));
+const base = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:4207';
+const output = process.env.HAPPY_PDF_PREVIEW_OUTPUT || 'output/preview-lifecycle';
+const phases = new Set((process.env.HAPPY_PDF_PREVIEW_PHASES || 'pan,workers,compression').split(','));
 await mkdir(output, { recursive: true });
 const source = await PDFDocument.create();
 for (let index = 0; index < 4; index++) source.addPage([144, 216]).drawText(`Page ${index + 1}`, { x: 12, y: 160, size: 16 });
@@ -18,9 +18,9 @@ const pass = (name, details) => { results.push({ name, ...details }); console.lo
 async function setup() {
   const context = await browser.newContext({ viewport: { width: 1280, height: 1000 }, hasTouch: true, serviceWorkers: 'block' });
   await context.addInitScript(() => {
-    localStorage.setItem('pdfchef.locale.v1', 'en-US');
-    localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({ onboardingComplete: true, keepLocalHistory: false, autoDownload: false, confirmLargeJobs: false }));
-    sessionStorage.setItem('pdfchef.mobile-app-welcome.dismissed.v1', 'true');
+    localStorage.setItem('happypdf.locale.v1', 'en-US');
+    localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({ onboardingComplete: true, keepLocalHistory: false, autoDownload: false, confirmLargeJobs: false }));
+    sessionStorage.setItem('happypdf.mobile-app-welcome.dismissed.v1', 'true');
     const listeners = new Map(), onceWrappers = new Map();
     const add = window.addEventListener, remove = window.removeEventListener;
     window.addEventListener = function (type, listener, options) {

@@ -81,7 +81,7 @@ export const verifyAndroidApkAssets = async (apkPath, distDirectory = resolve(ro
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   if (process.argv.length !== 3) fail('usage: node scripts/verify-android-apk-assets.mjs <apk-path>');
-  const dist = process.env.PDF_CHEF_DIST_DIR ? resolve(process.env.PDF_CHEF_DIST_DIR) : resolve(root, 'dist');
+  const dist = process.env.HAPPY_PDF_DIST_DIR ? resolve(process.env.HAPPY_PDF_DIST_DIR) : resolve(root, 'dist');
   const result = await verifyAndroidApkAssets(resolve(process.argv[2]), dist);
   console.log(`Android APK asset verification passed: ${result.assetCount} byte-identical dist URLs; identity=${result.identity}; apkSha256=${result.apkSha256}.`);
 }

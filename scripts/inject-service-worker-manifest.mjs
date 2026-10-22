@@ -4,8 +4,8 @@ import { dirname, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const dist = process.env.PDF_CHEF_DIST_DIR
-  ? resolve(process.env.PDF_CHEF_DIST_DIR)
+const dist = process.env.HAPPY_PDF_DIST_DIR
+  ? resolve(process.env.HAPPY_PDF_DIST_DIR)
   : resolve(root, 'dist');
 const serviceWorkerPath = resolve(dist, 'sw.js');
 const DEPLOYMENT_CONTROL_FILES = new Set(['_headers', '_redirects', '_routes.json']);
@@ -46,8 +46,8 @@ const source = await readFile(serviceWorkerPath, 'utf8');
 const manifest = JSON.stringify(assets);
 const version = createHash('sha256').update(JSON.stringify(identity)).digest('hex').slice(0, 12);
 const output = source
-  .replace('__PDF_CHEF_CACHE_VERSION__', version)
-  .replace('/*__PDF_CHEF_PRECACHE__*/ []', manifest);
+  .replace('__HAPPY_PDF_CACHE_VERSION__', version)
+  .replace('/*__HAPPY_PDF_PRECACHE__*/ []', manifest);
 
 if (output === source) throw new Error('Service worker injection markers were not found.');
 await writeFile(serviceWorkerPath, output);

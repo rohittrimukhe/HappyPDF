@@ -7,30 +7,30 @@ import { resolve } from 'node:path';
 const root = resolve(import.meta.dirname, '..');
 const paths = {
   manifest: 'android/app/src/main/AndroidManifest.xml',
-  activity: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/MainActivity.java',
-  mainApplication: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/PdfChefApplication.java',
-  releaseApplication: 'android/app/src/release/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/PdfChefApplication.java',
+  activity: 'android/app/src/main/java/com/rohittrimukhe/happypdf/MainActivity.java',
+  mainApplication: 'android/app/src/main/java/com/rohittrimukhe/happypdf/HappyPdfApplication.java',
+  releaseApplication: 'android/app/src/release/java/com/rohittrimukhe/happypdf/HappyPdfApplication.java',
   debugManifest: 'android/app/src/debug/AndroidManifest.xml',
-  debugApplication: 'android/app/src/debug/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/PdfChefApplication.java',
-  crashController: 'android/app/src/debug/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/LegacyThemeCrashController.java',
-  crashService: 'android/app/src/debug/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/LegacyThemeCrashService.java',
-  plugin: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/AndroidLegacySettingsWriterPlugin.java',
-  inspectorPlugin: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/AndroidLegacyInspectorPlugin.java',
-  patcher: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/LegacyThemeModeWirePatcher.java',
-  coordinator: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/LegacyMutationCoordinator.java',
-  historyReader: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/LegacyHistoryInspector.java',
-  settingsReader: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/LegacySettingsInspector.java',
-  contractTest: 'android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/AndroidLegacySettingsWriterContractTest.java',
-  patcherTest: 'android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/LegacyThemeModeWirePatcherTest.java',
-  coordinatorTest: 'android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/LegacyMutationCoordinatorTest.java',
-  instrumentedTest: 'android/app/src/androidTest/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/AndroidLegacySettingsWriterInstrumentedTest.java',
+  debugApplication: 'android/app/src/debug/java/com/rohittrimukhe/happypdf/HappyPdfApplication.java',
+  crashController: 'android/app/src/debug/java/com/rohittrimukhe/happypdf/legacy/LegacyThemeCrashController.java',
+  crashService: 'android/app/src/debug/java/com/rohittrimukhe/happypdf/LegacyThemeCrashService.java',
+  plugin: 'android/app/src/main/java/com/rohittrimukhe/happypdf/legacy/AndroidLegacySettingsWriterPlugin.java',
+  inspectorPlugin: 'android/app/src/main/java/com/rohittrimukhe/happypdf/legacy/AndroidLegacyInspectorPlugin.java',
+  patcher: 'android/app/src/main/java/com/rohittrimukhe/happypdf/legacy/LegacyThemeModeWirePatcher.java',
+  coordinator: 'android/app/src/main/java/com/rohittrimukhe/happypdf/legacy/LegacyMutationCoordinator.java',
+  historyReader: 'android/app/src/main/java/com/rohittrimukhe/happypdf/legacy/LegacyHistoryInspector.java',
+  settingsReader: 'android/app/src/main/java/com/rohittrimukhe/happypdf/legacy/LegacySettingsInspector.java',
+  contractTest: 'android/app/src/test/java/com/rohittrimukhe/happypdf/legacy/AndroidLegacySettingsWriterContractTest.java',
+  patcherTest: 'android/app/src/test/java/com/rohittrimukhe/happypdf/legacy/LegacyThemeModeWirePatcherTest.java',
+  coordinatorTest: 'android/app/src/test/java/com/rohittrimukhe/happypdf/legacy/LegacyMutationCoordinatorTest.java',
+  instrumentedTest: 'android/app/src/androidTest/java/com/rohittrimukhe/happypdf/legacy/AndroidLegacySettingsWriterInstrumentedTest.java',
 };
 
 const frozen = new Map([
-  [paths.patcher, '6f9a6ebf14838a1708ca48071f65a8c2cc63d0960a71979d12f888b07bea9d3c'],
-  [paths.coordinator, '7691386d9ad31d15113c07cd99e23155613dc9d376852e7dffe9f78cbcb22c12'],
+  [paths.patcher, '1e2d7f9cec1db99e8ce63aa4d411e59124a0b503daea1d5381caf3ed63c6c6a1'],
+  [paths.coordinator, 'c7e229cc3b01fe9d02a77d8d9ace17001498a61dfce665b46774a3a2f25e20b8'],
   [paths.historyReader, 'b0a26dba3f0fd8ef8a74ce9f9bc56b437c9297534fa38658ff42919863775f66'],
-  [paths.settingsReader, 'bf4acfb0efd1e5199a6b540b43e7b99a55bbbf96b256ae49301998431d304827'],
+  [paths.settingsReader, '0ce0db0f21debed6dd3cf0f2b9e4771d85d4506dcc82d4727b744a19be98e1a3'],
   ['android/build.gradle', '7fbe17fc1bbcc57213ff3e358ba5beb94d29e1d5484e57d2970c1773fea4b8e3'],
   ['android/settings.gradle', '6ce098d15ebd69b44c4ecd786bca1bdc366340d2459b2af4d7bb0ab317aa9669'],
   ['android/gradle.properties', '3bab15c5b8bc4c2f4b6cf525497d15ad4abca53a460e6dd2eb0f0135817d31e6'],
@@ -139,12 +139,12 @@ for (const [path, expected] of frozen) {
 
 const manifest = text(paths.manifest).replace(/<!--[\s\S]*?-->/g, '');
 assert(count(manifest, '<application') === 1, 'manifest must contain exactly one application element');
-assert(count(manifest, 'android:name=".PdfChefApplication"') === 1,
-  'manifest must declare exactly PdfChefApplication');
+assert(count(manifest, 'android:name=".HappyPdfApplication"') === 1,
+  'manifest must declare exactly HappyPdfApplication');
 assert(!/android:process\s*=/.test(manifest), 'production manifest must not declare android:process');
 const applicationTag = manifest.match(/<application\b[^>]*>/)?.[0] ?? '';
-assert(/android:name\s*=\s*"\.PdfChefApplication"/.test(applicationTag),
-  'PdfChefApplication must be the production application class');
+assert(/android:name\s*=\s*"\.HappyPdfApplication"/.test(applicationTag),
+  'HappyPdfApplication must be the production application class');
 
 const activitySource = text(paths.activity);
 const activity = maskJava(activitySource, true);
@@ -176,7 +176,7 @@ assert(compact(onCreate) === compact(`
 `), 'MainActivity onCreate must contain registration only');
 
 assert(!existsSync(resolve(root, paths.mainApplication)),
-  'PdfChefApplication must be absent from src/main so build types cannot collide');
+  'HappyPdfApplication must be absent from src/main so build types cannot collide');
 
 const releaseApplicationSource = text(paths.releaseApplication);
 const releaseApplication = maskJava(releaseApplicationSource, true);
@@ -196,7 +196,7 @@ assert(!/LegacyThemeCrash|killProcess|android:process|\bService\b|\bBinder\b/.te
   'release Application must contain no crash-harness symbol');
 
 const documentImport =
-  'import com.dhananjaytech.zenpdf_allpdftoolsinoneplace.documents.DocumentLifecycleCoordinator;\n';
+  'import com.rohittrimukhe.happypdf.documents.DocumentLifecycleCoordinator;\n';
 const documentField = '    private final DocumentLifecycleCoordinator documentLifecycleCoordinator =\n'
   + '            new DocumentLifecycleCoordinator(this);\n';
 const documentGetter = '    public DocumentLifecycleCoordinator getDocumentLifecycleCoordinator() {\n'
@@ -302,10 +302,10 @@ for (const mode of ['SYSTEM', 'DYNAMIC', 'LIGHT', 'DARK']) {
 
 assert(count(plugin, 'getApplicationContext()') === 1,
   'writer must obtain the Application exactly once through applicationContext');
-assert(/PdfChefApplication\s+application\s*=\s*\(PdfChefApplication\)\s*getContext\s*\(\s*\)\.getApplicationContext\s*\(\s*\)\s*;/.test(plugin),
+assert(/HappyPdfApplication\s+application\s*=\s*\(HappyPdfApplication\)\s*getContext\s*\(\s*\)\.getApplicationContext\s*\(\s*\)\s*;/.test(plugin),
   'writer coordinator ownership must flow through the Application cast');
 assert(count(plugin, 'application.getLegacyMutationCoordinator()') === 1,
-  'writer must obtain the coordinator only from PdfChefApplication');
+  'writer must obtain the coordinator only from HappyPdfApplication');
 assert(/\.setThemeMode\s*\(\s*application\.getFilesDir\s*\(\s*\)\s*,\s*mode\s*\)/.test(plugin),
   'writer must invoke only the coordinator theme operation with application filesDir');
 assert(!/new\s+LegacyMutationCoordinator\s*\(/.test(plugin),
@@ -426,7 +426,7 @@ assert(!/listFiles\s*\(|DirectoryStream|deleteIfExists|Files\.delete|Files\.move
 
 const crashServiceSource = text(paths.crashService);
 const crashService = maskJava(crashServiceSource, true);
-assert(/package\s+com\.dhananjaytech\.zenpdf_allpdftoolsinoneplace\s*;/.test(crashService),
+assert(/package\s+com\.rohittrimukhe\.happypdf\s*;/.test(crashService),
   'allowed legacy-path service must intentionally declare the parent Application package');
 assert(/public\s+final\s+class\s+LegacyThemeCrashService\s+extends\s+Service/.test(crashService),
   'debug crash service shape drifted');
@@ -557,7 +557,7 @@ for (const required of [
   assert(instrumentedSource.includes(required), `instrumentation contract missing: ${required}`);
 }
 assert(!/new\s+LegacyMutationCoordinator\s*\(/.test(instrumented),
-  'crash driver must use the exact PdfChefApplication coordinator');
+  'crash driver must use the exact HappyPdfApplication coordinator');
 assert(instrumentedSource.indexOf('byte[] observedBeforeReader = read(source);')
   < instrumentedSource.indexOf('ActivityScenario.launch(MainActivity.class)',
     instrumentedSource.indexOf('void runRemoteCrashCase')),

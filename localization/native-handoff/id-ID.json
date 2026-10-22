@@ -60,7 +60,7 @@
   "android.pdf_reader_signature_timestamp_unverified": "Ada tetapi tidak divalidasi secara offline",
   "android.pdf_reader_signature_sha1_warning": "Peringatan: tanda tangan ini menggunakan SHA-1 lama.",
   "android.pdf_reader_signature_offline_note": "Kepercayaan menggunakan penyimpanan sertifikat perangkat ini. Pencabutan dan status sertifikat online tidak diperiksa. Tanggal penandatanganan PDF tidak diperlakukan sebagai stempel waktu tepercaya.",
-  "ios.NSCameraUsageDescription": "PDF Chef menggunakan kamera hanya saat Anda memilih Pindai dari Kamera untuk menambahkan halaman ke PDF.",
+  "ios.NSCameraUsageDescription": "Happy PDF menggunakan kamera hanya saat Anda memilih Pindai dari Kamera untuk menambahkan halaman ke PDF.",
   "ios.ce47f2d3b8": "Tanda tangan digital",
   "ios.b55dcc62d4": "Pemeriksaan tanda tangan selesai",
   "ios.fd19818dfb": "Memeriksa tanda tangan digital",

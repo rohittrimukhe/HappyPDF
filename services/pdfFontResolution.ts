@@ -238,8 +238,8 @@ export const resolveFont = (
   const devanagari = /[\u0900-\u097f]/u.test(sampleText);
   const fallbackFamily = devanagari
     ? klass === 'serif'
-      ? `"PDF Chef Martel ${bold ? 'Bold' : 'Regular'}", "Noto Serif Devanagari", serif`
-      : `"PDF Chef Mukta ${bold ? 'Bold' : 'Regular'}", "Noto Sans Devanagari", sans-serif`
+      ? `"Happy PDF Martel ${bold ? 'Bold' : 'Regular'}", "Noto Serif Devanagari", serif`
+      : `"Happy PDF Mukta ${bold ? 'Bold' : 'Regular'}", "Noto Sans Devanagari", sans-serif`
     : FONT_FALLBACKS[klass];
   const coverage = checkGlyphCoverage(descriptor, sampleText);
   const loaded = browserLoadedFace(descriptor.loadedName);

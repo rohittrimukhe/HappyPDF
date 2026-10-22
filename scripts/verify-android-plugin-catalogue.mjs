@@ -51,8 +51,8 @@ const productionEntryGraph = entry => {
   }
   return visited;
 };
-const activity = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/MainActivity.java');
-const plugin = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentsPlugin.java');
+const activity = read('android/app/src/main/java/com/rohittrimukhe/happypdf/MainActivity.java');
+const plugin = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentsPlugin.java');
 const entries = [
   'registerPlugin(AndroidLegacyInspectorPlugin.class)',
   'registerPlugin(AndroidLegacySettingsWriterPlugin.class)',
@@ -114,12 +114,12 @@ assert(workspace.includes("if (!documentsOverride && Capacitor.getPlatform() !==
   && workspace.includes('platform.documentScanner = createAndroidDocumentScannerService()')
   && workspace.includes('platform.pdfReader = createAndroidPdfReaderService(documents)'),
   'device facts, scanner and reader must compose only through the Android workspace platform');
-const runtime = read('android/app/src/androidTest/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentsPluginInstrumentedTest.java');
+const runtime = read('android/app/src/androidTest/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentsPluginInstrumentedTest.java');
 for (const pluginName of ['AndroidLegacyInspector', 'AndroidLegacySettingsWriter', 'AndroidDocuments']) {
   assert(runtime.includes(`getPlugin("${pluginName}")`) && runtime.includes(`isPluginAvailable('${pluginName}')`),
     `runtime catalogue proof missing ${pluginName}`);
 }
-const deviceFactsRuntime = read('android/app/src/androidTest/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/AndroidSettingsDeviceFactsInstrumentedTest.java');
+const deviceFactsRuntime = read('android/app/src/androidTest/java/com/rohittrimukhe/happypdf/AndroidSettingsDeviceFactsInstrumentedTest.java');
 for (const pluginName of ['AndroidAppMetadata', 'AndroidStorageStats']) {
   assert(deviceFactsRuntime.includes(`getPlugin("${pluginName}")`)
     && deviceFactsRuntime.includes(`isPluginAvailable('${pluginName}')`),

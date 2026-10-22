@@ -60,7 +60,7 @@
   "android.pdf_reader_signature_timestamp_unverified": "موجود ولكن لم يتم التحقق منه دون اتصال",
   "android.pdf_reader_signature_sha1_warning": "تحذير: يستخدم هذا التوقيع خوارزمية SHA-1 القديمة.",
   "android.pdf_reader_signature_offline_note": "تعتمد الموثوقية على مخزن شهادات هذا الجهاز. لا يتم فحص الإلغاء أو حالة الشهادة عبر الإنترنت. لا يُعامل تاريخ توقيع PDF كطابع زمني موثوق.",
-  "ios.NSCameraUsageDescription": "يستخدم PDF Chef الكاميرا فقط عند اختيار المسح من الكاميرا لإضافة صفحات إلى ملف PDF.",
+  "ios.NSCameraUsageDescription": "يستخدم Happy PDF الكاميرا فقط عند اختيار المسح من الكاميرا لإضافة صفحات إلى ملف PDF.",
   "ios.ce47f2d3b8": "التوقيعات الرقمية",
   "ios.b55dcc62d4": "اكتمل فحص التوقيع",
   "ios.fd19818dfb": "جارٍ التحقق من التوقيعات الرقمية",

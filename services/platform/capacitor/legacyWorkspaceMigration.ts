@@ -4,10 +4,10 @@ import type { RecentRepository } from '../contracts.ts';
 import type { LocalStringStorage } from '../local/localWorkspaceRepositories.ts';
 import type { IOSDocumentBridge } from './iosDocumentServices.ts';
 
-const LEGACY_DB_NAME = 'pdfchef-local-workspace';
+const LEGACY_DB_NAME = 'happypdf-local-workspace';
 const LEGACY_DB_VERSION = 1;
 const LEGACY_OUTPUT_STORE = 'outputs';
-export const LEGACY_WORKSPACE_MIGRATION_JOURNAL_KEY = 'pdf-chef:legacy-workspace-migration:v1';
+export const LEGACY_WORKSPACE_MIGRATION_JOURNAL_KEY = 'happy-pdf:legacy-workspace-migration:v1';
 
 export interface LegacyWorkspaceOutput {
   readonly id: string;
@@ -154,7 +154,7 @@ const markerFor = async (legacyId: string): Promise<string> => {
   if (!globalThis.crypto?.subtle) throw new LocalizedError("legacy-workspace-migration.error.f451a86553");
   const digest = await globalThis.crypto.subtle.digest('SHA-256', new TextEncoder().encode(legacyId));
   const hash = [...new Uint8Array(digest)].map(value => value.toString(16).padStart(2, '0')).join('');
-  return `.pdfchef-legacy-${hash}.pending`;
+  return `.happypdf-legacy-${hash}.pending`;
 };
 
 const recentEntry = (legacy: LegacyWorkspaceOutput, document: StoredDocument): RecentEntry => ({

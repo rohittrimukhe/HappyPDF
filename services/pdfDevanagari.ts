@@ -39,10 +39,10 @@ type BundledFontId = 'MuktaRegular' | 'MuktaBold' | 'MartelRegular' | 'MartelBol
 export type DevanagariFontId = BundledFontId | EmbeddedPdfFontId;
 
 const fontAssets: Record<BundledFontId, { url: string; cssFamily: string }> = {
-  MuktaRegular: { url: new URL('../assets/fonts/pdf-edit/Mukta-Regular.ttf', import.meta.url).href, cssFamily: 'PDF Chef Mukta Regular' },
-  MuktaBold: { url: new URL('../assets/fonts/pdf-edit/Mukta-Bold.ttf', import.meta.url).href, cssFamily: 'PDF Chef Mukta Bold' },
-  MartelRegular: { url: new URL('../assets/fonts/pdf-edit/Martel-Regular.ttf', import.meta.url).href, cssFamily: 'PDF Chef Martel Regular' },
-  MartelBold: { url: new URL('../assets/fonts/pdf-edit/Martel-Bold.ttf', import.meta.url).href, cssFamily: 'PDF Chef Martel Bold' },
+  MuktaRegular: { url: new URL('../assets/fonts/pdf-edit/Mukta-Regular.ttf', import.meta.url).href, cssFamily: 'Happy PDF Mukta Regular' },
+  MuktaBold: { url: new URL('../assets/fonts/pdf-edit/Mukta-Bold.ttf', import.meta.url).href, cssFamily: 'Happy PDF Mukta Bold' },
+  MartelRegular: { url: new URL('../assets/fonts/pdf-edit/Martel-Regular.ttf', import.meta.url).href, cssFamily: 'Happy PDF Martel Regular' },
+  MartelBold: { url: new URL('../assets/fonts/pdf-edit/Martel-Bold.ttf', import.meta.url).href, cssFamily: 'Happy PDF Martel Bold' },
 };
 
 interface LoadedFont {

@@ -1153,7 +1153,7 @@ export const selectRangeInBlock = (element: HTMLElement, from: number, to: numbe
   return true;
 };
 
-const FIND_HIGHLIGHT = 'pdfchef-find';
+const FIND_HIGHLIGHT = 'happypdf-find';
 
 /**
  * Mark every match on the page at once.

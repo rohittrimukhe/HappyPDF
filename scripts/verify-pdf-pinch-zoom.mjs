@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { chromium } from 'playwright';
 
-const baseUrl = process.env.PDF_CHEF_URL || 'http://127.0.0.1:4173';
+const baseUrl = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:4173';
 const fixture = path.join(process.cwd(), 'qa-sample.pdf');
 await fs.access(fixture);
 
@@ -22,7 +22,7 @@ const verifySurface = async ({ route, label, mobile }) => {
   });
   page.on('pageerror', error => errors.push(error.message));
   await page.addInitScript(() => {
-    localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({
+    localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({
       autoDownload: false,
       keepLocalHistory: false,
       confirmLargeJobs: false,
@@ -112,7 +112,7 @@ const verifyCompressionPreview = async mobile => {
   });
   page.on('pageerror', error => errors.push(error.message));
   await page.addInitScript(() => {
-    localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({
+    localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({
       autoDownload: false,
       keepLocalHistory: false,
       confirmLargeJobs: false,

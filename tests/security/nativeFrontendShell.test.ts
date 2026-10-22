@@ -90,7 +90,7 @@ const directivesOf = (policy: string): Map<string, string[]> => new Map(
 test('the packaged-shell boundary executes as dependency-free JavaScript', () => {
   for (const name of EXPORTED) assert.ok(boundary[name] !== undefined, `${name} is missing`);
   assert.deepEqual([...boundary.PACKAGED_NATIVE_ORIGINS], ['https://localhost', 'capacitor://localhost']);
-  assert.equal(boundary.SHELL_CACHE_PREFIX, 'pdf-chef-shell-');
+  assert.equal(boundary.SHELL_CACHE_PREFIX, 'happy-pdf-shell-');
   assert.equal(boundary.SHELL_WORKER_PATH, '/sw.js');
   assert.ok(Number.isInteger(boundary.SHELL_CLEANUP_BUDGET_MS) && boundary.SHELL_CLEANUP_BUDGET_MS > 0);
   assert.doesNotMatch(BOUNDARY_SOURCE, /^\s*import\s/m, 'the boundary must not depend on a module');
@@ -100,14 +100,14 @@ test('the packaged-shell boundary executes as dependency-free JavaScript', () =>
 
 test('browser, native iOS and native Android are resolved as distinct shells', () => {
   const { resolveShellTarget } = boundary;
-  assert.equal(resolveShellTarget('web', 'https://pdfchef.dhananjaytech.app'), 'browser');
+  assert.equal(resolveShellTarget('web', 'https://happypdf.app'), 'browser');
   assert.equal(resolveShellTarget('web', 'http://localhost:5173'), 'browser');
   assert.equal(resolveShellTarget('ios', 'capacitor://localhost'), 'ios');
   assert.equal(resolveShellTarget('android', 'https://localhost'), 'android');
   // A packaged origin without a bridge, and any unreadable platform, must not read as browser.
   assert.equal(resolveShellTarget('web', 'https://localhost'), 'native');
   assert.equal(resolveShellTarget('web', 'capacitor://localhost'), 'native');
-  assert.equal(resolveShellTarget(null, 'https://pdfchef.dhananjaytech.app'), 'native');
+  assert.equal(resolveShellTarget(null, 'https://happypdf.app'), 'native');
   assert.equal(resolveShellTarget(undefined, 'https://localhost'), 'native');
 });
 
@@ -127,9 +127,9 @@ test('cleanup is confined to shells that are positively native', () => {
   assert.equal(isPackagedNativeShell('ios', 'capacitor://localhost'), true);
   assert.equal(isPackagedNativeShell('android', 'https://localhost'), true);
   assert.equal(isPackagedNativeShell('native', 'https://localhost'), true);
-  assert.equal(isPackagedNativeShell('browser', 'https://pdfchef.dhananjaytech.app'), false);
+  assert.equal(isPackagedNativeShell('browser', 'https://happypdf.app'), false);
   // An unreadable platform in a real browser must never delete that browser's offline shell.
-  assert.equal(isPackagedNativeShell('native', 'https://pdfchef.dhananjaytech.app'), false);
+  assert.equal(isPackagedNativeShell('native', 'https://happypdf.app'), false);
 });
 
 test('the entry registers the app-shell worker only on the browser target', () => {
@@ -158,7 +158,7 @@ test('only this origin app-shell registrations are released', async () => {
   const registrations = [
     workerRegistration('https://localhost/sw.js', 'https://localhost/'),
     workerRegistration('https://localhost/vendor/tesseract/worker.min.js', 'https://localhost/'),
-    workerRegistration('https://pdfchef.dhananjaytech.app/sw.js', 'https://pdfchef.dhananjaytech.app/'),
+    workerRegistration('https://happypdf.app/sw.js', 'https://happypdf.app/'),
     workerRegistration(null, 'https://localhost/'),
     workerRegistration(null, 'https://localhost/tools/'),
   ];
@@ -181,12 +181,12 @@ test('the iOS capacitor scheme is matched despite its null URL origin', async ()
   assert.deepEqual(registrations.map((entry) => entry.unregistered), [true, false]);
 });
 
-test('only PDF Chef shell caches are deleted', async () => {
+test('only Happy PDF shell caches are deleted', async () => {
   const deleted: string[] = [];
   const names = [
-    'pdf-chef-shell-edb1b369921e',
-    'pdf-chef-shell-0000deadbeef',
-    'pdf-chef-outputs',
+    'happy-pdf-shell-edb1b369921e',
+    'happy-pdf-shell-0000deadbeef',
+    'happy-pdf-outputs',
     'workbox-precache-v2-https://example.test/',
     'some-other-site-shell',
   ];
@@ -198,7 +198,7 @@ test('only PDF Chef shell caches are deleted', async () => {
     },
   };
   await boundary.releaseShellCaches(cacheStorage, 500);
-  assert.deepEqual(deleted.sort(), ['pdf-chef-shell-0000deadbeef', 'pdf-chef-shell-edb1b369921e']);
+  assert.deepEqual(deleted.sort(), ['happy-pdf-shell-0000deadbeef', 'happy-pdf-shell-edb1b369921e']);
 });
 
 test('a native shell releases both registrations and shell caches', async () => {
@@ -208,7 +208,7 @@ test('a native shell releases both registrations and shell caches', async () => 
     location: { protocol: 'https:', host: 'localhost' },
     navigator: { serviceWorker: { getRegistrations: () => Promise.resolve(registrations) } },
     caches: {
-      keys: () => Promise.resolve(['pdf-chef-shell-abc', 'unrelated']),
+      keys: () => Promise.resolve(['happy-pdf-shell-abc', 'unrelated']),
       delete: (name: string) => {
         deleted.push(name);
         return Promise.resolve(true);
@@ -217,7 +217,7 @@ test('a native shell releases both registrations and shell caches', async () => 
   };
   assert.equal(await boundary.releasePackagedNativeShellState(scope, 500), undefined);
   assert.equal(registrations[0].unregistered, true);
-  assert.deepEqual(deleted, ['pdf-chef-shell-abc']);
+  assert.deepEqual(deleted, ['happy-pdf-shell-abc']);
 });
 
 test('cleanup settles when every cleanup API rejects, throws or never settles', async () => {
@@ -285,7 +285,7 @@ test('the policy precedes every script and forbids remote or unsafe execution', 
   assert.deepEqual(directives.get('worker-src'), ["'self'", 'blob:']);
   // Local WASM, local fonts, and data/blob previews, plus exactly the canonical host
   // the retired-host redirect probes and nothing else remote.
-  assert.deepEqual(directives.get('connect-src'), ["'self'", 'data:', 'blob:', 'https://pdfchef.dhananjaytech.app']);
+  assert.deepEqual(directives.get('connect-src'), ["'self'", 'data:', 'blob:', 'https://happypdf.app']);
 
   const scriptSource = directives.get('script-src') ?? [];
   assert.equal(scriptSource[0], "'self'");
@@ -380,15 +380,15 @@ const runRedirect = async (options: {
 
 test('the retired-host redirect runs only on the retired host and only over https', async () => {
   const redirected = await runRedirect({ hostname: 'pdftools.dhananjaytech.app' });
-  assert.deepEqual(redirected.fetched, ['https://pdfchef.dhananjaytech.app/cdn-cgi/trace']);
+  assert.deepEqual(redirected.fetched, ['https://happypdf.app/cdn-cgi/trace']);
   assert.deepEqual(redirected.replaced, [
-    'https://pdfchef.dhananjaytech.app/tools/merge-pdf?from=mail#result',
+    'https://happypdf.app/tools/merge-pdf?from=mail#result',
   ]);
   assert.equal(redirected.cleared, 1, 'the probe timeout is always released');
 
   const insecure = await runRedirect({ hostname: 'pdftools.dhananjaytech.app', protocol: 'http:' });
   assert.deepEqual(insecure.replaced, [
-    'https://pdfchef.dhananjaytech.app/tools/merge-pdf?from=mail#result',
+    'https://happypdf.app/tools/merge-pdf?from=mail#result',
   ], 'the redirect target is fixed to https and never inherits an insecure scheme');
 
   const unreachable = await runRedirect({
@@ -399,7 +399,7 @@ test('the retired-host redirect runs only on the retired host and only over http
 });
 
 test('the retired-host redirect is inert in the packaged native shell', async () => {
-  for (const hostname of ['localhost', 'pdfchef.dhananjaytech.app', 'pdftools.dhananjaytech.app.evil.test']) {
+  for (const hostname of ['localhost', 'happypdf.app', 'pdftools.dhananjaytech.app.evil.test']) {
     const record = await runRedirect({ hostname });
     assert.deepEqual(record.fetched, [], `${hostname} must not be probed`);
     assert.deepEqual(record.replaced, [], `${hostname} must not be navigated`);

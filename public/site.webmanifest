@@ -1,6 +1,6 @@
 {
-  "name": "PDF Chef",
-  "short_name": "PDF Chef",
+  "name": "Happy PDF",
+  "short_name": "Happy PDF",
   "description": "34 PDF tools that open, process and save your document on this device. No upload, no account, works offline.",
   "start_url": "/",
   "scope": "/",
@@ -11,13 +11,13 @@
   "categories": ["productivity", "utilities"],
   "icons": [
     {
-      "src": "/pdf-chef-app-icon-512.png",
+      "src": "/happy-pdf-app-icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/pdf-chef-app-icon-512.png",
+      "src": "/happy-pdf-app-icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"

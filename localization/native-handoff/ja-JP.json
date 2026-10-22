@@ -60,7 +60,7 @@
   "android.pdf_reader_signature_timestamp_unverified": "存在しますがオフラインのため未検証です",
   "android.pdf_reader_signature_sha1_warning": "警告: この署名にはレガシーなSHA-1が使用されています。",
   "android.pdf_reader_signature_offline_note": "信頼性の判定にはこの端末の証明書ストアが使用されます。失効情報およびオンラインでの証明書ステータスは確認されません。PDFの署名日時は信頼できるタイムスタンプとしては扱われません。",
-  "ios.NSCameraUsageDescription": "PDF Chefは、PDFにページを追加するために「カメラからスキャン」を選択した場合にのみカメラを使用します。",
+  "ios.NSCameraUsageDescription": "Happy PDFは、PDFにページを追加するために「カメラからスキャン」を選択した場合にのみカメラを使用します。",
   "ios.ce47f2d3b8": "デジタル署名",
   "ios.b55dcc62d4": "署名の確認が完了しました",
   "ios.fd19818dfb": "デジタル署名を確認中",

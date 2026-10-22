@@ -88,7 +88,7 @@ export interface WorkspaceCapabilities {
   separateClearActions: boolean;
   /** False when an automatic download would only be a blocking system picker. */
   automaticExternalExport?: boolean;
-  /** Where saved copies land, as the phone's Files app shows it (Android: "Download/PDF Chef"). */
+  /** Where saved copies land, as the phone's Files app shows it (Android: "Download/Happy PDF"). */
   exportFolder?: string;
   /** The largest file the platform can keep or save, when it has a fixed limit. */
   maximumOutputBytes?: number;

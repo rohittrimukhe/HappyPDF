@@ -260,7 +260,7 @@ export const Dashboard: React.FC = () => {
   return (
     <>
       <TabHeader
-        title="PDF Chef"
+        title="Happy PDF"
         leading={
           // Android's 50dp mark at the reader's default text size, and smaller
           // as that text grows: the mark is fixed artwork beside a name that
@@ -268,7 +268,7 @@ export const Dashboard: React.FC = () => {
           // the product's own name. Dividing by the scale keeps the two in
           // proportion, and the floor stops it from disappearing.
           <img
-            src="/pdf-chef-logo-exact.webp"
+            src="/happy-pdf-logo-exact.webp"
             alt=""
             aria-hidden
             width={50}

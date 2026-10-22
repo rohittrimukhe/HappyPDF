@@ -4,7 +4,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { chromium } from 'playwright';
 
-const output = resolve(process.env.PDF_CHEF_SW_OUTPUT || 'output/service-worker-updates');
+const output = resolve(process.env.HAPPY_PDF_SW_OUTPUT || 'output/service-worker-updates');
 await mkdir(output, { recursive: true });
 const source = await readFile(new URL('../public/sw.js', import.meta.url), 'utf8');
 let version = 1;
@@ -14,8 +14,8 @@ const server = createServer((request, response) => {
   if (pathname === '/sw.js') {
     response.setHeader('Content-Type', 'application/javascript');
     response.end(source
-      .replace('__PDF_CHEF_CACHE_VERSION__', `update-test-v${version}`)
-      .replace('/*__PDF_CHEF_PRECACHE__*/ []', JSON.stringify([`/assets/lazy-v${version}.js`])));
+      .replace('__HAPPY_PDF_CACHE_VERSION__', `update-test-v${version}`)
+      .replace('/*__HAPPY_PDF_PRECACHE__*/ []', JSON.stringify([`/assets/lazy-v${version}.js`])));
   } else if (pathname === `/assets/lazy-v${version}.js`) {
     response.setHeader('Content-Type', 'application/javascript');
     response.end(`export const version = ${version};`);
@@ -85,7 +85,7 @@ try {
   );
   assert.equal(waiting.waiting, 'installed', 'An update must wait while a previous-build tab is open');
   assert.equal(waiting.sameController, true);
-  assert.deepEqual(waiting.cacheKeys.sort(), ['pdf-chef-shell-update-test-v1', 'pdf-chef-shell-update-test-v2']);
+  assert.deepEqual(waiting.cacheKeys.sort(), ['happy-pdf-shell-update-test-v1', 'happy-pdf-shell-update-test-v2']);
 
   await context.setOffline(true);
   const oldTab = await page.evaluate(async () => ({
@@ -104,7 +104,7 @@ try {
     state => state.active === 'activated' && state.cacheKeys.length === 1,
     'Update must activate and release the previous cache after old tabs close',
   );
-  assert.deepEqual(activated.cacheKeys, ['pdf-chef-shell-update-test-v2']);
+  assert.deepEqual(activated.cacheKeys, ['happy-pdf-shell-update-test-v2']);
   const reopened = await context.newPage();
   await reopened.goto(origin);
   const newTab = await reopened.evaluate(async () => ({

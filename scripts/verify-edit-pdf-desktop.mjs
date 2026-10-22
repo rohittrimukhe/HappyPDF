@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { chromium } from 'playwright';
 
-const baseUrl = process.env.PDF_CHEF_URL || 'http://127.0.0.1:4173';
+const baseUrl = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:4173';
 const root = process.cwd();
 const fixture = path.join(root, 'qa-sample.pdf');
 const outputDir = path.join(root, 'output', 'edit-pdf-desktop-verification');
@@ -48,7 +48,7 @@ page.on('console', message => {
 page.on('pageerror', error => consoleErrors.push(error.message));
 
 await page.addInitScript(() => {
-  localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({
+  localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({
     autoDownload: false,
     keepLocalHistory: false,
     confirmLargeJobs: false,
@@ -74,8 +74,8 @@ try {
 
   const zoomViewport = page.getByTestId('pdf-zoom-viewport');
   await zoomViewport.evaluate(element => {
-    window.__pdfChefWheelTrust = [];
-    element.addEventListener('wheel', event => window.__pdfChefWheelTrust.push(event.isTrusted), { capture: true });
+    window.__happyPdfWheelTrust = [];
+    element.addEventListener('wheel', event => window.__happyPdfWheelTrust.push(event.isTrusted), { capture: true });
   });
   const currentPage = page.getByLabel('Current editor page');
   await page.mouse.move(640, 500);
@@ -175,7 +175,7 @@ try {
 
   await page.screenshot({ path: screenshotPath, fullPage: true });
   assert.ok(
-    await page.evaluate(() => window.__pdfChefWheelTrust.length >= 3 && window.__pdfChefWheelTrust.every(Boolean)),
+    await page.evaluate(() => window.__happyPdfWheelTrust.length >= 3 && window.__happyPdfWheelTrust.every(Boolean)),
     'desktop wheel verification did not use trusted browser input',
   );
   assert.deepEqual(consoleErrors, []);

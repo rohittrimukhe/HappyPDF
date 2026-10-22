@@ -23,7 +23,7 @@ const sitemap = read('public/sitemap.xml');
 
 const catalogRoutes = [...catalog.matchAll(/path:\s*'([^']+)'/g)].map((match) => match[1]);
 const appRoutes = [...app.matchAll(/<Route\s+path="([^"]+)"/g)].map((match) => match[1]);
-const sitemapRoutes = [...sitemap.matchAll(/<loc>https:\/\/pdfchef\.dhananjaytech\.app\/([^<]*)<\/loc>/g)]
+const sitemapRoutes = [...sitemap.matchAll(/<loc>https:\/\/happypdf\.app\/([^<]*)<\/loc>/g)]
   .map((match) => `/${match[1]}`)
   .map((route) => (route === '/' ? '/' : route.replace(/\/$/, '')));
 
@@ -75,7 +75,7 @@ const checkedInAndroidTools = androidToolsBlock
 
 const findPdfToolFile = (projectPath) => {
   if (statSync(projectPath).isFile()) return projectPath;
-  const direct = join(projectPath, 'app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/data/model/PdfTool.kt');
+  const direct = join(projectPath, 'app/src/main/java/com/rohittrimukhe/happypdf/data/model/PdfTool.kt');
   if (existsSync(direct)) return direct;
   const pending = [projectPath];
   while (pending.length > 0) {
@@ -110,13 +110,13 @@ const parseAndroidTools = (source) => {
 };
 
 let androidTools = checkedInAndroidTools;
-const androidProject = process.env.PDF_CHEF_ANDROID_PROJECT?.trim();
+const androidProject = process.env.HAPPY_PDF_ANDROID_PROJECT?.trim();
 if (androidProject) {
   const projectPath = isAbsolute(androidProject) ? androidProject : resolve(process.cwd(), androidProject);
   try {
     const pdfToolPath = findPdfToolFile(projectPath);
     if (!pdfToolPath) {
-      failures.push(`Could not find PdfTool.kt under PDF_CHEF_ANDROID_PROJECT: ${projectPath}`);
+      failures.push(`Could not find PdfTool.kt under HAPPY_PDF_ANDROID_PROJECT: ${projectPath}`);
     } else {
       const parsed = parseAndroidTools(readFileSync(pdfToolPath, 'utf8'));
       if (parsed.length === 0) failures.push(`Could not parse PdfTool constants from: ${pdfToolPath}`);
@@ -124,7 +124,7 @@ if (androidProject) {
       console.log(`Android parity source: ${pdfToolPath}`);
     }
   } catch (error) {
-    failures.push(`Could not read PDF_CHEF_ANDROID_PROJECT (${projectPath}): ${error.message}`);
+    failures.push(`Could not read HAPPY_PDF_ANDROID_PROJECT (${projectPath}): ${error.message}`);
   }
 }
 
@@ -167,7 +167,7 @@ for (const entry of catalogEntries) {
 }
 
 // A sitemap advertises the URL that should rank, so it lists canonical URLs
-// only. /privacy-policy, /pdf-chef-privacy and /terms-and-conditions stay live
+// only. /privacy-policy, /happy-pdf-privacy and /terms-and-conditions stay live
 // and keep working — they render the same component and now canonicalise onto
 // /privacy and /terms — but listing them here as well would ask search engines
 // to index three originals of one document.
@@ -183,7 +183,7 @@ const requiredRoutes = Array.from(new Set([
 ])).filter(route => !deviceOnlyRoutes.includes(route)).sort();
 
 /** Live, reachable, and deliberately absent from the sitemap. */
-const canonicalisedAliases = ['/privacy-policy', '/pdf-chef-privacy', '/terms-and-conditions'];
+const canonicalisedAliases = ['/privacy-policy', '/happy-pdf-privacy', '/terms-and-conditions'];
 
 /** Device-local surfaces: reachable in the app, never a search result. */
 const noindexRoutes = ['/recent', '/history', '/settings', ...deviceOnlyRoutes];

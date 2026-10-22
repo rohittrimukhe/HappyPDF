@@ -24,10 +24,10 @@ assert(/sourceSets\s*\{[\s\S]*?minifiedQa\s*\{[\s\S]*?java\.srcDir 'src\/release
   'minified QA must compile the accepted release-only Application source set');
 assert(!appBuild.includes('testBuildType'),
   'QA runtime proof must not replace or complicate the ordinary debug instrumentation target');
-// Release is signed only when all four ZENPDF_RELEASE_* values are supplied; otherwise unsigned.
+// Release is signed only when all four HAPPYPDF_RELEASE_* values are supplied; otherwise unsigned.
 assert(/if \(hasReleaseSigningConfig\) \{\s*signingConfig signingConfigs\.release\s*\}/.test(appBuild)
   && (appBuild.match(/signingConfig signingConfigs\.release/g) ?? []).length === 1,
-  'production release may be signed only from the complete ZENPDF_RELEASE_* configuration');
+  'production release may be signed only from the complete HAPPYPDF_RELEASE_* configuration');
 assert(!rules.includes('minifiedQa'), 'QA-only keep rules are forbidden');
 
 const outputs = {
@@ -46,20 +46,20 @@ for (const [label, path] of Object.entries(outputs)) {
 }
 
 const manifest = read(outputs.manifest);
-assert(manifest.includes('package="com.dhananjaytech.pdfchef.minifiedqa"'),
+assert(manifest.includes('package="com.rohittrimukhe.happypdf.minifiedqa"'),
   'merged manifest package must be the isolated QA identity');
 assert(!manifest.includes('android:debuggable="true"'), 'QA manifest must be non-debuggable');
-assert(manifest.includes('android:name="com.dhananjaytech.zenpdf_allpdftoolsinoneplace.PdfChefApplication"'),
+assert(manifest.includes('android:name="com.rohittrimukhe.happypdf.HappyPdfApplication"'),
   'QA manifest must use the accepted release Application');
 assert(!manifest.includes('LegacyThemeCrashService'), 'QA manifest must exclude debug-only crash service');
 
 const mapping = read(outputs.mapping);
 for (const entryPoint of [
-  'com.dhananjaytech.zenpdf_allpdftoolsinoneplace.MainActivity',
-  'com.dhananjaytech.zenpdf_allpdftoolsinoneplace.PdfChefApplication',
-  'com.dhananjaytech.zenpdf_allpdftoolsinoneplace.reader.PdfReaderActivity',
-  'com.dhananjaytech.zenpdf_allpdftoolsinoneplace.scanner.AndroidDocumentScannerPlugin',
-  'com.dhananjaytech.zenpdf_allpdftoolsinoneplace.documents.AndroidDocumentsPlugin',
+  'com.rohittrimukhe.happypdf.MainActivity',
+  'com.rohittrimukhe.happypdf.HappyPdfApplication',
+  'com.rohittrimukhe.happypdf.reader.PdfReaderActivity',
+  'com.rohittrimukhe.happypdf.scanner.AndroidDocumentScannerPlugin',
+  'com.rohittrimukhe.happypdf.documents.AndroidDocumentsPlugin',
 ]) assert(mapping.includes(`${entryPoint} -> ${entryPoint}:`),
   `required QA entry point was removed or renamed: ${entryPoint}`);
 

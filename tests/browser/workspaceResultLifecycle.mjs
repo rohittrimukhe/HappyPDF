@@ -4,14 +4,14 @@ import { PDFDocument } from 'pdf-lib';
 
 // Current-source component checks: native purchase/storage timing is injected,
 // while the application providers, output pipeline and IndexedDB remain real.
-const origin = process.env.PDF_CHEF_URL || 'http://127.0.0.1:3000';
+const origin = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:3000';
 const browser = await chromium.launch({ headless: true });
 
 const withPage = async (route, keepLocalHistory, run) => {
   const context = await browser.newContext({ viewport: { width: 1100, height: 850 } });
   const page = await context.newPage();
   await page.addInitScript(keep => {
-    localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({
+    localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({
       autoDownload: false, keepLocalHistory: keep, onboardingComplete: true,
     }));
   }, keepLocalHistory);
@@ -147,7 +147,7 @@ try {
       window.__testRoot.render(window.__React.createElement(WorkspacePlatformProvider, { platform }, window.__React.createElement(Probe)));
     });
     await page.waitForFunction(() => window.__releaseFirstRead);
-    await page.evaluate(() => window.dispatchEvent(new Event('pdfchef:output-ready')));
+    await page.evaluate(() => window.dispatchEvent(new Event('happypdf:output-ready')));
     await page.locator('#recent-read-probe').getByText('newest.pdf', { exact: true }).waitFor();
     await page.evaluate(async () => {
       window.__releaseFirstRead([]);

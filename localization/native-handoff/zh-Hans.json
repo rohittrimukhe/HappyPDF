@@ -60,7 +60,7 @@
   "android.pdf_reader_signature_timestamp_unverified": "存在但未在离线状态下验证",
   "android.pdf_reader_signature_sha1_warning": "警告：此签名使用旧版 SHA-1。",
   "android.pdf_reader_signature_offline_note": "信任判定使用此设备的证书存储。未检查吊销情况与在线证书状态。PDF 签名日期不被视为受信任的时间戳。",
-  "ios.NSCameraUsageDescription": "仅当你在 PDF Chef 中选择“从相机扫描”向 PDF 添加页面时，应用才会使用相机。",
+  "ios.NSCameraUsageDescription": "仅当你在 Happy PDF 中选择“从相机扫描”向 PDF 添加页面时，应用才会使用相机。",
   "ios.ce47f2d3b8": "数字签名",
   "ios.b55dcc62d4": "签名检查完成",
   "ios.fd19818dfb": "正在检查数字签名",

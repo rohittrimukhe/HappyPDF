@@ -16,7 +16,7 @@
 - The mark is Android's 50px at the reader's default text size and shrinks as
   that text grows, `clamp(32px, 50px / --text-scale, 50px)`. It is fixed artwork
   beside a name that scales: held at 50px it took roughly a third of a 320px line
-  away from the product's own name at 200% text, and broke "PDF Chef" across two
+  away from the product's own name at 200% text, and broke "Happy PDF" across two
   lines on a 393px screen.
 - Privacy is a line, not a container: a 1.375rem success-tinted chip carrying a
   0.875rem shield, then "Processed on this device." and "Nothing is uploaded." on

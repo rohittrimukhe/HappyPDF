@@ -9,10 +9,10 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
 
 test('the Android shell and the page agree on the recovery marker, and only that marker counts', () => {
-  const policy = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/security/PdfChefWebViewPolicy.java');
+  const policy = read('android/app/src/main/java/com/rohittrimukhe/happypdf/security/HappyPdfWebViewPolicy.java');
   assert.match(policy, new RegExp(`RENDERER_RECOVERY_FRAGMENT = "${RENDERER_RECOVERY_HASH.slice(1)}"`));
-  const activity = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/MainActivity.java');
-  assert.match(activity, /PdfChefWebViewPolicy\.rendererRecoveryUrl\(recoveryUrl\)/);
+  const activity = read('android/app/src/main/java/com/rohittrimukhe/happypdf/MainActivity.java');
+  assert.match(activity, /HappyPdfWebViewPolicy\.rendererRecoveryUrl\(recoveryUrl\)/);
   // The route is kept only for the rebuild that reads it: giving up after a second death must not
   // leave it for the next launch to reopen.
   assert.match(activity, /post\(\(\) -> \{[^}]*\{\s*PENDING_RENDERER_RECOVERY_URL\.set\(recoveryUrl\);\s*\}\s*recreate\(\);/);

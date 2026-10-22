@@ -133,7 +133,7 @@ class MigrationBridge implements IOSDocumentBridge {
   async shareDocument() {}
   async signalHaptic() {}
   async getApplicationMetadata(): Promise<ApplicationMetadata> {
-    return { name: 'PDF Chef', version: '1', build: '1' };
+    return { name: 'Happy PDF', version: '1', build: '1' };
   }
 }
 
@@ -164,7 +164,7 @@ test('migration retains a marked copy, commits Recent, restores its name, and ne
 
   assert.equal(state.bridge.retainedBytes.length, 1);
   assert.deepEqual([...state.bridge.retainedBytes[0]], [1, 2, 3]);
-  assert.match(state.bridge.retainedNames[0] ?? '', /^\.pdfchef-legacy-[0-9a-f]{64}\.pending$/);
+  assert.match(state.bridge.retainedNames[0] ?? '', /^\.happypdf-legacy-[0-9a-f]{64}\.pending$/);
   assert.match(state.bridge.renamed[0].name, /^compressed\.pdf$/);
   assert.equal(state.journal.entries.get(state.output.id)?.status, 'complete');
   assert.deepEqual(state.recent.entries.get(state.output.id), {

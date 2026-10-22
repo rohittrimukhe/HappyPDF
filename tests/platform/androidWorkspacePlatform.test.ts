@@ -439,7 +439,7 @@ test('T907: accepted metadata and storage clients map to the existing Settings s
       metadata: {
         async getMetadata() {
           calls.push('metadata');
-          return { name: 'PDF Chef', version: '2.2.4', build: '21' };
+          return { name: 'Happy PDF', version: '2.2.4', build: '21' };
         },
       },
       storage: {
@@ -452,7 +452,7 @@ test('T907: accepted metadata and storage clients map to the existing Settings s
   );
 
   assert.deepEqual(await platform.applicationMetadata!.getApplicationMetadata(), {
-    name: 'PDF Chef', version: '2.2.4', build: '21',
+    name: 'Happy PDF', version: '2.2.4', build: '21',
   });
   assert.deepEqual(await platform.storageInformation!.getStorageInformation(), {
     retainedBytes: 45, availableBytes: 100, capacityBytes: 200, memoryBytes: 3_900_000_000,
@@ -496,7 +496,7 @@ test('T907: each unavailable native fact stays unadvertised independently', () =
     new AndroidDocumentsClient(native()),
     false,
     {
-      metadata: { getMetadata: async () => ({ name: 'PDF Chef', version: '1.0', build: '1' }) },
+      metadata: { getMetadata: async () => ({ name: 'Happy PDF', version: '1.0', build: '1' }) },
       storage: null,
     },
   );
@@ -932,7 +932,7 @@ const withSettings = async (settings: object, run: (announced: () => OutputReady
 // "result.pdf". The result now carries the stored name, and the Recent row takes it too.
 test('Android automatic download reports the stored name and Recent uses it', async () => {
   const { plugin, calls, platform } = outputHarness();
-  const exportRef = `pdfchef-${'E'.repeat(22)}`;
+  const exportRef = `happypdf-${'E'.repeat(22)}`;
   plugin.exportItem = async () => {
     calls.push('export'); return { status: 'completed', exportRef, savedName: 'result (1).pdf' };
   };

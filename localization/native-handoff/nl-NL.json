@@ -60,7 +60,7 @@
   "android.pdf_reader_signature_timestamp_unverified": "Aanwezig, maar offline niet gevalideerd",
   "android.pdf_reader_signature_sha1_warning": "Waarschuwing: deze handtekening gebruikt verouderde SHA-1.",
   "android.pdf_reader_signature_offline_note": "Vertrouwen gebruikt het certificaatarchief van dit apparaat. Intrekking en online certificaatstatus worden niet gecontroleerd. Een PDF-ondertekeningsdatum wordt niet beschouwd als een vertrouwde tijdstempel.",
-  "ios.NSCameraUsageDescription": "PDF Chef gebruikt de camera alleen wanneer je kiest voor Scannen met camera om pagina's aan een PDF toe te voegen.",
+  "ios.NSCameraUsageDescription": "Happy PDF gebruikt de camera alleen wanneer je kiest voor Scannen met camera om pagina's aan een PDF toe te voegen.",
   "ios.ce47f2d3b8": "Digitale handtekeningen",
   "ios.b55dcc62d4": "Handtekeningcontrole voltooid",
   "ios.fd19818dfb": "Digitale handtekeningen controleren",

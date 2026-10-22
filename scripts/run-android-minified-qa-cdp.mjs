@@ -5,12 +5,12 @@ import { resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
 const [mode, ref = ''] = process.argv.slice(2);
-const endpoint = process.env.PDF_CHEF_CDP_ENDPOINT ?? 'http://127.0.0.1:9223';
+const endpoint = process.env.HAPPY_PDF_CDP_ENDPOINT ?? 'http://127.0.0.1:9223';
 
 const targets = await (await fetch(`${endpoint}/json`)).json();
 const target = targets.find(value => value.type === 'page'
   && typeof value.url === 'string' && value.url.startsWith('https://localhost/'));
-if (!target?.webSocketDebuggerUrl) throw new Error('Packaged PDF Chef WebView target unavailable.');
+if (!target?.webSocketDebuggerUrl) throw new Error('Packaged Happy PDF WebView target unavailable.');
 
 const socket = new WebSocket(target.webSocketDebuggerUrl);
 await new Promise((resolveOpen, rejectOpen) => {

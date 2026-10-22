@@ -4,8 +4,8 @@ import { PDFDocument, PDFName, PDFNumber, degrees } from 'pdf-lib';
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
 import { chromium } from 'playwright';
 
-const output = process.env.PDF_CHEF_GEOMETRY_OUTPUT || 'output/editor-overlay-layout';
-const baseUrl = process.env.PDF_CHEF_URL || 'http://127.0.0.1:4195';
+const output = process.env.HAPPY_PDF_GEOMETRY_OUTPUT || 'output/editor-overlay-layout';
+const baseUrl = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:4195';
 await mkdir(output, { recursive: true });
 const source = await PDFDocument.create(); source.addPage([612, 792]);
 const sourceBytes = await source.save();
@@ -17,13 +17,13 @@ async function parse(bytes) {
   return { task, document: await task.promise };
 }
 try {
-  if (process.env.PDF_CHEF_GEOMETRY_CASE !== 'unsupported') {
+  if (process.env.HAPPY_PDF_GEOMETRY_CASE !== 'unsupported') {
   const context = await browser.newContext({ viewport: { width: 1280, height: 1000 }, serviceWorkers: 'block' });
-  await context.addInitScript(() => localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({ autoDownload: false, keepLocalHistory: false, onboardingComplete: true, confirmLargeJobs: false })));
+  await context.addInitScript(() => localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({ autoDownload: false, keepLocalHistory: false, onboardingComplete: true, confirmLargeJobs: false })));
   const page = await context.newPage();
   const captured = [];
   await page.exposeFunction('__captureLayoutOutput', bytes => captured.push(bytes));
-  await page.addInitScript(() => window.addEventListener('pdfchef:output-ready', async event => window.__captureLayoutOutput([...new Uint8Array(await event.detail.blob.arrayBuffer())])));
+  await page.addInitScript(() => window.addEventListener('happypdf:output-ready', async event => window.__captureLayoutOutput([...new Uint8Array(await event.detail.blob.arrayBuffer())])));
   await page.goto(`${baseUrl}/edit`);
   await page.locator('input[type=file][accept=".pdf"]').setInputFiles({ name: 'blank.pdf', mimeType: 'application/pdf', buffer: Buffer.from(sourceBytes) });
   await page.locator('[data-pdf-page="0"] canvas').waitFor();
@@ -135,7 +135,7 @@ try {
   await context.close();
 
   const mobile = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, serviceWorkers: 'block' });
-  await mobile.addInitScript(() => localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({ autoDownload: false, keepLocalHistory: false, onboardingComplete: true, confirmLargeJobs: false })));
+  await mobile.addInitScript(() => localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({ autoDownload: false, keepLocalHistory: false, onboardingComplete: true, confirmLargeJobs: false })));
   const phone = await mobile.newPage();
   await phone.goto(`${baseUrl}/edit`);
   await phone.locator('input[type=file][accept=".pdf"]').setInputFiles({ name: 'large-units.pdf', mimeType: 'application/pdf', buffer: Buffer.from(fixtureBytes) });
@@ -156,11 +156,11 @@ try {
   }
 
   const fallbackContext = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, serviceWorkers: 'block' });
-  await fallbackContext.addInitScript(() => localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({ autoDownload: false, keepLocalHistory: false, onboardingComplete: true, confirmLargeJobs: false })));
+  await fallbackContext.addInitScript(() => localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({ autoDownload: false, keepLocalHistory: false, onboardingComplete: true, confirmLargeJobs: false })));
   const fallbackPage = await fallbackContext.newPage();
   let fallbackOutputs = 0;
   await fallbackPage.exposeFunction('__countFallbackOutput', () => { fallbackOutputs++; });
-  await fallbackPage.addInitScript(() => window.addEventListener('pdfchef:output-ready', () => window.__countFallbackOutput()));
+  await fallbackPage.addInitScript(() => window.addEventListener('happypdf:output-ready', () => window.__countFallbackOutput()));
   await fallbackPage.goto(`${baseUrl}/edit`);
   await fallbackPage.locator('input[type=file][accept=".pdf"]').setInputFiles({ name: 'fallback.pdf', mimeType: 'application/pdf', buffer: Buffer.from(sourceBytes) });
   await fallbackPage.locator('[data-pdf-page="0"] canvas').waitFor();

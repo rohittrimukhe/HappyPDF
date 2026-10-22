@@ -13,8 +13,8 @@ export interface LocalStringStorage {
   removeItem(key: string): void;
 }
 
-export const WORKSPACE_SETTINGS_KEY = 'pdf-chef:workspace-settings:v1';
-export const WORKSPACE_RECENT_KEY = 'pdf-chef:recent:v1';
+export const WORKSPACE_SETTINGS_KEY = 'happy-pdf:workspace-settings:v1';
+export const WORKSPACE_RECENT_KEY = 'happy-pdf:recent:v1';
 
 const storageOrThrow = (): LocalStringStorage => {
   if (typeof localStorage === 'undefined') {

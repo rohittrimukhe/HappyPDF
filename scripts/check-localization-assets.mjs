@@ -32,7 +32,7 @@ for (const locale of locales) {
       const limit = limits.limits[key] ?? (key.includes('.screenshot.') ? limits.projectCaptionLimit : undefined);
       if (limit) assert(count <= limit, `${id}:${key} ${count}/${limit} characters`);
       if (key.endsWith('.name') || key === 'apple.name') assert(count >= 2, key);
-      if (key.endsWith('.name') && !key.includes('.monthly.') && !key.includes('.lifetime.')) assert.equal(text, 'PDF Chef', 'Brand is never translated');
+      if (key.endsWith('.name') && !key.includes('.monthly.') && !key.includes('.lifetime.')) assert.equal(text, 'Happy PDF', 'Brand is never translated');
     }
     assert([...fields['apple.keywords']].length <= limits.appleKeywords.characters);
     assert(Buffer.byteLength(fields['apple.keywords'], 'utf8') <= limits.appleKeywords.utf8Bytes, `${id}: Apple keyword bytes`);

@@ -34,7 +34,7 @@ test('offline cache identity covers each unique sorted URL and its exact bytes',
   ];
   const expectedVersion = cacheVersion(identity);
   const worker = readFileSync(resolve(dist, 'sw.js'), 'utf8');
-  assert.match(worker, new RegExp(`const CACHE_NAME = 'pdf-chef-shell-${expectedVersion}'`));
+  assert.match(worker, new RegExp(`const CACHE_NAME = 'happy-pdf-shell-${expectedVersion}'`));
   const manifest = JSON.parse(worker.match(/const PRECACHE_ASSETS = (\[[^;]*\]);/)?.[1] ?? 'null');
   assert.deepEqual(manifest, urls);
   for (const url of DEPLOYMENT_CONTROL_URLS) assert.equal(manifest.includes(url), false);

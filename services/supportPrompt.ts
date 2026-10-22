@@ -3,8 +3,8 @@ import type { AndroidSupportState } from './platform/android/androidSupport.ts';
 /** The support prompt waits for this many finished jobs after install or after the last prompt. */
 export const SUPPORT_PROMPT_AFTER_JOBS = 10;
 
-export const SUPPORT_JOBS_KEY = 'pdfchef.support.finished-jobs.v1';
-export const SUPPORT_PROMPTED_BUILD_KEY = 'pdfchef.support.prompted-build.v1';
+export const SUPPORT_JOBS_KEY = 'happypdf.support.finished-jobs.v1';
+export const SUPPORT_PROMPTED_BUILD_KEY = 'happypdf.support.prompted-build.v1';
 
 /** Support is offered only when Google Play has a price to show and the person has not supported yet. */
 export const isSupportOffered = (state: AndroidSupportState | null): state is AndroidSupportState =>

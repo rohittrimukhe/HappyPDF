@@ -11,13 +11,13 @@ const assert = (condition, message) => {
 };
 const count = (source, pattern) => [...source.matchAll(pattern)].length;
 
-const pluginPath = 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/AndroidAppMetadataPlugin.java';
-const pluginTestPath = 'android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/AndroidAppMetadataPluginContractTest.java';
+const pluginPath = 'android/app/src/main/java/com/rohittrimukhe/happypdf/AndroidAppMetadataPlugin.java';
+const pluginTestPath = 'android/app/src/test/java/com/rohittrimukhe/happypdf/AndroidAppMetadataPluginContractTest.java';
 const clientPath = 'services/platform/android/androidAppMetadata.ts';
 const clientTestPath = 'tests/platform/androidAppMetadata.test.ts';
 const plugin = read(pluginPath);
 const client = read(clientPath);
-const mainActivity = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/MainActivity.java');
+const mainActivity = read('android/app/src/main/java/com/rohittrimukhe/happypdf/MainActivity.java');
 
 assert(/@CapacitorPlugin\s*\(\s*name\s*=\s*"AndroidAppMetadata"\s*\)/.test(plugin), 'plugin name drift');
 assert(count(plugin, /@PluginMethod\b/g) === 1, 'plugin must expose exactly one method');

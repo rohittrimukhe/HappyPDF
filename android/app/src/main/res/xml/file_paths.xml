@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
     <cache-path
-        name="pdfchef_verified_copies"
-        path="pdfchef_verified_copies/" />
+        name="happypdf_verified_copies"
+        path="happypdf_verified_copies/" />
     <files-path
-        name="pdfchef_share_staging"
-        path="pdfchef_documents/share/" />
+        name="happypdf_share_staging"
+        path="happypdf_documents/share/" />
     <!-- Where the WebView's camera capture parks a photo until Make PDF has read it. -->
     <external-files-path
-        name="pdfchef_captures"
+        name="happypdf_captures"
         path="Pictures/" />
 </paths>

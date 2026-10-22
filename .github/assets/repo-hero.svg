@@ -1,6 +1,6 @@
 <svg width="1200" height="420" viewBox="0 0 1200 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">PDF Chef repository hero</title>
-  <desc id="desc">Open-source privacy-first PDF tools that process files locally in the browser with no server uploads.</desc>
+  <title id="title">Happy PDF repository hero</title>
+  <desc id="desc">Free, privacy-first PDF tools that process files locally in the browser with no server uploads.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="420" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#fff7ed"/>
@@ -30,9 +30,9 @@
     <rect x="158" y="82" width="884" height="250" rx="28" fill="#ffffff" fill-opacity="0.92"/>
     <rect x="158.5" y="82.5" width="883" height="249" rx="27.5" stroke="#e2e8f0"/>
     <image href="logo.svg" x="180" y="104" width="140" height="140" preserveAspectRatio="xMidYMid meet"/>
-    <text x="334" y="158" fill="#0f172a" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="54" font-weight="800" letter-spacing="-1">PDF Chef</text>
+    <text x="334" y="158" fill="#0f172a" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="54" font-weight="800" letter-spacing="-1">Happy PDF</text>
     <text x="336" y="198" fill="#334155" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="24" font-weight="600">Private PDF tools. On your device.</text>
-    <text x="336" y="239" fill="#475569" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="20">Open source, browser-based, and built for sensitive documents.</text>
+    <text x="336" y="239" fill="#475569" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="20">Free, browser-based, and built for sensitive documents.</text>
     <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="16" font-weight="700">
       <rect x="336" y="266" width="124" height="34" rx="17" fill="#dcfce7"/>
       <text x="358" y="288" fill="#166534">No uploads</text>

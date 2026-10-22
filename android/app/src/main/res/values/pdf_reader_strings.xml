@@ -58,7 +58,7 @@
     <string name="pdf_reader_signature_unsupported">Unsupported signature format</string>
     <string name="pdf_reader_signature_indeterminate">Could not determine</string>
     <string name="pdf_reader_signature_trusted">Trusted by this device</string>
-    <string name="pdf_reader_signature_trusted_cca">Trusted: chains to India’s CCA root (CCA India 2022), bundled with PDF Chef</string>
+    <string name="pdf_reader_signature_trusted_cca">Trusted: chains to India’s CCA root (CCA India 2022), bundled with Happy PDF</string>
     <string name="pdf_reader_signature_untrusted">Not trusted by this device</string>
     <string name="pdf_reader_signature_certificate_valid">Valid now</string>
     <string name="pdf_reader_signature_certificate_expired">Expired</string>
@@ -72,7 +72,7 @@
     <string name="pdf_reader_signature_timestamp_absent">Not present</string>
     <string name="pdf_reader_signature_timestamp_unverified">Present but not validated offline</string>
     <string name="pdf_reader_signature_sha1_warning">Warning: this signature uses legacy SHA-1.</string>
-    <string name="pdf_reader_signature_offline_note">Trust uses this device’s certificate store plus PDF Chef’s bundled CCA India 2022 root. Revocation and online certificate status are not checked. A PDF signing date is not treated as a trusted timestamp.</string>
+    <string name="pdf_reader_signature_offline_note">Trust uses this device’s certificate store plus Happy PDF’s bundled CCA India 2022 root. Revocation and online certificate status are not checked. A PDF signing date is not treated as a trusted timestamp.</string>
     <string name="pdf_reader_verified_copy_action">Print or share verified copy</string>
     <string name="pdf_reader_verified_copy_print">Print</string>
     <string name="pdf_reader_verified_copy_share">Share</string>

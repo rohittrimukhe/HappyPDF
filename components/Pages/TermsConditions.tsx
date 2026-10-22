@@ -91,10 +91,10 @@ export const TermsConditions: React.FC = () => {
 
           <Section title={t("terms-conditions.12.contact.5adadc")}>
             <p>{t("terms-conditions.questions.about.these.terms.and.conditions.can.c056ec")}{' '}
-              <a className="font-medium text-[var(--accent-text)] underline underline-offset-2 hover:text-[var(--accent-hover)]" href="mailto:yt.dhananjay@gmail.com">{t("terms-conditions.yt.dhananjay.gmail.com.b7a748")}</a>
+              <a className="font-medium text-[var(--accent-text)] underline underline-offset-2 hover:text-[var(--accent-hover)]" href="mailto:support@happypdf.app">{t("terms-conditions.support.happypdf.app.b7a748")}</a>
               .
             </p>
-            <p>{t("terms-conditions.developer.dhananjay.tech.343a7a")}<br />{t("terms-conditions.website.https.pdfchef.dhananjaytech.app.a7a8b0")}</p>
+            <p>{t("terms-conditions.developer.rohit.trimukhe.343a7a")}<br />{t("terms-conditions.website.https.happypdf.app.a7a8b0")}</p>
           </Section>
 
           <div className="border-t border-slate-200 pt-8 dark:border-slate-800">

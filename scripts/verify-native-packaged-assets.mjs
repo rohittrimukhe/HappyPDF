@@ -115,7 +115,7 @@ const verifyAll = async () => {
 };
 
 const selfTest = async () => {
-  const temporaryRoot = await mkdtemp(join(tmpdir(), 'pdf-chef-native-assets-'));
+  const temporaryRoot = await mkdtemp(join(tmpdir(), 'happy-pdf-native-assets-'));
   const candidate = resolve(temporaryRoot, 'public');
   try {
     await mkdir(candidate, { recursive: true });

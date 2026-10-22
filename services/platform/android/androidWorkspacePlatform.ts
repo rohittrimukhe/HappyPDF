@@ -501,8 +501,8 @@ export const createAndroidWorkspacePlatform = (
       // Session and native records both retain metadata when only their payload
       // bytes are cleared, so the two destructive actions are now independent.
       separateClearActions: true,
-      // AndroidDocumentExporter writes to MediaStore Downloads under RELATIVE_PATH Download/PDF Chef.
-      exportFolder: 'Download/PDF Chef',
+      // AndroidDocumentExporter writes to MediaStore Downloads under RELATIVE_PATH Download/Happy PDF.
+      exportFolder: 'Download/Happy PDF',
       // OwnedDocumentWriter.MAXIMUM_FILE_BYTES: larger results cannot be kept or saved.
       maximumOutputBytes: ANDROID_DOCUMENT_MAXIMUM_FILE_BYTES,
     },

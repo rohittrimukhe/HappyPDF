@@ -1,15 +1,20 @@
-# Contributing to PDF Chef
+# Contributing to Happy PDF
 
-Thanks for helping improve PDF Chef. Keep contributions focused, privacy-preserving, and easy to review.
+Happy PDF is proprietary software (see [LICENSE](./LICENSE)) and does not accept outside code contributions at this time.
 
-## Development setup
+You can still help:
+
+- Report bugs and suggest ideas through GitHub issues.
+- Report security problems privately as described in [SECURITY.md](./SECURITY.md).
+
+## Development setup (maintainers)
 
 ```bash
 npm install
 npm run dev
 ```
 
-Before opening a pull request, run:
+Before pushing, run:
 
 ```bash
 npm run lint
@@ -17,7 +22,7 @@ npm run test:catalog
 npm run build
 ```
 
-## Contribution principles
+## Principles
 
 - Keep PDF processing in the browser unless there is a clear, documented reason not to.
 - Do not add server uploads for user documents.
@@ -36,12 +41,3 @@ npm run build
 5. Add metadata in `components/SEO/RouteSEO.tsx`.
 6. Add the route to `public/sitemap.xml`.
 7. Run `npm run test:catalog`.
-
-## Pull request checklist
-
-- [ ] The change preserves the no-upload privacy model.
-- [ ] TypeScript passes.
-- [ ] Production build passes.
-- [ ] New public routes have SEO and sitemap entries.
-- [ ] UI changes work on mobile and desktop.
-- [ ] The README or docs are updated if behavior changes.

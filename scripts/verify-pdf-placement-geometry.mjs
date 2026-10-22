@@ -5,7 +5,7 @@ import { chromium } from 'playwright';
 import { PDFDocument, degrees } from 'pdf-lib';
 
 // Run against the source Vite server so the real service exports can be exercised.
-const baseUrl = process.env.PDF_CHEF_URL || 'http://127.0.0.1:3000';
+const baseUrl = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:3000';
 const outputDir = path.resolve('output/pdf-geometry-verification');
 await fs.mkdir(outputDir, { recursive: true });
 const fixtures = [];
@@ -24,7 +24,7 @@ const browser = await chromium.launch({ headless: true });
 try {
   const page = await browser.newPage();
   await page.addInitScript(() => {
-    localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({ onboardingComplete: true, autoDownload: false, keepLocalHistory: false, confirmLargeJobs: false, largeFileWarningMb: 80 }));
+    localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({ onboardingComplete: true, autoDownload: false, keepLocalHistory: false, confirmLargeJobs: false, largeFileWarningMb: 80 }));
   });
   // Other audit agents may edit unrelated files; HMR must not reload an in-flight check.
   await page.routeWebSocket("**", (socket) => socket.close());

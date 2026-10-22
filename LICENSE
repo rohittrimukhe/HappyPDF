@@ -1,21 +1,60 @@
-MIT License
+Happy PDF Proprietary License
 
-Copyright (c) 2026 Dhananjay Bhosale
+Copyright (c) 2026 Rohit Trimukhe. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This repository contains two kinds of material:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+  (a) "Happy PDF Material": the Happy PDF name, logo and branding, and every
+      modification, addition and new file made by or for Rohit Trimukhe; and
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+  (b) "PDF Chef Code": source code from PDF Chef by Dhananjay Bhosale
+      (https://github.com/DhananjayBhosale/PDFChef), which is licensed under the
+      MIT License. A copy of that license is in LICENSES/PDF-CHEF-MIT.txt.
+
+1. Happy PDF Material
+
+   You may view the Happy PDF Material and use the official Happy PDF app or
+   website for your own documents.
+
+   Without prior written permission from Rohit Trimukhe, you may NOT:
+
+     - copy, clone, download for redistribution, reproduce or republish the
+       Happy PDF Material, in whole or in part;
+     - modify it or create derivative works from it;
+     - sell, sublicense, rent, lease or otherwise commercialise it, or use it in
+       any product or service that is sold or offered for a fee; or
+     - publish, host or distribute it, or any app or website built from it.
+
+   Viewing and forking this repository through GitHub's own features is
+   permitted only to the extent that GitHub's Terms of Service require it for
+   public repositories. That permission does not grant any further right to
+   use, copy, modify, distribute or sell the Happy PDF Material.
+
+2. PDF Chef Code
+
+   The PDF Chef Code remains licensed under the MIT License. Nothing in this
+   license limits the rights that the MIT License grants for the PDF Chef Code.
+
+3. Name and logo
+
+   "Happy PDF" and the Happy PDF logo are not licensed under this or any other
+   license. You may not use them, or anything confusingly similar, to identify
+   your own product or service.
+
+4. Third-party components
+
+   Third-party libraries and assets keep their own licenses. See
+   THIRD_PARTY_NOTICES.md.
+
+5. No warranty
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   SOFTWARE.
+
+For permission requests, contact Rohit Trimukhe through
+https://github.com/rohittrimukhe.

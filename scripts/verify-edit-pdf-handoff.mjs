@@ -10,8 +10,8 @@ const fixture = { name: 'handoff.pdf', mimeType: 'application/pdf', buffer: Buff
 const browser = await chromium.launch({ headless: true });
 try {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
-  await page.addInitScript(() => localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({ onboardingComplete: true, keepLocalHistory: false, autoDownload: false })));
-  await page.goto(`${process.env.PDF_CHEF_URL || 'http://127.0.0.1:4173'}/view`);
+  await page.addInitScript(() => localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({ onboardingComplete: true, keepLocalHistory: false, autoDownload: false })));
+  await page.goto(`${process.env.HAPPY_PDF_URL || 'http://127.0.0.1:4173'}/view`);
   await page.locator('input[type=file]').setInputFiles(fixture);
   await page.getByRole('button', { name: 'Tools', exact: true }).click();
   await page.getByRole('menuitem', { name: 'Edit PDF', exact: true }).click();

@@ -1,213 +1,213 @@
-const ORIGIN = "https://pdfchef.dhananjaytech.app";
+const ORIGIN = "https://happypdf.app";
 const WEB_ANALYTICS_SCRIPT_ORIGIN = "https://static.cloudflareinsights.com";
 const WEB_ANALYTICS_CONNECT_ORIGIN = "https://cloudflareinsights.com";
 
 const defaultMeta = {
-  title: "PDF Chef - Private PDF Tools",
+  title: "Happy PDF - Private PDF Tools",
   description: "Private PDF tools that run in your browser. Merge, split, convert, edit, secure, and optimize PDFs locally.",
 };
 
 const routeMeta = {
   "/": defaultMeta,
   "/view": {
-    title: "View PDF Online | PDF Chef",
-    description: "Open and view PDFs privately in PDF Chef, then send the current file into editing, signing, compression, and other tools.",
+    title: "View PDF Online | Happy PDF",
+    description: "Open and view PDFs privately in Happy PDF, then send the current file into editing, signing, compression, and other tools.",
   },
   "/compress": {
-    title: "Compress PDF - Reduce File Size Online | PDF Chef",
+    title: "Compress PDF - Reduce File Size Online | Happy PDF",
     description: "Reduce PDF size with browser-based compression and readability preview controls. Private and client-side.",
   },
   "/merge": {
-    title: "Merge PDF Files Online - Free & Private | PDF Chef",
+    title: "Merge PDF Files Online - Free & Private | Happy PDF",
     description: "Combine multiple PDFs into one document instantly with local processing. No upload required.",
   },
   "/split": {
-    title: "Split PDF Pages - Extract & Separate Online | PDF Chef",
+    title: "Split PDF Pages - Extract & Separate Online | Happy PDF",
     description: "Split PDFs by selected pages, all pages, or by custom page groups, fully in-browser.",
   },
   "/edit": {
-    title: "Edit PDF - Fill Form Fields and Add Text | PDF Chef",
+    title: "Edit PDF - Fill Form Fields and Add Text | Happy PDF",
     description: "Fill detected PDF form fields or place text overlays on a page, then save the updated document privately on your device.",
   },
   "/pdf-to-jpg": {
-    title: "PDF to JPG Converter - Export Pages to Images | PDF Chef",
+    title: "PDF to JPG Converter - Export Pages to Images | Happy PDF",
     description: "Convert PDF pages to JPG, PNG, or WebP images with live quality and DPI controls.",
   },
   "/pdf-to-word": {
-    title: "PDF to Word - Export PDF Text to DOCX | PDF Chef",
+    title: "PDF to Word - Export PDF Text to DOCX | Happy PDF",
     description: "Convert the searchable text layer of a PDF into a .docx file in your browser. No upload, no account.",
   },
   "/word-to-pdf": {
-    title: "Word to PDF - Convert DOCX Locally | PDF Chef",
+    title: "Word to PDF - Convert DOCX Locally | Happy PDF",
     description: "Convert text from .docx Word files into PDF pages entirely in your browser. No upload or account.",
   },
   "/powerpoint-to-pdf": {
-    title: "PowerPoint to PDF - Convert PPTX Locally | PDF Chef",
+    title: "PowerPoint to PDF - Convert PPTX Locally | Happy PDF",
     description: "Render .pptx slides to PDF at their native aspect ratio with local browser processing.",
   },
   "/make-fillable": {
-    title: "Make PDF Fillable - Form Field Detection | PDF Chef",
+    title: "Make PDF Fillable - Form Field Detection | Happy PDF",
     description: "Suggest, draw, review, and export real fillable PDF fields locally in your browser.",
   },
   "/image-to-pdf": {
-    title: "JPG to PDF Converter - Create PDFs from Images | PDF Chef",
+    title: "JPG to PDF Converter - Create PDFs from Images | Happy PDF",
     description: "Create PDFs from images with drag-and-drop layout controls and local export.",
   },
   "/make-pdf": {
-    title: "Create PDF from Photos - Camera or Gallery | PDF Chef",
+    title: "Create PDF from Photos - Camera or Gallery | Happy PDF",
     description: "Capture or import photos and build a scanned PDF directly in your browser.",
   },
   "/sign": {
-    title: "Sign PDF - Add Signature Image | PDF Chef",
+    title: "Sign PDF - Add Signature Image | Happy PDF",
     description: "Draw or upload your signature, place it on pages, and export a signed PDF locally.",
   },
   "/verify-signatures": {
     noindex: true,
-    title: "Verify PDF Signatures | PDF Chef",
+    title: "Verify PDF Signatures | Happy PDF",
     description: "Check PDF digital signatures, signer trust and certificate details offline on your device.",
   },
   "/delete-pages": {
-    title: "Delete PDF Pages - Remove Unwanted Pages | PDF Chef",
+    title: "Delete PDF Pages - Remove Unwanted Pages | Happy PDF",
     description: "Select and remove PDF pages visually with thumbnail previews and instant export.",
   },
   "/reorder": {
-    title: "Reorder PDF Pages - Drag and Drop Sort | PDF Chef",
+    title: "Reorder PDF Pages - Drag and Drop Sort | Happy PDF",
     description: "Rearrange PDF pages with drag-and-drop ordering and page-level previews.",
   },
   "/rotate": {
-    title: "Rotate PDF Pages - Batch Page Rotation | PDF Chef",
+    title: "Rotate PDF Pages - Batch Page Rotation | Happy PDF",
     description: "Rotate selected or all PDF pages by 90-degree increments and download the updated file.",
   },
   "/protect": {
-    title: "Protect PDF with Password | PDF Chef",
+    title: "Protect PDF with Password | Happy PDF",
     description: "Encrypt PDF documents with a password locally and keep your files private.",
   },
   "/unlock": {
-    title: "Unlock PDF - Remove Password | PDF Chef",
+    title: "Unlock PDF - Remove Password | Happy PDF",
     description: "Decrypt password-protected PDFs locally after entering the correct password.",
   },
   "/extract": {
-    title: "Extract PDF Pages - Export Selected Pages | PDF Chef",
+    title: "Extract PDF Pages - Export Selected Pages | Happy PDF",
     description: "Choose exact pages and export them into a new PDF file with local-only processing.",
   },
   "/metadata": {
-    title: "PDF Metadata Editor - Title, Author, Keywords | PDF Chef",
+    title: "PDF Metadata Editor - Title, Author, Keywords | Happy PDF",
     description: "View and update PDF metadata fields like title, author, subject, and keywords.",
   },
   "/flatten": {
-    title: "Flatten PDF Forms - Lock Form Fields | PDF Chef",
+    title: "Flatten PDF Forms - Lock Form Fields | Happy PDF",
     description: "Flatten PDF form fields into page content.",
   },
   "/compare": {
-    title: "Compare PDF Files - Multi-page Comparison Report | PDF Chef",
+    title: "Compare PDF Files - Multi-page Comparison Report | Happy PDF",
     description: "Compare two PDFs page by page and export a detailed text comparison report.",
   },
   "/ocr": {
-    title: "OCR PDF - Extract Text Layer or Run OCR | PDF Chef",
+    title: "OCR PDF - Extract Text Layer or Run OCR | Happy PDF",
     description: "Extract text from PDF text layers or run OCR on image-based pages directly in-browser.",
   },
   "/watermark": {
-    title: "Watermark PDF - Add Custom Text Watermark | PDF Chef",
+    title: "Watermark PDF - Add Custom Text Watermark | Happy PDF",
     description: "Apply text watermarks with custom size, opacity, color, and rotation.",
   },
   "/page-numbers": {
-    title: "Add Page Numbers to PDF | PDF Chef",
+    title: "Add Page Numbers to PDF | Happy PDF",
     description: "Add custom page numbering with flexible format, position, and page range controls.",
   },
   "/repair": {
-    title: "Repair PDF - Re-save for Compatibility | PDF Chef",
+    title: "Repair PDF - Re-save for Compatibility | Happy PDF",
     description: "Rebuild and re-save PDFs to improve compatibility with strict PDF readers.",
   },
   "/crop": {
-    title: "Crop PDF - Trim Page Margins | PDF Chef",
+    title: "Crop PDF - Trim Page Margins | Happy PDF",
     description: "Crop PDF page margins privately in your browser by applying a new crop box.",
   },
   "/header-footer": {
-    title: "Add Header and Footer to PDF | PDF Chef",
+    title: "Add Header and Footer to PDF | Happy PDF",
     description: "Add repeated header and footer text with page numbering tokens directly in your browser.",
   },
   "/remove-metadata": {
-    title: "Remove PDF Metadata | PDF Chef",
+    title: "Remove PDF Metadata | Happy PDF",
     description: "Strip title, author, dates, viewer preferences, and hidden metadata from PDFs locally.",
   },
   "/remove-annotations": {
-    title: "Remove PDF Annotations | PDF Chef",
+    title: "Remove PDF Annotations | Happy PDF",
     description: "Remove comments, annotations, markup, and page-level actions from PDF files without uploading.",
   },
   "/remove-blank-pages": {
-    title: "Remove Blank Pages from PDF | PDF Chef",
+    title: "Remove Blank Pages from PDF | Happy PDF",
     description: "Detect mostly empty PDF pages and export a cleaned copy with local processing.",
   },
   "/extract-images": {
-    title: "Extract Images from PDF | PDF Chef",
+    title: "Extract Images from PDF | Happy PDF",
     description: "Find embedded images in PDF files and download them as PNG files in a ZIP archive.",
   },
   "/sanitize": {
-    title: "Sanitize PDF - Clean Hidden Data | PDF Chef",
+    title: "Sanitize PDF - Clean Hidden Data | Happy PDF",
     description: "Clean metadata and annotations from PDFs in one privacy-focused browser pass.",
   },
   "/batch": {
-    title: "Batch PDF Processing - Private Bulk Tools | PDF Chef",
+    title: "Batch PDF Processing - Private Bulk Tools | Happy PDF",
     description: "Run compression, conversion, security, metadata, page, and repair operations across several PDFs locally.",
   },
   "/invoice": {
-    title: "Free Invoice Maker - Create an Invoice PDF | PDF Chef",
+    title: "Free Invoice Maker - Create an Invoice PDF | Happy PDF",
     description: "Make a professional invoice PDF in your browser. Add your logo, color and tax, and nothing is uploaded.",
   },
   "/receipt": {
-    title: "Free Receipt Maker - Create a Receipt PDF | PDF Chef",
+    title: "Free Receipt Maker - Create a Receipt PDF | Happy PDF",
     description: "Make a receipt PDF that proves a payment was made. Add your logo and color, entirely on your device.",
   },
   "/quote": {
-    title: "Free Quote Maker - Create a Quote or Estimate PDF | PDF Chef",
+    title: "Free Quote Maker - Create a Quote or Estimate PDF | Happy PDF",
     description: "Make a quote or estimate PDF for a job. Add your logo, color and tax, with nothing uploaded anywhere.",
   },
   // A personal, device-local list. There is nothing here for a searcher, and
   // /history is the same screen under an older path.
   "/recent": {
     noindex: true,
-    title: "Local Output History | PDF Chef",
-    description: "Re-download and manage PDF Chef outputs stored only in this browser.",
+    title: "Local Output History | Happy PDF",
+    description: "Re-download and manage Happy PDF outputs stored only in this browser.",
   },
   "/history": {
     noindex: true,
     canonical: "/recent",
-    title: "Local Output History | PDF Chef",
-    description: "Re-download and manage PDF Chef outputs stored only in this browser.",
+    title: "Local Output History | Happy PDF",
+    description: "Re-download and manage Happy PDF outputs stored only in this browser.",
   },
   "/settings": {
     noindex: true,
-    title: "Settings | PDF Chef",
-    description: "Control local history, download behavior, and large-file safety preferences for PDF Chef.",
+    title: "Settings | Happy PDF",
+    description: "Control local history, download behavior, and large-file safety preferences for Happy PDF.",
   },
   "/help": {
-    title: "PDF Chef Help - Frequently Asked Questions",
-    description: "Answers about PDF Chef: whether files are uploaded, how compression affects quality, offline use, merging and splitting limits, and where results are kept.",
+    title: "Happy PDF Help - Frequently Asked Questions",
+    description: "Answers about Happy PDF: whether files are uploaded, how compression affects quality, offline use, merging and splitting limits, and where results are kept.",
   },
   "/privacy": {
-    title: "Privacy Policy | PDF Chef",
-    description: "Read the PDF Chef privacy policy for the Android app and web app.",
+    title: "Privacy Policy | Happy PDF",
+    description: "Read the Happy PDF privacy policy for the Android app and web app.",
   },
   "/privacy-policy": {
     canonical: "/privacy",
-    title: "Privacy Policy | PDF Chef",
-    description: "Read the PDF Chef privacy policy.",
+    title: "Privacy Policy | Happy PDF",
+    description: "Read the Happy PDF privacy policy.",
   },
   // Renders the very same PrivacyPolicy component, so it is a duplicate rather
   // than an Android-specific document, and its title said otherwise.
-  "/pdf-chef-privacy": {
+  "/happy-pdf-privacy": {
     canonical: "/privacy",
-    title: "Privacy Policy | PDF Chef",
-    description: "Read the PDF Chef privacy policy covering the web app, Android app and iOS app.",
+    title: "Privacy Policy | Happy PDF",
+    description: "Read the Happy PDF privacy policy covering the web app, Android app and iOS app.",
   },
   "/terms": {
-    title: "Terms and Conditions | PDF Chef",
-    description: "Read the PDF Chef terms and conditions.",
+    title: "Terms and Conditions | Happy PDF",
+    description: "Read the Happy PDF terms and conditions.",
   },
   "/terms-and-conditions": {
     canonical: "/terms",
-    title: "Terms and Conditions | PDF Chef",
-    description: "Read the PDF Chef terms and conditions.",
+    title: "Terms and Conditions | Happy PDF",
+    description: "Read the Happy PDF terms and conditions.",
   },
   // Reached from Settings. A list of dependencies is nothing for a searcher.
   "/licenses": {
@@ -257,7 +257,7 @@ const applyRouteMeta = (html, pathname) => {
   if (!meta) return html;
 
   // A duplicate route points at the URL that should rank; everything else points
-  // at itself. Without this, /privacy, /privacy-policy and /pdf-chef-privacy all
+  // at itself. Without this, /privacy, /privacy-policy and /happy-pdf-privacy all
   // claimed to be the original of the same document.
   const canonicalPath = meta.canonical || normalizedPath;
   const canonicalUrl = `${ORIGIN}${canonicalPath === "/" ? "/" : canonicalPath}`;
@@ -289,7 +289,7 @@ export async function onRequest(context) {
   const url = new URL(context.request.url);
 
   if (url.hostname === "pdftools.dhananjaytech.app") {
-    url.hostname = "pdfchef.dhananjaytech.app";
+    url.hostname = "happypdf.app";
     return Response.redirect(url.toString(), 308);
   }
 

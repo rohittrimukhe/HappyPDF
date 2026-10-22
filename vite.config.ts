@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   // Match the offline-manifest tools and keep verification builds isolated from native packaging.
-  build: { outDir: process.env.PDF_CHEF_DIST_DIR || 'dist' },
+  build: { outDir: process.env.HAPPY_PDF_DIST_DIR || 'dist' },
   server: {
     port: 3000,
     host: '0.0.0.0',

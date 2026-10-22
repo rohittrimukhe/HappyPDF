@@ -5,19 +5,19 @@ import JSZip from 'jszip';
 import { chromium } from 'playwright';
 import { PDFDocument } from 'pdf-lib';
 
-const baseUrl = process.env.PDF_CHEF_URL || 'http://127.0.0.1:3000';
+const baseUrl = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:3000';
 const projectRoot = process.cwd();
 const outputDir = path.join(projectRoot, 'output', 'android-parity-verification');
 const qaPdfPath = path.join(projectRoot, 'qa-sample.pdf');
 const formPdfPath = path.join(projectRoot, 'output', 'form-fixture.pdf');
-const androidPptxPath = process.env.PDF_CHEF_PPTX_FIXTURE
+const androidPptxPath = process.env.HAPPY_PDF_PPTX_FIXTURE
   || '/Users/dhananjaybhosale/AndroidStudioProjects/PDFTools/app/src/androidTest/assets/pptx/representative-16x9.pptx';
 
 const docxFixture = async () => {
   const zip = new JSZip();
   zip.file('[Content_Types].xml', '<?xml version="1.0"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>');
   zip.file('_rels/.rels', '<?xml version="1.0"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>');
-  zip.file('word/document.xml', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body><w:p><w:r><w:t>PDF Chef Word parity verification</w:t></w:r></w:p><w:p><w:r><w:t>Second paragraph with café and résumé.</w:t></w:r></w:p><w:p><w:r><w:t>Page one complete.</w:t><w:br w:type="page"/><w:t>Page two begins here.</w:t></w:r></w:p><w:sectPr/></w:body></w:document>');
+  zip.file('word/document.xml', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body><w:p><w:r><w:t>Happy PDF Word parity verification</w:t></w:r></w:p><w:p><w:r><w:t>Second paragraph with café and résumé.</w:t></w:r></w:p><w:p><w:r><w:t>Page one complete.</w:t><w:br w:type="page"/><w:t>Page two begins here.</w:t></w:r></w:p><w:sectPr/></w:body></w:document>');
   return zip.generateAsync({ type: 'nodebuffer' });
 };
 
@@ -48,7 +48,7 @@ await fs.mkdir(outputDir, { recursive: true });
 const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, acceptDownloads: true });
 await page.addInitScript(() => {
-  localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({
+  localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({
     autoDownload: false,
     keepLocalHistory: true,
     confirmLargeJobs: false,

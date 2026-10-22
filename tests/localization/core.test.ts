@@ -140,14 +140,14 @@ test('language changes preserve preference, switch direction, notify consumers a
     assert.equal(getLocale(), 'ar-SA');
     assert.equal(getLocalePreference(), 'ar-SA');
     assert.deepEqual(root, { lang: 'ar-SA', dir: 'rtl' });
-    assert.equal(saved.get('pdfchef.locale.v1'), 'ar-SA');
+    assert.equal(saved.get('happypdf.locale.v1'), 'ar-SA');
     assert.equal(error.message, diagnostic, 'Processing guards retain their original diagnostic');
     assert.equal(localizeError(error), t(key));
     assert.notEqual(localizeError(error), diagnostic);
     await setTemporaryLocale('en-US');
     assert.equal(root.dir, 'ltr');
     assert.equal(getLocalePreference(), 'ar-SA');
-    assert.equal(saved.get('pdfchef.locale.v1'), 'ar-SA', 'Temporary authoritative-English legal view does not overwrite the choice');
+    assert.equal(saved.get('happypdf.locale.v1'), 'ar-SA', 'Temporary authoritative-English legal view does not overwrite the choice');
     assert.equal(notifications, 2);
     unsubscribe();
     await setLocalePreference('en-GB', false);

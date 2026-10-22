@@ -185,7 +185,7 @@ const describeBlockedParagraphs = (
 };
 
 /** A refusal the editor chose to make, rather than a fault: an answer, not an error. */
-const refusal = (message: string) => Object.assign(new Error(message), { name: 'PdfChefRefusal' });
+const refusal = (message: string) => Object.assign(new Error(message), { name: 'HappyPdfRefusal' });
 
 /** Used only when a run carries no font information at all, which real PDFs rarely do. */
 const FALLBACK_RESOLVED_FONT = {
@@ -2575,7 +2575,7 @@ export const EditPDF: React.FC = () => {
         return;
       }
       const message = error instanceof Error ? error.message : '';
-      const chosen = error instanceof Error && error.name === 'PdfChefRefusal';
+      const chosen = error instanceof Error && error.name === 'HappyPdfRefusal';
       // A refusal we chose to make is an answer, not a fault, so it does not go to the console.
       if (!chosen && message !== PDF_EDIT_PERMISSION_MESSAGE) {
         console.error(error);

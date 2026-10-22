@@ -44,7 +44,7 @@ export const PrivacyPolicy: React.FC = () => {
 
         <div className="space-y-6 px-4 py-6 leading-7 sm:space-y-8 sm:px-8 sm:py-10">
           <Section title={t("privacy-policy.1.who.we.are.78bb62")}>
-            <p>{t("privacy-policy.pdf.chef.is.provided.by.dhananjay.tech.cbfd48")}</p>
+            <p>{t("privacy-policy.pdf.chef.is.provided.by.rohit.trimukhe.cbfd48")}</p>
           </Section>
 
           <Section title={t("privacy-policy.2.information.we.collect.1c9c7f")}>
@@ -108,10 +108,10 @@ export const PrivacyPolicy: React.FC = () => {
 
           <Section title={t("privacy-policy.12.contact.5adadc")}>
             <p>{t("privacy-policy.questions.about.this.privacy.policy.can.be.5978f6")}{' '}
-              <a className="font-medium text-[var(--accent-text)] underline underline-offset-2 hover:text-[var(--accent-hover)]" href="mailto:yt.dhananjay@gmail.com">{t("privacy-policy.yt.dhananjay.gmail.com.b7a748")}</a>
+              <a className="font-medium text-[var(--accent-text)] underline underline-offset-2 hover:text-[var(--accent-hover)]" href="mailto:support@happypdf.app">{t("privacy-policy.support.happypdf.app.b7a748")}</a>
               .
             </p>
-            <p>{t("privacy-policy.developer.dhananjay.tech.343a7a")}<br />{t("privacy-policy.website.https.pdfchef.dhananjaytech.app.a7a8b0")}</p>
+            <p>{t("privacy-policy.developer.rohit.trimukhe.343a7a")}<br />{t("privacy-policy.website.https.happypdf.app.a7a8b0")}</p>
           </Section>
 
           <div className="border-t border-slate-200 pt-8 dark:border-slate-800">

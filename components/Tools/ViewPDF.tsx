@@ -476,8 +476,8 @@ export const ViewPDF: React.FC = () => {
                 aria-label={t("view-pdf.back.to.tools.e42d59")}
                 className="chef-hit-y -ml-1 inline-flex items-center gap-1.5 px-1 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
               >
-                <img src="/pdf-chef-logo-exact.webp" alt="" className="h-5 w-5 object-contain" />
-                <span>PDF Chef</span>
+                <img src="/happy-pdf-logo-exact.webp" alt="" className="h-5 w-5 object-contain" />
+                <span>Happy PDF</span>
               </Link>
               <div className="flex flex-wrap items-center gap-2">
                 <h1 className="chef-filename text-base font-bold text-[var(--text-primary)]">{openedPdf.name}</h1>

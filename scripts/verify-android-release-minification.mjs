@@ -59,10 +59,10 @@ for (const forbidden of ['-dontshrink', '-dontoptimize', '-dontobfuscate', '-ign
 
 const mapping = read('android/app/build/outputs/mapping/release/mapping.txt');
 for (const entryPoint of [
-  'com.dhananjaytech.zenpdf_allpdftoolsinoneplace.MainActivity',
-  'com.dhananjaytech.zenpdf_allpdftoolsinoneplace.reader.PdfReaderActivity',
-  'com.dhananjaytech.zenpdf_allpdftoolsinoneplace.scanner.AndroidDocumentScannerPlugin',
-  'com.dhananjaytech.zenpdf_allpdftoolsinoneplace.documents.AndroidDocumentsPlugin',
+  'com.rohittrimukhe.happypdf.MainActivity',
+  'com.rohittrimukhe.happypdf.reader.PdfReaderActivity',
+  'com.rohittrimukhe.happypdf.scanner.AndroidDocumentScannerPlugin',
+  'com.rohittrimukhe.happypdf.documents.AndroidDocumentsPlugin',
   'com.google.mlkit.common.internal.CommonComponentRegistrar',
 ]) assert(mapping.includes(`${entryPoint} -> ${entryPoint}:`),
   `required reflected/manifest entry point was removed or renamed: ${entryPoint}`);

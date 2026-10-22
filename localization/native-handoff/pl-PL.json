@@ -60,7 +60,7 @@
   "android.pdf_reader_signature_timestamp_unverified": "Obecny, lecz niezweryfikowany w trybie offline",
   "android.pdf_reader_signature_sha1_warning": "Ostrzeżenie: ten podpis używa starszego algorytmu SHA-1.",
   "android.pdf_reader_signature_offline_note": "Zaufanie opiera się na magazynie certyfikatów tego urządzenia. Odwołanie ani stan certyfikatu online nie są sprawdzane. Data podpisania pliku PDF nie jest traktowana jako zaufany znacznik czasu.",
-  "ios.NSCameraUsageDescription": "PDF Chef używa aparatu tylko wtedy, gdy wybierzesz opcję Skanuj z aparatu, aby dodać strony do pliku PDF.",
+  "ios.NSCameraUsageDescription": "Happy PDF używa aparatu tylko wtedy, gdy wybierzesz opcję Skanuj z aparatu, aby dodać strony do pliku PDF.",
   "ios.ce47f2d3b8": "Podpisy cyfrowe",
   "ios.b55dcc62d4": "Sprawdzanie podpisów zakończone",
   "ios.fd19818dfb": "Sprawdzanie podpisów cyfrowych",

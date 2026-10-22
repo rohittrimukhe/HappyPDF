@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
-def releaseStoreFile = providers.gradleProperty('ZENPDF_RELEASE_STORE_FILE')
-        .orElse(providers.environmentVariable('ZENPDF_RELEASE_STORE_FILE'))
-def releaseStorePassword = providers.gradleProperty('ZENPDF_RELEASE_STORE_PASSWORD')
-        .orElse(providers.environmentVariable('ZENPDF_RELEASE_STORE_PASSWORD'))
-def releaseKeyAlias = providers.gradleProperty('ZENPDF_RELEASE_KEY_ALIAS')
-        .orElse(providers.environmentVariable('ZENPDF_RELEASE_KEY_ALIAS'))
-def releaseKeyPassword = providers.gradleProperty('ZENPDF_RELEASE_KEY_PASSWORD')
-        .orElse(providers.environmentVariable('ZENPDF_RELEASE_KEY_PASSWORD'))
+def releaseStoreFile = providers.gradleProperty('HAPPYPDF_RELEASE_STORE_FILE')
+        .orElse(providers.environmentVariable('HAPPYPDF_RELEASE_STORE_FILE'))
+def releaseStorePassword = providers.gradleProperty('HAPPYPDF_RELEASE_STORE_PASSWORD')
+        .orElse(providers.environmentVariable('HAPPYPDF_RELEASE_STORE_PASSWORD'))
+def releaseKeyAlias = providers.gradleProperty('HAPPYPDF_RELEASE_KEY_ALIAS')
+        .orElse(providers.environmentVariable('HAPPYPDF_RELEASE_KEY_ALIAS'))
+def releaseKeyPassword = providers.gradleProperty('HAPPYPDF_RELEASE_KEY_PASSWORD')
+        .orElse(providers.environmentVariable('HAPPYPDF_RELEASE_KEY_PASSWORD'))
 def releaseSigningValues = [releaseStoreFile, releaseStorePassword, releaseKeyAlias, releaseKeyPassword]
 def hasReleaseSigningConfig = releaseSigningValues.every { provider ->
     provider.orNull?.trim()
@@ -17,11 +17,11 @@ def hasPartialReleaseSigningConfig = releaseSigningValues.any { provider ->
 } && !hasReleaseSigningConfig
 
 if (hasPartialReleaseSigningConfig) {
-    throw new GradleException('Release signing requires all four ZENPDF_RELEASE_* values.')
+    throw new GradleException('Release signing requires all four HAPPYPDF_RELEASE_* values.')
 }
 
 android {
-    namespace = "com.dhananjaytech.zenpdf_allpdftoolsinoneplace"
+    namespace = "com.rohittrimukhe.happypdf"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -31,7 +31,7 @@ android {
         buildConfig = true
     }
     defaultConfig {
-        applicationId "com.dhananjaytech.pdfchef"
+        applicationId "com.rohittrimukhe.happypdf"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 29

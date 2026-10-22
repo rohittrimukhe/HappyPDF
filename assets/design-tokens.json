@@ -1,9 +1,9 @@
 {
   "$schema": "https://design-tokens.org/draft",
   "meta": {
-    "name": "PDF Chef",
+    "name": "Happy PDF",
     "version": "2.1.0",
-    "owner": "Claude UI owner (PDF Chef iOS)",
+    "owner": "Claude UI owner (Happy PDF iOS)",
     "source": "docs/brand-guidelines.md",
     "mirror": "assets/design-tokens.css",
     "note": "Values authored in OKLCH intent, shipped as sRGB hex for iOS 15 WebKit compatibility. Keep this file and assets/design-tokens.css byte-for-byte equivalent in value. Semantic text values clear WCAG AA 4.5:1 on canvas, raised and sunken in their own theme; border.strong clears 3:1 on all three because it bounds controls, border.hairline only separates."

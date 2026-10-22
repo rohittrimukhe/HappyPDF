@@ -60,7 +60,7 @@
   "android.pdf_reader_signature_timestamp_unverified": "Til stede, men ikke valideret offline",
   "android.pdf_reader_signature_sha1_warning": "Advarsel: Denne signatur bruger forældet SHA-1.",
   "android.pdf_reader_signature_offline_note": "Tillidsvurderingen baseres på denne enheds certifikatlager. Tilbagekaldelse og online certifikatstatus kontrolleres ikke. En PDF-signeringsdato behandles ikke som et betroet tidsstempel.",
-  "ios.NSCameraUsageDescription": "PDF Chef bruger kun kameraet, når du vælger Scan fra kamera til at tilføje sider til en PDF.",
+  "ios.NSCameraUsageDescription": "Happy PDF bruger kun kameraet, når du vælger Scan fra kamera til at tilføje sider til en PDF.",
   "ios.ce47f2d3b8": "Digitale signaturer",
   "ios.b55dcc62d4": "Signaturkontrol fuldført",
   "ios.fd19818dfb": "Kontrollerer digitale signaturer",

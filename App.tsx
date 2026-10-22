@@ -18,7 +18,7 @@ import { AppearanceProvider } from './hooks/useAppearance';
 import { WorkspacePlatformProvider, type WorkspacePlatform } from './hooks/useWorkspaceRuntime';
 import { OutputCenter } from './components/UI/OutputCenter';
 import { ProPaywall } from './components/UI/ProPaywall';
-import { SupportPrompt } from './components/UI/SupportPDFChef';
+import { SupportPrompt } from './components/UI/SupportHappyPDF';
 import { Onboarding } from './components/UI/Onboarding';
 import { MobileAppWelcome } from './components/UI/MobileAppWelcome';
 import { isMobileAppWelcomeRoute, mobileAppWelcomeDismissedKey, smartphonePlatform } from './services/mobileAppWelcome';
@@ -63,7 +63,7 @@ const RemoveBlankPagesPDF = React.lazy(() => import('./components/Tools/PdfAdvan
 const ExtractImagesPDF = React.lazy(() => import('./components/Tools/PdfAdvancedTools').then((module) => ({ default: module.ExtractImagesPDF })));
 const SanitizePDF = React.lazy(() => import('./components/Tools/PdfAdvancedTools').then((module) => ({ default: module.SanitizePDF })));
 const PrivacyPolicy = React.lazy(() => import('./components/Pages/PrivacyPolicy').then((module) => ({ default: module.PrivacyPolicy })));
-const PdfChefPrivacy = React.lazy(() => import('./components/Pages/PdfChefPrivacy').then((module) => ({ default: module.PdfChefPrivacy })));
+const HappyPdfPrivacy = React.lazy(() => import('./components/Pages/HappyPdfPrivacy').then((module) => ({ default: module.HappyPdfPrivacy })));
 const TermsConditions = React.lazy(() => import('./components/Pages/TermsConditions').then((module) => ({ default: module.TermsConditions })));
 const RecentPage = React.lazy(() => import('./components/Pages/RecentPage').then((module) => ({ default: module.RecentPage })));
 const SettingsPage = React.lazy(() => import('./components/Pages/SettingsPage').then((module) => ({ default: module.SettingsPage })));
@@ -137,7 +137,7 @@ const AppRoutes = () => {
             <Route path="/terms" element={<TermsConditions />} />
             <Route path="/licenses" element={<OpenSourceLicenses />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/pdf-chef-privacy" element={<PdfChefPrivacy />} />
+            <Route path="/happy-pdf-privacy" element={<HappyPdfPrivacy />} />
             <Route path="/terms-and-conditions" element={<TermsConditions />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
@@ -183,8 +183,8 @@ const AppContent = () => {
       document.documentElement.dataset.interfaceFont = getWorkspaceSettings().interfaceFont;
     };
     applyFont();
-    window.addEventListener('pdfchef:settings-changed', applyFont);
-    return () => window.removeEventListener('pdfchef:settings-changed', applyFont);
+    window.addEventListener('happypdf:settings-changed', applyFont);
+    return () => window.removeEventListener('happypdf:settings-changed', applyFont);
   }, []);
 
   return (

@@ -50,7 +50,7 @@ test('injected native reads are decoded into accepted history and settings snaps
 });
 
 test('invalid native payloads never cross the client boundary', async () => {
-  const secret = '/private/data/user/0/com.dhananjaytech.pdfchef/files/processed/secret.pdf';
+  const secret = '/private/data/user/0/com.rohittrimukhe.happypdf/files/processed/secret.pdf';
   const client = new AndroidLegacyInspectorClient(nativeStub({
     readHistory: async () => ({
       health: 'ok', sourceCount: 1, invalidRecordCount: 0, returnedCount: 1,

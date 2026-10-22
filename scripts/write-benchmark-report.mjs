@@ -34,7 +34,7 @@ async function main() {
     '# Eval Report',
     '',
     '## Scope',
-    '- PDF Chef runtime, UX, and frontend overhaul',
+    '- Happy PDF runtime, UX, and frontend overhaul',
     '',
     '## Capability Results',
     metricLine(

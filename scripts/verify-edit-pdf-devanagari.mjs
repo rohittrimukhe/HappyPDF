@@ -6,7 +6,7 @@ import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
 import { DevanagariPdfWriter, loadDevanagariFonts, measureDevanagariText } from '../services/pdfDevanagari.ts';
 
-const baseUrl = process.env.PDF_CHEF_URL || 'http://127.0.0.1:4173';
+const baseUrl = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:4173';
 const hindiOriginal = 'नमस्ते दुनिया, यह एक परीक्षण है।';
 const englishOriginal = 'Original English line for replacement.';
 const replacement = 'नमस्ते भारत, कृपया यह नया लेख पढ़ें।';
@@ -46,7 +46,7 @@ try {
     const warnings = [];
     page.on('pageerror', error => errors.push(error.message));
     page.on('console', message => { if (message.type() === 'warning') warnings.push(message.text()); });
-    await page.addInitScript(() => localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({
+    await page.addInitScript(() => localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({
       autoDownload: false, keepLocalHistory: false, confirmLargeJobs: false,
       largeFileWarningMb: 80, onboardingComplete: true, interfaceFont: 'inter',
     })));
@@ -67,7 +67,7 @@ try {
     let resolveOutput;
     const output = new Promise(resolve => { resolveOutput = resolve; });
     await page.exposeFunction('captureDevanagariPdf', bytes => resolveOutput(Uint8Array.from(bytes)));
-    await page.evaluate(() => window.addEventListener('pdfchef:output-ready', event =>
+    await page.evaluate(() => window.addEventListener('happypdf:output-ready', event =>
       event.detail.blob.arrayBuffer().then(buffer => window.captureDevanagariPdf([...new Uint8Array(buffer)]))
     ));
     await page.getByRole('button', { name: /^Save/ }).first().click();

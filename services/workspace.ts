@@ -33,13 +33,13 @@ export interface SavingsTally {
   filesReduced: number;
 }
 
-export const WORKSPACE_SETTINGS_KEY = 'pdfchef.workspace.settings.v1';
-export const WORKSPACE_INTERFACE_FONT_AUTHORITY_KEY = 'pdfchef.workspace.interface-font-authority.v1';
-export const ANDROID_LEGACY_INTERFACE_FONT_CHECK_KEY = 'pdfchef.android.legacy-interface-font.v1';
-export const RECENT_TOOLS_KEY = 'pdfchef.workspace.recent-tools.v1';
-export const SAVINGS_TALLY_KEY = 'pdfchef.workspace.savings.v1';
-export const OUTPUT_EVENT = 'pdfchef:output-ready';
-export const RECORDS_CHANGED_EVENT = 'pdfchef:records-changed';
+export const WORKSPACE_SETTINGS_KEY = 'happypdf.workspace.settings.v1';
+export const WORKSPACE_INTERFACE_FONT_AUTHORITY_KEY = 'happypdf.workspace.interface-font-authority.v1';
+export const ANDROID_LEGACY_INTERFACE_FONT_CHECK_KEY = 'happypdf.android.legacy-interface-font.v1';
+export const RECENT_TOOLS_KEY = 'happypdf.workspace.recent-tools.v1';
+export const SAVINGS_TALLY_KEY = 'happypdf.workspace.savings.v1';
+export const OUTPUT_EVENT = 'happypdf:output-ready';
+export const RECORDS_CHANGED_EVENT = 'happypdf:records-changed';
 
 const DEFAULT_SETTINGS: WorkspaceSettings = {
   autoDownload: true,
@@ -50,7 +50,7 @@ const DEFAULT_SETTINGS: WorkspaceSettings = {
   interfaceFont: 'inter',
 };
 
-const DB_NAME = 'pdfchef-local-workspace';
+const DB_NAME = 'happypdf-local-workspace';
 const DB_VERSION = 1;
 const OUTPUT_STORE = 'outputs';
 const MAX_HISTORY_ITEMS = 50;
@@ -112,7 +112,7 @@ export const updateWorkspaceSettings = (patch: Partial<WorkspaceSettings>): Work
       && isWorkspaceInterfaceFont(patch.interfaceFont)) {
     window.localStorage.setItem(WORKSPACE_INTERFACE_FONT_AUTHORITY_KEY, 'shared');
   }
-  window.dispatchEvent(new CustomEvent('pdfchef:settings-changed', { detail: next }));
+  window.dispatchEvent(new CustomEvent('happypdf:settings-changed', { detail: next }));
   return next;
 };
 
@@ -154,7 +154,7 @@ export const recordSavings = (originalSize: number, resultSize: number): Savings
   if (!Number.isFinite(saved) || saved <= 0) return current;
   const next = { bytesSaved: current.bytesSaved + saved, filesReduced: current.filesReduced + 1 };
   window.localStorage.setItem(SAVINGS_TALLY_KEY, JSON.stringify(next));
-  window.dispatchEvent(new CustomEvent('pdfchef:savings-changed', { detail: next }));
+  window.dispatchEvent(new CustomEvent('happypdf:savings-changed', { detail: next }));
   return next;
 };
 
@@ -298,14 +298,14 @@ export const recordOutput = async (
   return record;
 };
 
-export const OUTPUT_DISMISS_EVENT = 'pdfchef:output-dismiss';
+export const OUTPUT_DISMISS_EVENT = 'happypdf:output-dismiss';
 
 /** A tool starting on a new file clears the last result's banner, which would cover it. */
 export const dismissOutputBanner = () => {
   window.dispatchEvent(new Event(OUTPUT_DISMISS_EVENT));
 };
 
-export const OUTPUT_RENAMED_EVENT = 'pdfchef:output-renamed';
+export const OUTPUT_RENAMED_EVENT = 'happypdf:output-renamed';
 
 /** A tool renamed its own result, so the result sheet must share and save under the new name. */
 export const announceOutputRenamed = (id: string, filename: string) => {

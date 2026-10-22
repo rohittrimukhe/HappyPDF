@@ -36,7 +36,7 @@ try {
   const page = await browser.newPage();
   // The dev server, not the preview build: this check imports the editor's
   // TypeScript module directly, which only Vite can serve.
-  await page.goto(process.env.PDF_CHEF_URL || 'http://127.0.0.1:3000');
+  await page.goto(process.env.HAPPY_PDF_URL || 'http://127.0.0.1:3000');
   for (const [samePage, otherPage] of [[true, false], [false, true], [true, true], [false, false]]) {
     const input = await fixture(samePage, otherPage);
     const result = await page.evaluate(async (data) => {

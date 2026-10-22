@@ -500,7 +500,7 @@ const isWellFormedUtf16 = (value: string): boolean => {
   }
   return true;
 };
-const EXPORT_REF = /^pdfchef-[A-Za-z0-9_-]{22,64}$/;
+const EXPORT_REF = /^happypdf-[A-Za-z0-9_-]{22,64}$/;
 const isDisplayName = (value: unknown): value is string => typeof value === 'string' && value.trim().length > 0 && !value.includes('\0') && !value.includes('/') && !value.includes('\\') && value !== '.' && value !== '..' && value.length <= 180 && isWellFormedUtf16(value) && new TextEncoder().encode(value).length <= 720;
 const exactObject = (value: unknown, expected: readonly string[]): Record<string, any> => { if (value === null || typeof value !== 'object' || Array.isArray(value) || Object.getPrototypeOf(value) !== Object.prototype) throw invalidResponse(); const record = value as Record<string, any>; const keys = Reflect.ownKeys(record); if (keys.some(key => typeof key !== 'string') || keys.length !== expected.length || !(keys as string[]).sort().every((key, index) => key === expected[index])) throw invalidResponse(); return record; };
 const parseOwnedItem = (value: unknown): AndroidOwnedDocument => {

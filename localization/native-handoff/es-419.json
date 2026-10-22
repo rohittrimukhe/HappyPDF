@@ -60,7 +60,7 @@
   "android.pdf_reader_signature_timestamp_unverified": "Presente pero no validado sin conexión",
   "android.pdf_reader_signature_sha1_warning": "Advertencia: esta firma usa SHA-1 heredado.",
   "android.pdf_reader_signature_offline_note": "La confianza usa el almacén de certificados de este dispositivo. No se verifican la revocación ni el estado del certificado en línea. La fecha de firma de un PDF no se considera una marca de tiempo de confianza.",
-  "ios.NSCameraUsageDescription": "PDF Chef usa la cámara solo cuando eliges Escanear desde la cámara para agregar páginas a un PDF.",
+  "ios.NSCameraUsageDescription": "Happy PDF usa la cámara solo cuando eliges Escanear desde la cámara para agregar páginas a un PDF.",
   "ios.ce47f2d3b8": "Firmas digitales",
   "ios.b55dcc62d4": "Verificación de firmas completada",
   "ios.fd19818dfb": "Verificando firmas digitales",

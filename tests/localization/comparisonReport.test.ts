@@ -29,7 +29,7 @@ test('comparison report localizes labels and formatting while preserving files a
     commonPages: 7,
   });
 
-  assert.match(report, /PDF Chef Compare Summary/);
+  assert.match(report, /Happy PDF Compare Summary/);
   assert.match(report, new RegExp(`Generated: ${formatDate(generatedAt, dateOptions).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`));
   assert.match(report, /File A: Invoice <draft> — original\.pdf/);
   assert.match(report, /File B: فاتورة final\.pdf/);

@@ -9,16 +9,16 @@ const assert = (condition, message) => {
 };
 const count = (source, pattern) => [...source.matchAll(pattern)].length;
 
-const plugin = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentsPlugin.java');
-const coordinator = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/DocumentLifecycleCoordinator.java');
-const exporter = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentExporter.java');
-const sharer = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentSharer.java');
+const plugin = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentsPlugin.java');
+const coordinator = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/DocumentLifecycleCoordinator.java');
+const exporter = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentExporter.java');
+const sharer = read('android/app/src/main/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentSharer.java');
 const client = read('services/platform/android/androidDocuments.ts');
 const workspace = read('services/platform/android/androidWorkspacePlatform.ts');
-const pluginTest = read('android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentsPluginContractTest.java');
+const pluginTest = read('android/app/src/test/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentsPluginContractTest.java');
 const clientTest = read('tests/platform/androidDocuments.test.ts');
 const workspaceTest = read('tests/platform/androidWorkspacePlatform.test.ts');
-const runtimeTest = read('android/app/src/androidTest/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentsPluginInstrumentedTest.java');
+const runtimeTest = read('android/app/src/androidTest/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentsPluginInstrumentedTest.java');
 const manifest = read('android/app/src/main/AndroidManifest.xml');
 const packagedIndex = read('android/app/src/main/assets/public/index.html');
 const packagedMainMatch = packagedIndex.match(/src="\/assets\/(index-[A-Za-z0-9_-]+\.js)"/);

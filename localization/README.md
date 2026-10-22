@@ -1,4 +1,4 @@
-# PDF Chef localization
+# Happy PDF localization
 
 **Current status: incomplete.** See [HANDOFF.md](HANDOFF.md) and `status.json`
 for review coverage and verification blockers. All 24 application locales have
@@ -20,7 +20,7 @@ metadata, changes prices or enables billing.
 - `useI18n()` subscribes only components displaying localized copy. Language changes
   do not remount the application or replace PDF document content.
 - Settings defaults to System language. An explicit preference is stored in
-  `pdfchef.locale.v1`. Unsupported device languages fall back to en-US.
+  `happypdf.locale.v1`. Unsupported device languages fall back to en-US.
 
 Keep translation keys stable when editing wording. Use complete contextual sentences
 and plural objects rather than concatenating grammatical fragments. Keep placeholders
@@ -89,9 +89,9 @@ node scripts/verify-localization-mobile.mjs
 
 The mobile check defaults to en-US, de-DE, fr-FR, ja-JP, zh-Hans, hi-IN and ar-SA.
 It visits every route in German and Arabic, checks large text, language persistence,
-missing-key warnings and an unchanged editable English PDF. Set `PDF_CHEF_URL` to a
+missing-key warnings and an unchanged editable English PDF. Set `HAPPY_PDF_URL` to a
 local preview origin; no deployment is needed. Production verification can use
-`PDF_CHEF_DIST_DIR` to isolate build output from normal web/native packaging.
+`HAPPY_PDF_DIST_DIR` to isolate build output from normal web/native packaging.
 
 Review and completion evidence for this work is recorded separately; this document
 is an integration guide, not a claim that all review or publication gates have passed.

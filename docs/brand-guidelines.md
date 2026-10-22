@@ -1,4 +1,4 @@
-# PDF Chef brand guidelines
+# Happy PDF brand guidelines
 
 Source of truth for `assets/design-tokens.json` and `assets/design-tokens.css`.
 Change a value here first, then in both token files. They must agree.
@@ -6,7 +6,7 @@ Change a value here first, then in both token files. They must agree.
 ## What this product is
 
 A private workbench for documents you would not hand to a stranger. Someone
-opens PDF Chef standing in a clinic corridor, at a solicitor's desk, or at a
+opens Happy PDF standing in a clinic corridor, at a solicitor's desk, or at a
 kitchen table with a payslip, and needs to be certain the file did not go
 anywhere. Everything below serves that one moment of certainty.
 
@@ -66,7 +66,7 @@ an icon.
 
 ### Why this red
 
-This is the PDF Chef Android identity carried into the workspace, not generic
+This is the Happy PDF Android identity carried into the workspace, not generic
 PDF-category decoration. Warm paper still owns almost every surface. Logo red
 is reserved for actions and current state, so the interface stays calm and the
 accent keeps its meaning. Dark plus neon green remains outside the brand.

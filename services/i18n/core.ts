@@ -9,7 +9,7 @@ type MessageText<M> = M extends string ? M : M[keyof M] & string;
 type Params<K extends TranslationKey> = Variables<MessageText<typeof english[K]>> | (typeof english[K] extends string ? never : "count");
 type Value = string | number;
 type Arguments<K extends TranslationKey> = [Params<K>] extends [never] ? [values?: Record<string, Value>] : [values: Record<Params<K>, Value>];
-const storageKey = 'pdfchef.locale.v1';
+const storageKey = 'happypdf.locale.v1';
 const listeners = new Set<() => void>();
 const catalogs = new Map<Locale, Catalog>([['en-US', english]]);
 const pending = new Map<Locale, Promise<Catalog>>();

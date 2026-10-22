@@ -1,13 +1,13 @@
-# PDF Chef Product Contract
+# Happy PDF Product Contract
 
 ## Product intent
 
-PDF Chef is a private, browser-first PDF workspace. A user should be able to choose a tool, process a document on the device, inspect the result, and save or clear it without an account or a PDF-processing server. The product voice is calm, direct, and honest about beta quality, supported formats, and output limitations.
+Happy PDF is a private, browser-first PDF workspace. A user should be able to choose a tool, process a document on the device, inspect the result, and save or clear it without an account or a PDF-processing server. The product voice is calm, direct, and honest about beta quality, supported formats, and output limitations.
 
 ## Core promise and boundaries
 
 - Normal PDF workflows process selected bytes locally in the browser; never imply that a file was uploaded, synced, or backed up.
-- Local output history is optional, browser/device scoped, capped, and clearable. A saved download is outside PDF Chef's control.
+- Local output history is optional, browser/device scoped, capped, and clearable. A saved download is outside Happy PDF's control.
 - Password values are user data: preserve them exactly, do not trim or echo them, and state when they are required.
 - “Works offline” means after the application assets have loaded; conversion and large jobs still depend on browser memory and supported format behavior.
 - Make Fillable and Edit PDF are review-first beta surfaces. Detection creates suggestions, not verified form semantics; users must inspect every field and output.

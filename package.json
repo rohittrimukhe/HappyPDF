@@ -1,10 +1,10 @@
 {
-  "name": "pdf-chef",
+  "name": "happy-pdf",
   "private": true,
   "version": "0.0.0",
   "description": "Open-source, privacy-first PDF tools that run in the browser with no server uploads for PDF processing.",
-  "license": "MIT",
-  "homepage": "https://pdfchef.dhananjaytech.app/",
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://happypdf.app/",
   "keywords": [
     "pdf",
     "pdf-tools",

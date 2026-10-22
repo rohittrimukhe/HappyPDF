@@ -8,10 +8,10 @@ const assert = (condition, message) => {
   if (!condition) throw new Error(`ANDROID_SETTINGS_DEVICE_FACTS: ${message}`);
 };
 
-const activity = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/MainActivity.java');
-const metadataPlugin = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/AndroidAppMetadataPlugin.java');
-const storagePlugin = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/AndroidStorageStatsPlugin.java');
-const calculator = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/AndroidStorageStatsCalculator.java');
+const activity = read('android/app/src/main/java/com/rohittrimukhe/happypdf/MainActivity.java');
+const metadataPlugin = read('android/app/src/main/java/com/rohittrimukhe/happypdf/AndroidAppMetadataPlugin.java');
+const storagePlugin = read('android/app/src/main/java/com/rohittrimukhe/happypdf/AndroidStorageStatsPlugin.java');
+const calculator = read('android/app/src/main/java/com/rohittrimukhe/happypdf/AndroidStorageStatsCalculator.java');
 const workspace = read('services/platform/android/androidWorkspacePlatform.ts');
 const manifest = read('android/app/src/main/AndroidManifest.xml');
 
@@ -50,7 +50,7 @@ assert(!/\bcatch\b/.test(adapter), 'device-fact adapter must not hide native or 
 assert(!/retainedBytes\s*:\s*0|version\s*:\s*['"]|build\s*:\s*['"]/.test(adapter),
   'device-fact adapter must not substitute successful defaults');
 
-assert(calculator.includes('private static final String DOCUMENTS_DIRECTORY = "pdfchef_documents";')
+assert(calculator.includes('private static final String DOCUMENTS_DIRECTORY = "happypdf_documents";')
   && calculator.includes('private static final String OWNED_DIRECTORY = "owned";')
   && calculator.includes('Files.newDirectoryStream(ownedDirectory)')
   && calculator.includes('LinkOption.NOFOLLOW_LINKS')

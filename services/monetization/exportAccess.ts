@@ -1,11 +1,11 @@
 import type {
-  PdfChefPurchaseAccess,
-  PdfChefPurchasesNativePlugin,
-} from '../platform/capacitor/pdfChefPurchases.ts';
+  HappyPdfPurchaseAccess,
+  HappyPdfPurchasesNativePlugin,
+} from '../platform/capacitor/happyPdfPurchases.ts';
 
 export interface ExportAuthorization {
   allowed: boolean;
-  access: PdfChefPurchaseAccess;
+  access: HappyPdfPurchaseAccess;
 }
 
 /**
@@ -15,8 +15,8 @@ export interface ExportAuthorization {
  * answer because they create nothing that could be saved or shared.
  */
 export const authorizeExport = async (
-  native: Pick<PdfChefPurchasesNativePlugin, 'getAccessState' | 'recordFreeJob'>,
-  cached: PdfChefPurchaseAccess | null,
+  native: Pick<HappyPdfPurchasesNativePlugin, 'getAccessState' | 'recordFreeJob'>,
+  cached: HappyPdfPurchaseAccess | null,
   operationId?: string,
 ): Promise<ExportAuthorization> => {
   if (!operationId) {

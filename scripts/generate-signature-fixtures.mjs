@@ -17,7 +17,7 @@ const CONTENTS_BYTES = 8192;
 const PAD = Buffer.from(
   '28bf4e5e4e758a4164004e56fffa01082e2e00b6d0683e802f0ca9fe6453697a', 'hex');
 
-const work = mkdtempSync(join(tmpdir(), 'pdfchef-signature-fixtures-'));
+const work = mkdtempSync(join(tmpdir(), 'happypdf-signature-fixtures-'));
 const openssl = (...args) => execFileSync('openssl', args, { cwd: work, stdio: 'pipe' });
 const md5 = (...parts) => createHash('md5').update(Buffer.concat(parts)).digest();
 
@@ -36,13 +36,13 @@ function makeCertificates() {
   for (const name of ['root', 'intermediate', 'leaf']) {
     openssl('genpkey', '-algorithm', 'RSA', '-pkeyopt', 'rsa_keygen_bits:2048', '-out', `${name}.key`);
   }
-  openssl('req', '-new', '-x509', '-key', 'root.key', '-subj', '/C=IN/O=PDF Chef Test PKI/CN=PDF Chef Test Root',
+  openssl('req', '-new', '-x509', '-key', 'root.key', '-subj', '/C=IN/O=Happy PDF Test PKI/CN=Happy PDF Test Root',
     '-sha256', ...validity, '-extensions', 'root', '-config', 'ca.ext', '-out', 'root.pem');
   for (const [name, issuer, cn, serial] of [
-    ['intermediate', 'root', 'PDF Chef Test Document Signing CA', '2'],
-    ['leaf', 'intermediate', 'DS PDF Chef Test Signer 01', '3'],
+    ['intermediate', 'root', 'Happy PDF Test Document Signing CA', '2'],
+    ['leaf', 'intermediate', 'DS Happy PDF Test Signer 01', '3'],
   ]) {
-    openssl('req', '-new', '-key', `${name}.key`, '-subj', `/C=IN/O=PDF Chef Test PKI/CN=${cn}`, '-out', `${name}.csr`);
+    openssl('req', '-new', '-key', `${name}.key`, '-subj', `/C=IN/O=Happy PDF Test PKI/CN=${cn}`, '-out', `${name}.csr`);
     openssl('x509', '-req', '-in', `${name}.csr`, '-CA', `${issuer}.pem`, '-CAkey', `${issuer}.key`,
       '-set_serial', serial, '-sha256', ...validity, '-extfile', 'ca.ext', '-extensions', name, '-out', `${name}.pem`);
   }
@@ -96,7 +96,7 @@ function layeredAppearance(first, stream, { hexStatus = false } = {}) {
       + 'q 0.27 0 0 0.27 11.5 1.5 cm /n3 Do Q\nq 1 0 0 1 0 0 cm /n4 Do Q\n'),
     stream(form('0 0 100 100'), '% DSBlank\n'),
     stream(form('0 0 100 100'), '% DSUnknown\nq 1 0.85 0.2 rg 35 20 30 60 re f Q\n'),
-    stream(form('0 0 50 30', font), 'BT\n1 0 0 1 2 15.6 Tm\n/F1 3.4 Tf\n(Digitally signed by DS PDF Chef)Tj\n'
+    stream(form('0 0 50 30', font), 'BT\n1 0 0 1 2 15.6 Tm\n/F1 3.4 Tf\n(Digitally signed by DS Happy PDF)Tj\n'
       + '1 0 0 1 2 12.2 Tm\n(Test Signer 01)Tj\nET\n'),
     stream(form('0 0 100 100'), '% DSBlank\n'),
     // A hex-string status cannot be rewritten safely, so a verified copy must refuse it.
@@ -111,7 +111,7 @@ function signedPdf({
   offset = false, unsignedBox = false, hexStatus = false, updateContents = false, ownerOnly = false,
   stateBox = false,
 }) {
-  const id = createHash('md5').update(`pdfchef-signature-fixture-${subFilter}-${encrypted}`).digest();
+  const id = createHash('md5').update(`happypdf-signature-fixture-${subFilter}-${encrypted}`).digest();
   // An owner-only PDF has an empty user password, so it opens without asking for one.
   const security = encrypted ? standardSecurity(id, ownerOnly ? '' : USER_PASSWORD) : null;
   const objectKey = (number) => md5(security.fileKey, Buffer.from([number & 0xff, (number >> 8) & 0xff,

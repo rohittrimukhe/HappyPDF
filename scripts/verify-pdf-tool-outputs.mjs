@@ -3,7 +3,7 @@ import { chromium } from 'playwright';
 import { PDFDocument, PDFDict, PDFName, StandardFonts, degrees, rgb } from 'pdf-lib';
 import JSZip from 'jszip';
 
-const baseUrl = process.env.PDF_CHEF_URL || 'http://127.0.0.1:3000';
+const baseUrl = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:3000';
 const source = await PDFDocument.create();
 const font = await source.embedFont(StandardFonts.Courier);
 for (let index = 0; index < 3; index += 1) {
@@ -49,7 +49,7 @@ try {
   page.on('console', message => {
     if (message.text().startsWith('Checking ')) console.log(message.text());
   });
-  await page.addInitScript(() => localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({
+  await page.addInitScript(() => localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({
     autoDownload: false, keepLocalHistory: false, confirmLargeJobs: false, onboardingComplete: true,
   })));
   await page.goto(baseUrl);
@@ -109,7 +109,7 @@ try {
     const ctx = canvas.getContext('2d');
     ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, 900, 300);
     ctx.fillStyle = '#000'; ctx.font = '48px Arial';
-    ctx.fillText('PDF CHEF TEST 12345', 40, 130);
+    ctx.fillText('HAPPY PDF TEST 12345', 40, 130);
     const png = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
     const image = new File([png], 'scan.png', { type: 'image/png' });
     const created = await d.createPDFFromImages([image, image]);
@@ -232,7 +232,7 @@ try {
     name: 'synthetic-scan.pdf', mimeType: 'application/pdf', buffer: Buffer.from(result.outputs.imageLayout.bytes),
   });
   await page.getByRole('button', { name: 'Download .txt', exact: true }).waitFor({ timeout: 60000 });
-  assert.match(await page.locator('body').innerText(), /PDF CHEF TEST 12345/);
+  assert.match(await page.locator('body').innerText(), /HAPPY PDF TEST 12345/);
   checks.push('Extract Text: local OCR reads a synthetic image-only PDF');
   console.log(JSON.stringify({ status: 'PASS', checks }, null, 2));
 } finally {

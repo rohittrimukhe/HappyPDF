@@ -3,7 +3,7 @@ import { mkdir, readFile } from 'node:fs/promises';
 import { chromium } from 'playwright';
 import { PDFDocument, PDFName } from 'pdf-lib';
 
-const origin = process.env.PDF_CHEF_URL || 'http://127.0.0.1:3015';
+const origin = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:3015';
 const pdf = await PDFDocument.create();
 pdf.addPage([600, 800]).drawText('Page-wide drop regression', { x: 60, y: 700 });
 const pdfBytes = Buffer.from(await pdf.save());
@@ -13,7 +13,7 @@ try {
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 }, acceptDownloads: true });
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
-  await page.addInitScript(() => localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({ onboardingComplete: true, keepLocalHistory: false, autoDownload: false })));
+  await page.addInitScript(() => localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({ onboardingComplete: true, keepLocalHistory: false, autoDownload: false })));
   const go = async (path) => {
     await page.goto(origin + path);
     await page.locator('h1').first().waitFor();

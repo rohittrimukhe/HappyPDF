@@ -137,7 +137,7 @@ class FakeBridge implements IOSDocumentBridge {
   }
   async openReader(): ReturnType<IOSDocumentBridge['openReader']> { return { action: 'closed' }; }
   async signalHaptic() {}
-  async getApplicationMetadata(): Promise<ApplicationMetadata> { return { name: 'PDF Chef', version: '1.0', build: '1' }; }
+  async getApplicationMetadata(): Promise<ApplicationMetadata> { return { name: 'Happy PDF', version: '1.0', build: '1' }; }
 }
 
 const harness = () => {
@@ -169,7 +169,7 @@ const withOutputSettings = async (
     value: {
       location: { pathname: '/compress-pdf' },
       localStorage: {
-        getItem: (key: string) => key === 'pdfchef.workspace.settings.v1' ? workspaceSettings : null,
+        getItem: (key: string) => key === 'happypdf.workspace.settings.v1' ? workspaceSettings : null,
       },
       dispatchEvent: (event: CustomEvent<OutputReadyRecord>) => {
         onOutput?.(event.detail);
@@ -360,7 +360,7 @@ test('aggregate exposes native services and crash-safe pending delivery seam', a
     available: false,
   }]);
   assert.deepEqual(await platform.applicationMetadata?.getApplicationMetadata(), {
-    name: 'PDF Chef', version: '1.0', build: '1',
+    name: 'Happy PDF', version: '1.0', build: '1',
   });
 });
 
@@ -443,7 +443,7 @@ test('installed output delivery keeps history without automatically opening the 
       downloadBlob(
         new Blob([expectedBytes], { type: 'application/pdf' }),
         'exact result.pdf',
-        'application/x-pdf-chef-test',
+        'application/x-happy-pdf-test',
       );
       if (expected.retains > 0) await waitFor(() => bridge.retainCalls.length === expected.retains);
       if (expected.records > 0) await waitFor(() => bridge.documents.size === 1);
@@ -461,7 +461,7 @@ test('installed output delivery keeps history without automatically opening the 
       assert.deepEqual(bridge.retainCalls[0].bytes, expectedBytes);
       assert.deepEqual(bridge.retainCalls[0].metadata, {
         name: 'exact result.pdf',
-        mimeType: 'application/x-pdf-chef-test',
+        mimeType: 'application/x-happy-pdf-test',
       });
     }
     if (expected.records) {
@@ -469,7 +469,7 @@ test('installed output delivery keeps history without automatically opening the 
         id: 'output-FRESH',
         documentRef: bridge.retained.ref,
         name: 'exact result.pdf',
-        mimeType: 'application/x-pdf-chef-test',
+        mimeType: 'application/x-happy-pdf-test',
         toolId: '/compress-pdf',
         createdAt: bridge.retained.retainedAt,
         inputSizeBytes: null,
@@ -581,7 +581,7 @@ class ReaderSessionBridge extends FakeBridge {
   override async acknowledgePendingImports(refs: readonly DurableDocumentRef[]) {
     this.acknowledged.push(...refs);
   }
-  // Mirrors PdfChefDocumentsBridge: the queue is acknowledged only after consume settles.
+  // Mirrors HappyPdfDocumentsBridge: the queue is acknowledged only after consume settles.
   override async startPendingImportDelivery(consume: (imports: readonly ImportedDocument[]) => Promise<void> | void) {
     await consume(this.pending);
     await this.acknowledgePendingImports(this.pending.map(value => value.document.ref));
@@ -622,7 +622,7 @@ test('an Open-In PDF is acknowledged before its reader closes, so a relaunch doe
 test('an Open-In PDF tells an open Recent list to refresh', async () => {
   const events = new EventTarget();
   const changes: string[] = [];
-  events.addEventListener('pdfchef:records-changed', () => changes.push('records-changed'));
+  events.addEventListener('happypdf:records-changed', () => changes.push('records-changed'));
   const previousWindow = (globalThis as { window?: unknown }).window;
   (globalThis as { window?: unknown }).window = events;
   try {
@@ -641,7 +641,7 @@ class BusyReaderBridge extends InboxBridge {
     this.readerOpens += 1;
     if (this.busyRejections > 0) {
       this.busyRejections -= 1;
-      // PdfChefDocumentsPlugin rejects this way while a share sheet, picker or another reader is up.
+      // HappyPdfDocumentsPlugin rejects this way while a share sheet, picker or another reader is up.
       throw Object.assign(new Error('Operation unavailable.'), { code: 'PRESENTATION_BUSY' });
     }
     return { action: 'closed' };

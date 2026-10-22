@@ -33,7 +33,7 @@ export const AndroidIncomingPdfHandler = () => {
     let disposed = false;
     let queue = Promise.resolve();
     const client = new AndroidDocumentsClient();
-    // Without this, "Open with PDF Chef" on a file Android refused seemed to do nothing.
+    // Without this, "Open with Happy PDF" on a file Android refused seemed to do nothing.
     const rejected = client.addIncomingPdfRejectedListener(reason => {
       if (!disposed) setNotice(reason);
     });

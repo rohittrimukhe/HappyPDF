@@ -61,13 +61,13 @@ const maskJavaCommentsAndLiterals = text => {
 
 const files = Object.freeze({
   gradle: 'android/app/build.gradle',
-  activity: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/MainActivity.java',
-  plugin: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/AndroidLegacyInspectorPlugin.java',
-  history: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/LegacyHistoryInspector.java',
-  settings: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/LegacySettingsInspector.java',
-  historyTest: 'android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/LegacyHistoryInspectorTest.java',
-  settingsTest: 'android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/LegacySettingsInspectorTest.java',
-  contractTest: 'android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/legacy/AndroidLegacyInspectorContractTest.java',
+  activity: 'android/app/src/main/java/com/rohittrimukhe/happypdf/MainActivity.java',
+  plugin: 'android/app/src/main/java/com/rohittrimukhe/happypdf/legacy/AndroidLegacyInspectorPlugin.java',
+  history: 'android/app/src/main/java/com/rohittrimukhe/happypdf/legacy/LegacyHistoryInspector.java',
+  settings: 'android/app/src/main/java/com/rohittrimukhe/happypdf/legacy/LegacySettingsInspector.java',
+  historyTest: 'android/app/src/test/java/com/rohittrimukhe/happypdf/legacy/LegacyHistoryInspectorTest.java',
+  settingsTest: 'android/app/src/test/java/com/rohittrimukhe/happypdf/legacy/LegacySettingsInspectorTest.java',
+  contractTest: 'android/app/src/test/java/com/rohittrimukhe/happypdf/legacy/AndroidLegacyInspectorContractTest.java',
   t012: 'services/platform/android/legacyCompatibilityContracts.ts',
   t016: 'services/platform/android/androidLegacyInspector.ts',
 });
@@ -75,7 +75,7 @@ const source = Object.fromEntries(Object.entries(files).map(([key, name]) => [ke
 
 const frozen = Object.freeze({
   history: '4c664195be8dc66c121187a54dbd979d6fefe5d384d43c3d05d11296f57b3ebd',
-  settings: 'bf4acfb0efd1e5199a6b540b43e7b99a55bbbf96b256ae49301998431d304827',
+  settings: '0ce0db0f21debed6dd3cf0f2b9e4771d85d4506dcc82d4727b744a19be98e1a3',
   t012: 'ba6d3576e82a196a4311c2946f540e90bcf730e91560e8f58549fddb37defa96',
   t016: '44af983eebb6b419f64e5890f0025188850370c45dc6e04aa9245e0403674909',
   fixtures: 'f51428fcd0d5a058ef359ec07eef8950888a6b6059d83bc7ef5ec7efbb669ca4',
@@ -120,11 +120,11 @@ forbid(source.plugin, /reject\s*\([^)]*(?:getMessage|getCause|toString\s*\(|igno
 
 const activityCode = maskJavaCommentsAndLiterals(source.activity);
 const shortRegistration = [...activityCode.matchAll(/\bregisterPlugin\s*\(\s*AndroidLegacyInspectorPlugin\s*\.\s*class\s*\)\s*;/g)];
-const qualifiedRegistration = [...activityCode.matchAll(/\bregisterPlugin\s*\(\s*com\s*\.\s*dhananjaytech\s*\.\s*zenpdf_allpdftoolsinoneplace\s*\.\s*legacy\s*\.\s*AndroidLegacyInspectorPlugin\s*\.\s*class\s*\)\s*;/g)];
+const qualifiedRegistration = [...activityCode.matchAll(/\bregisterPlugin\s*\(\s*com\s*\.\s*rohittrimukhe\s*\.\s*happypdf\s*\.\s*legacy\s*\.\s*AndroidLegacyInspectorPlugin\s*\.\s*class\s*\)\s*;/g)];
 const registrations = [...shortRegistration, ...qualifiedRegistration];
 if (registrations.length !== 1) throw new Error('plugin must use exactly one accepted inspector registration form');
 if (shortRegistration.length === 1
-    && occurrenceCount(activityCode, /^\s*import com\.dhananjaytech\.zenpdf_allpdftoolsinoneplace\.legacy\.AndroidLegacyInspectorPlugin;\s*$/gm) !== 1) {
+    && occurrenceCount(activityCode, /^\s*import com\.rohittrimukhe\.happypdf\.legacy\.AndroidLegacyInspectorPlugin;\s*$/gm) !== 1) {
   throw new Error('short inspector registration requires the exact inspector import');
 }
 if (occurrenceCount(activityCode, /\bregisterPlugin\s*\(\s*(?:[A-Za-z_$][\w$]*\s*\.\s*)*AndroidLegacyInspectorPlugin\s*\.\s*class\s*\)/g) !== 1) {

@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 /*
- * PDF Chef palette. Mirrors assets/design-tokens.json.
+ * Happy PDF palette. Mirrors assets/design-tokens.json.
  *
  * The brand runs on five hues: paper (warm neutral ground), ink (the one accent),
  * and three status hues. Tool components written before this system used Tailwind's

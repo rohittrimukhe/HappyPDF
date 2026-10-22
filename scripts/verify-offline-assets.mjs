@@ -6,8 +6,8 @@ import { fileURLToPath } from 'node:url';
 import { gunzipSync } from 'node:zlib';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const dist = process.env.PDF_CHEF_DIST_DIR
-  ? resolve(process.env.PDF_CHEF_DIST_DIR)
+const dist = process.env.HAPPY_PDF_DIST_DIR
+  ? resolve(process.env.HAPPY_PDF_DIST_DIR)
   : resolve(root, 'dist');
 const assetsDirectory = resolve(dist, 'assets');
 const ignoredMetadataFiles = new Set(['.DS_Store']);
@@ -197,7 +197,7 @@ for (const name of fontNames) {
 
 // No unresolved markers; cache ID and manifest are independently reproducible.
 const sw = await readFile(serviceWorkerPath, 'utf8');
-if (sw.includes('__PDF_CHEF_CACHE_VERSION__') || sw.includes('__PDF_CHEF_PRECACHE__')) fail('service worker contains unresolved injection markers');
+if (sw.includes('__HAPPY_PDF_CACHE_VERSION__') || sw.includes('__HAPPY_PDF_PRECACHE__')) fail('service worker contains unresolved injection markers');
 const manifestMatch = sw.match(/const PRECACHE_ASSETS = (\[[^;]*\]);/);
 if (!manifestMatch) fail('service worker precache manifest is not parseable');
 const manifest = JSON.parse(manifestMatch[1]);
@@ -221,7 +221,7 @@ const expectedCacheVersion = createHash('sha256')
   .update(JSON.stringify(cacheIdentity))
   .digest('hex')
   .slice(0, 12);
-const cacheMatch = sw.match(/const CACHE_NAME = 'pdf-chef-shell-([a-f0-9]{12})'/);
+const cacheMatch = sw.match(/const CACHE_NAME = 'happy-pdf-shell-([a-f0-9]{12})'/);
 if (!cacheMatch || cacheMatch[1] !== expectedCacheVersion) fail('service worker cache version does not match the exact URL-and-content identity');
 
 // Reject effective remote processing/asset dependencies without false positives

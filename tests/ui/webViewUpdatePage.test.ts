@@ -21,9 +21,9 @@ const show = (languages: string[], saved: string | null | Error = null) => {
 
 test('the shell shows the update page on a WebView below the floor, and the page is packaged', () => {
   assert.match(read('capacitor.config.ts'), /minWebViewVersion: 119,/);
-  const activity = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/MainActivity.java');
-  assert.match(activity, /bridge\.isMinimumWebViewInstalled\(\)\s*\?\s*PdfChefWebViewPolicy\.rendererRecoveryUrl\(recoveryUrl\)\s*:\s*PdfChefWebViewPolicy\.WEBVIEW_UPDATE_URL;/);
-  const policy = read('android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/security/PdfChefWebViewPolicy.java');
+  const activity = read('android/app/src/main/java/com/rohittrimukhe/happypdf/MainActivity.java');
+  assert.match(activity, /bridge\.isMinimumWebViewInstalled\(\)\s*\?\s*HappyPdfWebViewPolicy\.rendererRecoveryUrl\(recoveryUrl\)\s*:\s*HappyPdfWebViewPolicy\.WEBVIEW_UPDATE_URL;/);
+  const policy = read('android/app/src/main/java/com/rohittrimukhe/happypdf/security/HappyPdfWebViewPolicy.java');
   const path = policy.match(/WEBVIEW_UPDATE_URL = PACKAGED_ORIGIN \+ "\/([^"]+)"/)?.[1];
   assert.equal(path, 'webview-update/index.html');
   const page = read(`public/${path}`);

@@ -60,7 +60,7 @@
   "android.pdf_reader_signature_timestamp_unverified": "Mevcut ancak çevrimdışıyken doğrulanmadı",
   "android.pdf_reader_signature_sha1_warning": "Uyarı: Bu imza eski SHA-1 kullanıyor.",
   "android.pdf_reader_signature_offline_note": "Güven, bu cihazın sertifika deposunu kullanır. İptal ve çevrimiçi sertifika durumu kontrol edilmez. PDF imzalama tarihi, güvenilir bir zaman damgası olarak kabul edilmez.",
-  "ios.NSCameraUsageDescription": "PDF Chef, kamerayı yalnızca bir PDF'e sayfa eklemek için Kameradan Tara'yı seçtiğinizde kullanır.",
+  "ios.NSCameraUsageDescription": "Happy PDF, kamerayı yalnızca bir PDF'e sayfa eklemek için Kameradan Tara'yı seçtiğinizde kullanır.",
   "ios.ce47f2d3b8": "Dijital imzalar",
   "ios.b55dcc62d4": "İmza kontrolü tamamlandı",
   "ios.fd19818dfb": "Dijital imzalar kontrol ediliyor",

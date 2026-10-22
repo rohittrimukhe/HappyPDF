@@ -13,30 +13,30 @@ const assert = (condition, message) => {
 const count = (source, pattern) => [...source.matchAll(pattern)].length;
 
 const paths = {
-  plugin: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentsPlugin.java',
-  coordinator: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/DocumentLifecycleCoordinator.java',
-  controller: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentPickerController.java',
-  request: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/PickerRequestPolicy.java',
-  pendingStore: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/OwnedPendingImportStore.java',
-  pendingBatch: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/PendingImportBatch.java',
-  pendingRecord: 'android/app/src/main/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/PendingImportRecord.java',
+  plugin: 'android/app/src/main/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentsPlugin.java',
+  coordinator: 'android/app/src/main/java/com/rohittrimukhe/happypdf/documents/DocumentLifecycleCoordinator.java',
+  controller: 'android/app/src/main/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentPickerController.java',
+  request: 'android/app/src/main/java/com/rohittrimukhe/happypdf/documents/PickerRequestPolicy.java',
+  pendingStore: 'android/app/src/main/java/com/rohittrimukhe/happypdf/documents/OwnedPendingImportStore.java',
+  pendingBatch: 'android/app/src/main/java/com/rohittrimukhe/happypdf/documents/PendingImportBatch.java',
+  pendingRecord: 'android/app/src/main/java/com/rohittrimukhe/happypdf/documents/PendingImportRecord.java',
   client: 'services/platform/android/androidDocuments.ts',
   workspace: 'services/platform/android/androidWorkspacePlatform.ts',
-  pluginTest: 'android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentsPluginContractTest.java',
-  coordinatorTest: 'android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/DocumentLifecycleCoordinatorTest.java',
-  pendingStoreTest: 'android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/OwnedPendingImportStoreTest.java',
-  controllerTest: 'android/app/src/test/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentPickerControllerTest.java',
+  pluginTest: 'android/app/src/test/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentsPluginContractTest.java',
+  coordinatorTest: 'android/app/src/test/java/com/rohittrimukhe/happypdf/documents/DocumentLifecycleCoordinatorTest.java',
+  pendingStoreTest: 'android/app/src/test/java/com/rohittrimukhe/happypdf/documents/OwnedPendingImportStoreTest.java',
+  controllerTest: 'android/app/src/test/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentPickerControllerTest.java',
   clientTest: 'tests/platform/androidDocuments.test.ts',
   workspaceTest: 'tests/platform/androidWorkspacePlatform.test.ts',
-  runtimeTest: 'android/app/src/androidTest/java/com/dhananjaytech/zenpdf_allpdftoolsinoneplace/documents/AndroidDocumentsPluginInstrumentedTest.java',
+  runtimeTest: 'android/app/src/androidTest/java/com/rohittrimukhe/happypdf/documents/AndroidDocumentsPluginInstrumentedTest.java',
 };
 
 for (const [path, expected] of new Map([
   [paths.controller, 'c80aa43e1efcc129a987e81d706009cf69019eeaae49e0f4c18a01b15e344975'],
-  [paths.request, '3a8ae90c005fff0c702ca05b9c4c4a06d7bae19a82f3fafa1d47c07582c87a52'],
+  [paths.request, 'a9d840adf47515f244bba4f40e5fb75a6332367b75b4319d51b8e2c2ad0c8c98'],
   [paths.pendingStore, 'b4bae855ba5bf4d3ad63d772231b1b1731150642f53b4bbc153e487094328ff8'],
-  [paths.pendingBatch, '363b55b5feb5f53dc785d549984d52409e395f1f744ceacace2ee38c7398ad16'],
-  [paths.pendingRecord, '78739adf5462f6899ca39f0efa4038db2d51268487f7e38ee27beee8050ce0a1'],
+  [paths.pendingBatch, '409049cc9710115506f73f30ac9ad79f894b137a3b927710b0400a726dd8ad87'],
+  [paths.pendingRecord, '1be9cab639d6c2938b4b548b07291821f7dde8fd4e71cf07195c24c2af97566b'],
 ])) assert(hash(path) === expected, `accepted picker/pending substrate drift: ${path}`);
 
 const plugin = read(paths.plugin);
@@ -83,7 +83,7 @@ assert(request.includes('if (!userInitiated) throw invalid()')
   && request.includes('documentRef(Request request, int orderedIndex)'),
   'user-initiation, count, or deterministic item-ref policy missing');
 for (const invariant of [
-  'PDFCHEF-PENDING-BATCH-V1\\0', 'ACKNOWLEDGED = 3',
+  'HAPPYPDF-PENDING-BATCH-V1\\0', 'ACKNOWLEDGED = 3',
   'batchRef.equals(batchRef(checked))', 'List.copyOf(checked)',
 ]) assert(pendingBatch.includes(invariant), `durable batch identity invariant missing: ${invariant}`);
 for (const invariant of [

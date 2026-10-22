@@ -314,7 +314,7 @@ test('find and replace covers the whole document, not just the visible page', ()
   assert.match(blockLayer, /export const paintFindHighlights/);
   assert.match(blockLayer, /registry\.set\(FIND_HIGHLIGHT/);
   assert.match(editor, /paintFindHighlights\(ranges\)/);
-  assert.match(read('index.css'), /::highlight\(pdfchef-find\)/);
+  assert.match(read('index.css'), /::highlight\(happypdf-find\)/);
   // Stepping through matches moves the page inside its own box, not the document around it.
   assert.match(blockLayer, /export const scrollBlockIntoViewport/);
   assert.match(editor, /scrollBlockIntoViewport\(viewport, element\)/);
@@ -363,7 +363,7 @@ test('an edit the document cannot draw is refused while it is being typed', () =
   assert.match(read('services/pdfParagraphLayout.ts'), /piece\.face\.embeddedFontId \? normalizeParagraphLineBreaks\(piece\.text\)/);
   assert.match(read('services/pdfParagraphLayout.ts'), /: exportText\(piece\.text\)/);
   // The refusal is an answer the editor chose, so it is not also logged as a fault.
-  assert.match(editor, /const chosen = error instanceof Error && error\.name === 'PdfChefRefusal'/);
+  assert.match(editor, /const chosen = error instanceof Error && error\.name === 'HappyPdfRefusal'/);
   assert.match(editor, /if \(!chosen && message !== PDF_EDIT_PERMISSION_MESSAGE\)/);
 });
 

@@ -20,7 +20,7 @@ import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 import fontkit from '@pdf-lib/fontkit';
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
 
-const baseUrl = process.env.PDF_CHEF_URL || 'http://127.0.0.1:4173';
+const baseUrl = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:4173';
 
 const HEADING = 'Quarterly Report';
 const BODY = [
@@ -159,7 +159,7 @@ const openEditor = async (context, fixture) => {
   page.on('pageerror', error => consoleErrors.push(error.message));
 
   await page.addInitScript(() => {
-    localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({
+    localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({
       autoDownload: false,
       keepLocalHistory: false,
       confirmLargeJobs: false,
@@ -201,11 +201,11 @@ const waitForPlan = async (page, outcome = 'goes straight into the document|will
 /** Capture the bytes the editor produces without going through a download. */
 const installOutputCapture = async (page) => {
   const resolvers = [];
-  await page.exposeFunction('capturePdfChefParagraphOutput', bytes => resolvers.shift()?.(bytes));
+  await page.exposeFunction('captureHappyPdfParagraphOutput', bytes => resolvers.shift()?.(bytes));
   await page.evaluate(() => {
-    window.addEventListener('pdfchef:output-ready', event => {
+    window.addEventListener('happypdf:output-ready', event => {
       event.detail.blob.arrayBuffer()
-        .then(buffer => window.capturePdfChefParagraphOutput(Array.from(new Uint8Array(buffer))));
+        .then(buffer => window.captureHappyPdfParagraphOutput(Array.from(new Uint8Array(buffer))));
     });
   });
   return () => new Promise(resolve => resolvers.push(resolve));

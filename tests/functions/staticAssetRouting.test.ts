@@ -51,7 +51,7 @@ test('every public and built payload bypasses Functions except deliberate crawle
 test('static headers retain existing immutable and revalidation policies', async () => {
   const headers = read('public/_headers');
   for (const path of ['/assets/app-abc.js', '/sw.js', '/site.webmanifest']) {
-    const response = await onRequest({ request: new Request(`https://pdfchef.dhananjaytech.app${path}`), next: async () => new Response('asset', { headers: { 'content-type': 'application/javascript' } }) });
+    const response = await onRequest({ request: new Request(`https://happypdf.app${path}`), next: async () => new Response('asset', { headers: { 'content-type': 'application/javascript' } }) });
     const rule = path.startsWith('/assets/') ? '/assets/*' : path;
     assert.ok(headers.includes(`${rule}\n  Cache-Control: ${response.headers.get('cache-control')}`));
   }
@@ -60,15 +60,15 @@ test('static headers retain existing immutable and revalidation policies', async
 
 test('HTML metadata, unknown-route 404 and old-host navigation redirect remain intact', async () => {
   const next = async () => new Response(read('index.html'), { headers: { 'content-type': 'text/html' } });
-  const edited = await onRequest({ request: new Request('https://pdfchef.dhananjaytech.app/edit'), next });
+  const edited = await onRequest({ request: new Request('https://happypdf.app/edit'), next });
   assert.equal(edited.status, 200);
   assert.equal(edited.headers.get('cache-control'), 'no-cache');
   assert.match(await edited.text(), /<title>Edit PDF/);
-  const missing = await onRequest({ request: new Request('https://pdfchef.dhananjaytech.app/unknown-route'), next });
+  const missing = await onRequest({ request: new Request('https://happypdf.app/unknown-route'), next });
   assert.equal(missing.status, 404);
   const old = await onRequest({ request: new Request('https://pdftools.dhananjaytech.app/edit?test=1'), next });
   assert.equal(old.status, 308);
-  assert.equal(old.headers.get('location'), 'https://pdfchef.dhananjaytech.app/edit?test=1');
+  assert.equal(old.headers.get('location'), 'https://happypdf.app/edit?test=1');
 });
 
 test('real manifest injection excludes hosting controls without dropping offline payloads', () => {
@@ -82,7 +82,7 @@ test('real manifest injection excludes hosting controls without dropping offline
     for (const control of ['_headers', '_redirects', '_routes.json']) writeFileSync(resolve(dir, control), read(`public/${control}`));
     const inject = () => {
       writeFileSync(resolve(dir, 'sw.js'), read('public/sw.js'));
-      execFileSync(process.execPath, [resolve(root, 'scripts/inject-service-worker-manifest.mjs')], { env: { ...process.env, PDF_CHEF_DIST_DIR: dir } });
+      execFileSync(process.execPath, [resolve(root, 'scripts/inject-service-worker-manifest.mjs')], { env: { ...process.env, HAPPY_PDF_DIST_DIR: dir } });
       return readFileSync(resolve(dir, 'sw.js'), 'utf8');
     };
     const before = inject();

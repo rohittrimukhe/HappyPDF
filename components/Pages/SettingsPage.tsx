@@ -11,7 +11,7 @@ import { Button, ConfirmSheet, SegmentedControl, StatusLine, Switch, cx } from '
 import { formatBytes } from '../UI/format';
 import { useMonetization } from '../../hooks/useMonetization';
 import { useSupport } from '../../hooks/useSupport';
-import { SupportChoices, SupporterBadge } from '../UI/SupportPDFChef';
+import { SupportChoices, SupporterBadge } from '../UI/SupportHappyPDF';
 import { isSupportOffered } from '../../services/supportPrompt';
 import {
   TEXT_SCALE_LABELS,
@@ -398,7 +398,7 @@ export const SettingsPage: React.FC = () => {
         )}
 
         <Group title={t("settings-page.about.4efca0")}>
-          <Row label="PDF Chef">
+          <Row label="Happy PDF">
             <span className="type-footnote tabular text-end text-[var(--text-secondary)]">
               {metadata.status === 'loading'
                 ? t("settings-page.reading.version.8693f6")
@@ -420,7 +420,7 @@ export const SettingsPage: React.FC = () => {
           </Row>
           <Row label={t("settings-page.source.code.bf046c")} stacked>
             <a
-              href="https://github.com/DhananjayBhosale/PDFChef"
+              href="https://github.com/rohittrimukhe/HappyPDF"
               target="_blank"
               rel="noreferrer"
               className="chef-pressable chef-target inline-flex items-center gap-1.5 rounded-[var(--radius-control)] border border-[var(--border-strong)] px-3 font-semibold text-[var(--text-primary)]"

@@ -68,7 +68,7 @@ export const loadDocumentEmbeddedFonts = (file: File): Promise<void> => {
           || typeof face.hasGlyphForCodePoint !== 'function'
           || rights?.noEmbedding || rights?.viewOnly || rights?.bitmapOnly) continue;
         const id: EmbeddedPdfFontId = `Embedded${nextFont++}`;
-        const cssFamily = `PDF Chef ${id}`;
+        const cssFamily = `Happy PDF ${id}`;
         let browserFace: FontFace | undefined;
         if (typeof document !== 'undefined' && typeof FontFace !== 'undefined' && browserCanDrawFont(face)) {
           browserFace = new FontFace(cssFamily, bytes.slice().buffer);

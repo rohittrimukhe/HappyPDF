@@ -8,7 +8,7 @@ async function fetchThroughWorker(type: string, mode = 'cors', cachedType?: stri
   const writes: string[] = [];
   const pending: Promise<unknown>[] = [];
   let result: Promise<Response> | undefined;
-  const origin = 'https://pdfchef.dhananjaytech.app';
+  const origin = 'https://happypdf.app';
   runInNewContext(readFileSync(new URL('../../public/sw.js', import.meta.url), 'utf8'), {
     self: {location: {origin}, addEventListener: (name: string, fn: any) => {listeners[name] = fn;}},
     URL, Response,
@@ -36,7 +36,7 @@ test('valid JavaScript still loads and caches, replacing a previous HTML cache e
     const {response, writes} = await fetchThroughWorker('application/javascript', 'cors', cachedType);
     assert.equal(response.status, 200);
     assert.equal(await response.text(), 'body');
-    assert.deepEqual(writes, ['https://pdfchef.dhananjaytech.app/assets/probe.js']);
+    assert.deepEqual(writes, ['https://happypdf.app/assets/probe.js']);
   }
 });
 

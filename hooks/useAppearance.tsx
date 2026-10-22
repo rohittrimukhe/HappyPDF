@@ -30,9 +30,9 @@ export type ThemePreference = 'system' | 'light' | 'dark';
 export type TextScale = 'small' | 'default' | 'large' | 'larger';
 
 const THEME_KEY = 'theme';
-const TEXT_SCALE_KEY = 'pdfchef.appearance.text-scale.v1';
+const TEXT_SCALE_KEY = 'happypdf.appearance.text-scale.v1';
 /** One in-flight Android theme write. Bounded, strict, and cleared on landing. */
-export const THEME_MARKER_KEY = 'pdfchef.appearance.android-theme-write.v1';
+export const THEME_MARKER_KEY = 'happypdf.appearance.android-theme-write.v1';
 /** Nothing legitimate approaches this; anything longer is not ours to trust. */
 const THEME_MARKER_MAXIMUM_LENGTH = 96;
 

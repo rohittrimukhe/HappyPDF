@@ -9,7 +9,7 @@ import {
 
 const nativeStub = (
   implementation: AndroidAppMetadataNativePlugin['getMetadata'] = async () => ({
-    name: 'PDF Chef', version: '1.0', build: '1',
+    name: 'Happy PDF', version: '1.0', build: '1',
   }),
 ): AndroidAppMetadataNativePlugin => ({ getMetadata: implementation });
 
@@ -18,42 +18,42 @@ test('client requests no arguments and accepts exactly the public application me
   const client = new AndroidAppMetadataClient(nativeStub(async (...args) => {
     calls += 1;
     assert.deepEqual(args, []);
-    return { name: 'PDF Chef', version: '1.0', build: '1' };
+    return { name: 'Happy PDF', version: '1.0', build: '1' };
   }));
 
   const metadata = await client.getMetadata();
   assert.equal(calls, 1);
-  assert.deepEqual(metadata, { name: 'PDF Chef', version: '1.0', build: '1' });
+  assert.deepEqual(metadata, { name: 'Happy PDF', version: '1.0', build: '1' });
   assert.equal(Object.isFrozen(metadata), true);
 });
 
 test('a genuinely unavailable build remains null', async () => {
   const metadata = await new AndroidAppMetadataClient(nativeStub(async () => ({
-    name: 'PDF Chef', version: '1.0', build: null,
+    name: 'Happy PDF', version: '1.0', build: null,
   }))).getMetadata();
-  assert.deepEqual(metadata, { name: 'PDF Chef', version: '1.0', build: null });
+  assert.deepEqual(metadata, { name: 'Happy PDF', version: '1.0', build: null });
 });
 
 test('response must be a plain exact DTO with nonblank NUL-free public text', async () => {
-  const withHiddenField = { name: 'PDF Chef', version: '1.0', build: '1' };
+  const withHiddenField = { name: 'Happy PDF', version: '1.0', build: '1' };
   Object.defineProperty(withHiddenField, 'hiddenPackage', { value: 'com.example.private' });
   const invalid: unknown[] = [
     null,
     [],
     Object.create(null),
-    { name: 'PDF Chef', version: '1.0' },
-    { name: 'PDF Chef', version: '1.0', build: '1', packageId: 'com.example.private' },
+    { name: 'Happy PDF', version: '1.0' },
+    { name: 'Happy PDF', version: '1.0', build: '1', packageId: 'com.example.private' },
     withHiddenField,
-    Object.assign({ name: 'PDF Chef', version: '1.0', build: '1' }, { [Symbol('x')]: true }),
+    Object.assign({ name: 'Happy PDF', version: '1.0', build: '1' }, { [Symbol('x')]: true }),
     { name: '', version: '1.0', build: '1' },
     { name: ' \t', version: '1.0', build: '1' },
     { name: 'PDF\0Chef', version: '1.0', build: '1' },
-    { name: 'PDF Chef', version: '', build: '1' },
-    { name: 'PDF Chef', version: '1.0\0', build: '1' },
-    { name: 'PDF Chef', version: '1.0', build: '' },
-    { name: 'PDF Chef', version: '1.0', build: ' \n' },
-    { name: 'PDF Chef', version: '1.0', build: '1\0' },
-    { name: 'PDF Chef', version: '1.0', build: 1 },
+    { name: 'Happy PDF', version: '', build: '1' },
+    { name: 'Happy PDF', version: '1.0\0', build: '1' },
+    { name: 'Happy PDF', version: '1.0', build: '' },
+    { name: 'Happy PDF', version: '1.0', build: ' \n' },
+    { name: 'Happy PDF', version: '1.0', build: '1\0' },
+    { name: 'Happy PDF', version: '1.0', build: 1 },
   ];
 
   for (const response of invalid) {

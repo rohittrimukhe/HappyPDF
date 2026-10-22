@@ -6,7 +6,7 @@ import { Capacitor } from '@capacitor/core';
 import { AppRoot, type AppRootProps } from './App';
 import {
   createIOSWorkspacePlatform,
-  isPdfChefDocumentsAvailable,
+  isHappyPdfDocumentsAvailable,
 } from './services/platform/capacitor/iosDocumentServices';
 import { startAndroidOnboardingContinuity } from './services/platform/android/androidOnboardingContinuity';
 import { createAndroidWorkspacePlatform } from './services/platform/android/androidWorkspacePlatform';
@@ -32,7 +32,7 @@ installReadableStreamAsyncIteration();
 
 /** The two origins only a packaged native shell is ever served from. */
 const PACKAGED_NATIVE_ORIGINS = ['https://localhost', 'capacitor://localhost'];
-const SHELL_CACHE_PREFIX = 'pdf-chef-shell-';
+const SHELL_CACHE_PREFIX = 'happy-pdf-shell-';
 const SHELL_WORKER_PATH = '/sw.js';
 const SHELL_CLEANUP_BUDGET_MS = 4000;
 
@@ -166,7 +166,7 @@ const render = (platform?: AppRootProps['platform']) => {
 const iosDocumentsAvailable = (): boolean => {
   if (shellTarget !== 'ios') return false;
   try {
-    return isPdfChefDocumentsAvailable();
+    return isHappyPdfDocumentsAvailable();
   } catch {
     return false;
   }

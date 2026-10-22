@@ -26,7 +26,7 @@ const english = parseCatalog(source, 'en-US');
 const keys = Object.keys(english);
 const vars = (message) => [...new Set([...message.matchAll(/\{([a-zA-Z]\w*)\}/g)].map(match => match[1]))].sort().join(',');
 const checkProtectedText = (from, to, label) => {
-  for (const name of ['PDF Chef', 'Aadhaar', 'GST', 'Google Play', 'App Store', 'Android', 'iOS', 'Apple', 'Cloudflare', 'Dhananjay Tech']) {
+  for (const name of ['Happy PDF', 'Aadhaar', 'GST', 'Google Play', 'App Store', 'Android', 'iOS', 'Apple', 'Cloudflare', 'Rohit Trimukhe']) {
     if (from.includes(name) && !to.includes(name)) failures.push(`${label}: missing proper name ${name}`);
   }
   if (['Inter', 'Manrope', 'Noto Sans'].includes(from) && to !== from) failures.push(`${label}: font name changed`);
@@ -218,7 +218,7 @@ function auditVisibleCopy(path, code) {
       else if (ts.isPropertyAssignment(parent) && parent.initializer === node && /^(?:label|title|hint|description|ariaLabel|emptyMessage|message|error)$/.test(parent.name.getText(tree))) text = node.text;
     }
     // The brand and documented literal PDF formatting tokens are deliberately not translated.
-    if (text && /[A-Za-z]/.test(text) && !['PDF Chef', '{n}', '{total}'].includes(text)) {
+    if (text && /[A-Za-z]/.test(text) && !['Happy PDF', '{n}', '{total}'].includes(text)) {
       failures.push(`${path}:${tree.getLineAndCharacterOfPosition(node.getStart(tree)).line + 1}: hardcoded visible text: ${text}`);
     }
     ts.forEachChild(node, visit);

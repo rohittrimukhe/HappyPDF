@@ -4,12 +4,12 @@ import { chromium, webkit, devices } from 'playwright';
 import { PDFDocument, StandardFonts, decodePDFRawStream } from 'pdf-lib';
 import JSZip from 'jszip';
 
-const origin = process.env.PDF_CHEF_URL || 'http://127.0.0.1:3000';
-const output = process.env.PDF_CHEF_RANGE_OUTPUT || 'output/playwright/page-range-selection';
+const origin = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:3000';
+const output = process.env.HAPPY_PDF_RANGE_OUTPUT || 'output/playwright/page-range-selection';
 await mkdir(output, { recursive: true });
 const results = [];
-const requestedDevices = new Set((process.env.PDF_CHEF_RANGE_DEVICES || 'desktop,android,iphone').split(','));
-const phases = new Set((process.env.PDF_CHEF_RANGE_PHASES || 'devices,interaction,preview,locales').split(','));
+const requestedDevices = new Set((process.env.HAPPY_PDF_RANGE_DEVICES || 'desktop,android,iphone').split(','));
+const phases = new Set((process.env.HAPPY_PDF_RANGE_PHASES || 'devices,interaction,preview,locales').split(','));
 const source = await PDFDocument.create();
 const font = await source.embedFont(StandardFonts.Helvetica);
 for (let n = 1; n <= 300; n += 1) {
@@ -45,11 +45,11 @@ async function setup(browser, options = {}, locale = 'en-US') {
   // Keep optional analytics/advertising requests out of the functional checks.
   await context.route('**/*', route => route.request().url().startsWith(origin) ? route.continue() : route.abort());
   await context.addInitScript(locale => {
-    localStorage.setItem('pdfchef.locale.v1', locale);
-    localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({
+    localStorage.setItem('happypdf.locale.v1', locale);
+    localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({
       autoDownload: false, keepLocalHistory: false, onboardingComplete: true, confirmLargeJobs: false,
     }));
-    sessionStorage.setItem('pdfchef.mobile-app-welcome.dismissed.v1', 'true');
+    sessionStorage.setItem('happypdf.mobile-app-welcome.dismissed.v1', 'true');
     delete window.showSaveFilePicker;
   }, locale);
   const page = await context.newPage();

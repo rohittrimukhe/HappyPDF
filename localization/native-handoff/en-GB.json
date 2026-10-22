@@ -60,7 +60,7 @@
   "android.pdf_reader_signature_timestamp_unverified": "Present but not validated offline",
   "android.pdf_reader_signature_sha1_warning": "Warning: this signature uses legacy SHA-1.",
   "android.pdf_reader_signature_offline_note": "Trust uses this device’s certificate store. Revocation and online certificate status are not checked. A PDF signing date is not treated as a trusted timestamp.",
-  "ios.NSCameraUsageDescription": "PDF Chef uses the camera only when you choose Scan from Camera to add pages to a PDF.",
+  "ios.NSCameraUsageDescription": "Happy PDF uses the camera only when you choose Scan from Camera to add pages to a PDF.",
   "ios.ce47f2d3b8": "Digital signatures",
   "ios.b55dcc62d4": "Signature check complete",
   "ios.fd19818dfb": "Checking digital signatures",

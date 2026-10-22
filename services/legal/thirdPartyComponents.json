@@ -134,6 +134,15 @@
   "note": "Package wrapper. The trained data it carries is listed separately."
  },
  {
+  "name": "PDF Chef",
+  "version": "6b2053d",
+  "kind": "asset",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 Dhananjay Bhosale",
+  "url": "https://github.com/DhananjayBhosale/PDFChef",
+  "note": "Happy PDF is based on PDF Chef. The original PDF Chef code remains available under the MIT License."
+ },
+ {
   "name": "Adobe CMap resources",
   "version": "6.3.289 (via pdfjs-dist); also in pdfbox-android",
   "kind": "asset",

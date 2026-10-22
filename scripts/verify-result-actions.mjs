@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 import { PDFDocument } from 'pdf-lib';
 
-const origin = process.env.PDF_CHEF_URL || 'http://127.0.0.1:3000';
+const origin = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:3000';
 const browser = await chromium.launch({ headless: true });
 
 const newPage = async (autoDownload, keepLocalHistory, shareAvailable = false) => {
@@ -16,7 +16,7 @@ const newPage = async (autoDownload, keepLocalHistory, shareAvailable = false) =
         value: async ({ files }) => { window.__sharedName = files[0].name; },
       });
     }
-    localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({
+    localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({
       autoDownload, keepLocalHistory, confirmLargeJobs: false,
       largeFileWarningMb: 80, onboardingComplete: true, interfaceFont: 'inter',
     }));

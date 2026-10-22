@@ -6,7 +6,7 @@ import fontkit from '@pdf-lib/fontkit';
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
 import { chromium } from 'playwright';
 
-const baseUrl = process.env.PDF_CHEF_URL || 'http://127.0.0.1:4173';
+const baseUrl = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:4173';
 const canonicalName = name => name.replace(/^[A-Z]{6}\+/, '').replace(/-\d+$/, '');
 const readAppearance = async bytes => {
   const task = pdfjs.getDocument({ data: Uint8Array.from(bytes), fontExtraProperties: true,
@@ -69,20 +69,20 @@ const cases = [
 
 const browser = await chromium.launch({ headless: true });
 try {
-  for (const item of cases.filter(item => !process.env.PDF_CHEF_FONT_CHECKS_ONLY && (!process.env.PDF_CHEF_FONT_CASE || item.label === process.env.PDF_CHEF_FONT_CASE))) {
+  for (const item of cases.filter(item => !process.env.HAPPY_PDF_FONT_CHECKS_ONLY && (!process.env.HAPPY_PDF_FONT_CASE || item.label === process.env.HAPPY_PDF_FONT_CASE))) {
     const { bytes, original, measure } = await fixture(item);
     const before = await readAppearance(bytes);
     const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
     const page = await context.newPage();
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
-    await page.addInitScript(() => localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({
+    await page.addInitScript(() => localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({
       autoDownload: false, keepLocalHistory: false, confirmLargeJobs: false, onboardingComplete: true,
     })));
     let receive;
     const output = new Promise(resolve => { receive = resolve; });
     await page.exposeFunction('__receiveFontOutput', receive);
-    await page.addInitScript(() => window.addEventListener('pdfchef:output-ready', async event => {
+    await page.addInitScript(() => window.addEventListener('happypdf:output-ready', async event => {
       window.__receiveFontOutput(Array.from(new Uint8Array(await event.detail.blob.arrayBuffer())));
     }));
     await page.goto(`${baseUrl}/edit`);
@@ -132,7 +132,7 @@ try {
     await preview.waitFor();
     if (!item.family && item.action !== 'replace' && item.action !== 'missing') {
       await page.waitForFunction(() => [...document.querySelectorAll('[data-testid="pdf-block-preview"] text')]
-        .every(piece => piece.getAttribute('font-family').includes('PDF Chef Embedded')));
+        .every(piece => piece.getAttribute('font-family').includes('Happy PDF Embedded')));
     }
     const pieces = await preview.locator('text').evaluateAll(nodes => nodes.map(node => ({
       text: node.textContent.trim(), raw: node.textContent, size: Number(node.getAttribute('font-size')),
@@ -177,28 +177,28 @@ try {
     console.log(`PASS ${item.label}: typing, Done and Save preserve ${item.action === 'missing' ? 'size with a drawable fallback' : 'original font and sizes'}`);
     await context.close();
   }
-  if (!process.env.PDF_CHEF_FONT_CASE) {
+  if (!process.env.HAPPY_PDF_FONT_CASE) {
     const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
     const page = await context.newPage();
-    await page.addInitScript(() => localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({
+    await page.addInitScript(() => localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({
       autoDownload: false, keepLocalHistory: false, onboardingComplete: true,
     })));
     const { bytes } = await fixture({ mixed: true });
-    const fontCount = () => page.evaluate(() => [...document.fonts].filter(face => face.family.includes('PDF Chef Embedded')).length);
+    const fontCount = () => page.evaluate(() => [...document.fonts].filter(face => face.family.includes('Happy PDF Embedded')).length);
     for (const exit of ['navigation', 'close']) {
       await page.goto(`${baseUrl}/edit`);
       await page.locator('input[type=file][accept=".pdf"]').setInputFiles({ name: 'lifecycle.pdf', mimeType: 'application/pdf', buffer: bytes });
       const paragraph = page.getByTestId('pdf-text-block').filter({ hasText: 'Lead Body small' });
       await paragraph.waitFor();
       await paragraph.focus();
-      await page.waitForFunction(() => [...document.fonts].some(face => face.family.includes('PDF Chef Embedded')));
+      await page.waitForFunction(() => [...document.fonts].some(face => face.family.includes('Happy PDF Embedded')));
       assert.equal(await fontCount(), 2);
-      if (exit === 'navigation') await page.getByRole('link', { name: /^PDF Chef/ }).first().click();
+      if (exit === 'navigation') await page.getByRole('link', { name: /^Happy PDF/ }).first().click();
       else {
         await page.setViewportSize({ width: 390, height: 844 });
         await page.getByRole('button', { name: 'Close editor', exact: true }).click();
       }
-      await page.waitForFunction(() => ![...document.fonts].some(face => face.family.includes('PDF Chef Embedded')));
+      await page.waitForFunction(() => ![...document.fonts].some(face => face.family.includes('Happy PDF Embedded')));
       assert.equal(await fontCount(), 0, `${exit}: browser font faces leaked after leaving the document`);
     }
     console.log('PASS document font lifecycle: navigation and Close remove browser font faces');
@@ -221,7 +221,7 @@ try {
     await page.getByTestId('pdf-paragraph-provenance').filter({ hasText: /cannot be changed/ }).waitFor();
     await page.evaluate(() => {
       window.__fontGuardOutput = false;
-      window.addEventListener('pdfchef:output-ready', () => { window.__fontGuardOutput = true; });
+      window.addEventListener('happypdf:output-ready', () => { window.__fontGuardOutput = true; });
     });
     await page.getByRole('button', { name: /^Save/ }).first().click();
     await page.getByRole('status').filter({ hasText: /cannot be changed/ }).waitFor();

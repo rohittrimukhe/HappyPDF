@@ -1,4 +1,4 @@
-# PDFChef: audit of all 37 shared tools
+# HappyPDF: audit of all 37 shared tools
 
 Date: 12 September 2026. Scope: the shared React/Vite website source in this checkout.
 
@@ -70,7 +70,7 @@ Local logs are in `output/all-tools-audit-20260912/` (ignored diagnostic output)
 - `npm run test:catalog`: passed; 37 tools, 48 routes, 26 Android mappings and 41 sitemap entries.
 - Final `npm run test:unit`: 486 tests, 485 passed. The single failure is Android packaged-asset verification: the existing Android bundle is missing the new web build's assets. The web artifact check passes; this is not a shared service failure.
 - `tests/services/pdfPageCopy.test.ts`: seven new form-copy regression cases passed.
-- `PDF_CHEF_URL=http://127.0.0.1:3011 npm run test:browser:tools`: passed, including the new output/route/OCR suite and existing image integrity checks.
+- `HAPPY_PDF_URL=http://127.0.0.1:3011 npm run test:browser:tools`: passed, including the new output/route/OCR suite and existing image integrity checks.
 - `npm run test:browser:parity`: passed for Office conversion, forms, editor graphics/history, passwords, batch output and Recent. Despite its script name, this run used Chromium, not an Android device.
 - `npm run test:browser:geometry`: passed, with 40 actual PDF exports across page rotations and crop offsets.
 - `npm run lint`: passed.
@@ -112,7 +112,7 @@ Existing product limits remain visible: OCR is English and can make recognition 
 
 ## Production deployment after the audit — 12 September 2026
 
-Following explicit deployment authorization, the tested website build was published to Cloudflare Pages project `pdftools`, production branch `main`. It is live at [PDFChef](https://pdfchef.dhananjaytech.app/), deployment `1b7977a6-3580-4a29-9aca-6cd57315d041`.
+Following explicit deployment authorization, the tested website build was published to Cloudflare Pages project `pdftools`, production branch `main`. It is live at [HappyPDF](https://happypdf.app/), deployment `1b7977a6-3580-4a29-9aca-6cd57315d041`.
 
 The deployment reused the verified build with cache `4fc504f12c7d`. All 404 built files remained unchanged. The deployment URL and public domain passed checks for the home, Edit and Merge routes, route-specific Functions middleware, and exact SHA-256 matches for the entry JS/CSS, editor/PDF bundles and service worker. A fresh browser imported two generated form PDFs on the live website, merged and downloaded them, and reopened the result with both pages and independent form answers intact. No browser page errors occurred.
 

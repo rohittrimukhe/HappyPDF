@@ -3,7 +3,7 @@ import { chromium } from 'playwright';
 import { PDFDocument, PDFName, PDFNumber, PDFRawStream } from 'pdf-lib';
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
 
-const origin = process.env.PDF_CHEF_URL || 'http://127.0.0.1:3000';
+const origin = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:3000';
 const browser = await chromium.launch({ headless: true });
 
 const pdfImageSize = async bytes => {
@@ -30,7 +30,7 @@ try {
   const page = await browser.newPage({ acceptDownloads: true, viewport: { width: 1280, height: 900 } });
   await page.addInitScript(() => {
     delete window.showSaveFilePicker;
-    localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({
+    localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({
       autoDownload: true, keepLocalHistory: false, confirmLargeJobs: false,
       largeFileWarningMb: 80, onboardingComplete: true, interfaceFont: 'inter',
     }));

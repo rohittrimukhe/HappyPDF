@@ -179,7 +179,7 @@ test('Unlock PDF asks for no password when the file opens without one', () => {
   assert.match(unlock, /disabled=\{needsPassword !== false && password\.length === 0\}/);
 });
 
-// NAV-45, FIL-31: "Open with PDF Chef" failed silently.
+// NAV-45, FIL-31: "Open with Happy PDF" failed silently.
 test('a refused Open with hand-over shows why', () => {
   const handler = read('components/Layout/AndroidIncomingPdfHandler.tsx');
   assert.match(handler, /addIncomingPdfRejectedListener\(reason =>/);

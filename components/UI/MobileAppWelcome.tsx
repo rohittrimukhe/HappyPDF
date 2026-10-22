@@ -26,8 +26,8 @@ export const MobileAppWelcome: React.FC<{
       style={{ paddingTop: 'max(2rem, env(safe-area-inset-top))', paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom))' }}
     >
       <div className="w-full max-w-sm">
-        <img src="/pdf-chef-logo-exact.webp" alt="" aria-hidden className="mx-auto h-20 w-20 object-contain" />
-        <p className="mt-3 text-sm font-semibold">PDF Chef</p>
+        <img src="/happy-pdf-logo-exact.webp" alt="" aria-hidden className="mx-auto h-20 w-20 object-contain" />
+        <p className="mt-3 text-sm font-semibold">Happy PDF</p>
         <h1 className="type-title1 mt-8 text-3xl font-semibold">{t("mobileAppWelcome.title")}</h1>
         <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">{t("mobileAppWelcome.description")}</p>
 

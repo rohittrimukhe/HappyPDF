@@ -2,30 +2,30 @@ import { LocalizedError } from '../i18n/errors.ts';
 import { t } from '../i18n/core.ts';
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  PDF_CHEF_LIFETIME_PRODUCT_ID,
-  PDF_CHEF_MONTHLY_PRODUCT_ID,
-  PdfChefPurchases,
-  isPdfChefPurchasesAvailable,
-  type PdfChefPurchaseAccess,
-  type PdfChefPurchaseProduct,
-  type PdfChefPurchaseResult,
-  type PdfChefPurchasesNativePlugin,
-} from '../platform/capacitor/pdfChefPurchases.ts';
+  HAPPY_PDF_LIFETIME_PRODUCT_ID,
+  HAPPY_PDF_MONTHLY_PRODUCT_ID,
+  HappyPdfPurchases,
+  isHappyPdfPurchasesAvailable,
+  type HappyPdfPurchaseAccess,
+  type HappyPdfPurchaseProduct,
+  type HappyPdfPurchaseResult,
+  type HappyPdfPurchasesNativePlugin,
+} from '../platform/capacitor/happyPdfPurchases.ts';
 import { installOutputAccessHandler, type OutputAccessDisposition } from '../pdfShared.ts';
 import { PendingExport, authorizeExport } from './exportAccess.ts';
 
 export {
-  PDF_CHEF_LIFETIME_PRODUCT_ID,
-  PDF_CHEF_MONTHLY_PRODUCT_ID,
-  type PdfChefPurchaseAccess as MonetizationAccess,
-  type PdfChefPurchaseProduct as MonetizationProduct,
+  HAPPY_PDF_LIFETIME_PRODUCT_ID,
+  HAPPY_PDF_MONTHLY_PRODUCT_ID,
+  type HappyPdfPurchaseAccess as MonetizationAccess,
+  type HappyPdfPurchaseProduct as MonetizationProduct,
 };
 
 export interface MonetizationState {
   available: boolean;
   loading: boolean;
-  access: PdfChefPurchaseAccess | null;
-  products: readonly PdfChefPurchaseProduct[];
+  access: HappyPdfPurchaseAccess | null;
+  products: readonly HappyPdfPurchaseProduct[];
   error: Error | null;
 }
 
@@ -52,8 +52,8 @@ export interface MonetizationContextValue extends MonetizationState {
   runWithExportAccess<T>(operation: () => Promise<T> | T, options?: { operationId?: string }): Promise<ExportAccessResult<T>>;
   /** Abandons a waiting export, only the one for this result when an ID is given. */
   cancelPendingExport(operationId?: string): void;
-  purchase(productId: string): Promise<PdfChefPurchaseResult>;
-  restore(): Promise<PdfChefPurchaseAccess>;
+  purchase(productId: string): Promise<HappyPdfPurchaseResult>;
+  restore(): Promise<HappyPdfPurchaseAccess>;
   manageSubscriptions(): Promise<void>;
 }
 
@@ -64,13 +64,13 @@ const asError = (error: unknown): Error => error instanceof Error ? error : new 
 export interface MonetizationProviderProps {
   children: React.ReactNode;
   /** Test-only injection; production discovery always uses the Capacitor header. */
-  bridge?: PdfChefPurchasesNativePlugin | null;
+  bridge?: HappyPdfPurchasesNativePlugin | null;
   available?: boolean;
 }
 
 export const MonetizationProvider: React.FC<MonetizationProviderProps> = ({ children, bridge, available }) => {
-  const nativeAvailable = available ?? (bridge ? true : isPdfChefPurchasesAvailable());
-  const native = useMemo(() => nativeAvailable ? (bridge ?? PdfChefPurchases) : null, [bridge, nativeAvailable]);
+  const nativeAvailable = available ?? (bridge ? true : isHappyPdfPurchasesAvailable());
+  const native = useMemo(() => nativeAvailable ? (bridge ?? HappyPdfPurchases) : null, [bridge, nativeAvailable]);
   const [state, setState] = useState<MonetizationState>({
     available: nativeAvailable,
     loading: nativeAvailable,
@@ -83,11 +83,11 @@ export const MonetizationProvider: React.FC<MonetizationProviderProps> = ({ chil
   const stateRef = useRef(state);
   stateRef.current = state;
 
-  const applyAccess = useCallback((access: PdfChefPurchaseAccess) => {
+  const applyAccess = useCallback((access: HappyPdfPurchaseAccess) => {
     setState(current => ({ ...current, loading: false, access, error: null }));
   }, []);
 
-  const resumePendingExport = useCallback(async (access: PdfChefPurchaseAccess) => {
+  const resumePendingExport = useCallback(async (access: HappyPdfPurchaseAccess) => {
     if (!access.unlocked) return;
     const pending = pendingExport.current.take();
     if (!pending) return;

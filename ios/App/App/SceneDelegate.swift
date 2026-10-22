@@ -3,7 +3,7 @@ import Capacitor
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-    private let documentInbox = PdfChefDocumentInbox()
+    private let documentInbox = HappyPdfDocumentInbox()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = PdfChefBridgeViewController()
+        window?.rootViewController = HappyPdfBridgeViewController()
         window?.makeKeyAndVisible()
 
         // Capacitor's URL proxy republishes raw URLs to JavaScript. Document-provider
@@ -40,6 +40,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-        PdfChefAppUpdate.shared.sceneDidBecomeActive(window)
+        HappyPdfAppUpdate.shared.sceneDidBecomeActive(window)
     }
 }

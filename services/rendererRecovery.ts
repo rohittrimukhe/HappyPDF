@@ -1,6 +1,6 @@
 /**
  * The fragment the Android shell appends when it reloads the current route after
- * the WebView renderer died. Mirrored in PdfChefWebViewPolicy.java.
+ * the WebView renderer died. Mirrored in HappyPdfWebViewPolicy.java.
  */
 export const RENDERER_RECOVERY_HASH = '#renderer-restarted';
 

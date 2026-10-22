@@ -1,11 +1,11 @@
-const CACHE_NAME = 'pdf-chef-shell-__PDF_CHEF_CACHE_VERSION__';
+const CACHE_NAME = 'happy-pdf-shell-__HAPPY_PDF_CACHE_VERSION__';
 const APP_SHELL = [
   '/',
   '/site.webmanifest',
-  '/pdf-chef-app-icon-512.png',
-  '/pdf-chef-logo-exact.webp',
+  '/happy-pdf-app-icon-512.png',
+  '/happy-pdf-logo-exact.webp',
 ];
-const PRECACHE_ASSETS = /*__PDF_CHEF_PRECACHE__*/ [];
+const PRECACHE_ASSETS = /*__HAPPY_PDF_PRECACHE__*/ [];
 const isHtmlResponse = (response) => (response.headers.get('content-type') || '').toLowerCase().includes('text/html');
 
 self.addEventListener('install', (event) => {
@@ -18,7 +18,7 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys()
-      .then((names) => Promise.all(names.filter((name) => name.startsWith('pdf-chef-shell-') && name !== CACHE_NAME).map((name) => caches.delete(name))))
+      .then((names) => Promise.all(names.filter((name) => name.startsWith('happy-pdf-shell-') && name !== CACHE_NAME).map((name) => caches.delete(name))))
       .then(() => self.clients.claim()),
   );
 });

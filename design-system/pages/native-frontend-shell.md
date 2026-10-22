@@ -22,7 +22,7 @@
   origins. An unreadable platform on a public origin registers nothing and deletes
   nothing, so a browser can never lose its offline shell to a detection failure.
 - Deletion is scoped twice. Only registrations for this origin's own `/sw.js` are
-  unregistered, and only caches named `pdf-chef-shell-` are deleted. Another site's
+  unregistered, and only caches named `happy-pdf-shell-` are deleted. Another site's
   worker, another path's worker and every unrelated cache are left untouched.
 - The document declares its own content and navigation policy. Scripts, styles,
   workers and connections resolve to this origin; previews and one build-inlined face

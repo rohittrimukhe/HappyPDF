@@ -1,5 +1,5 @@
 /*
- * PDF Chef design tokens — CSS mirror of assets/design-tokens.json.
+ * Happy PDF design tokens — CSS mirror of assets/design-tokens.json.
  * Source of truth for both files: docs/brand-guidelines.md.
  * Values authored in OKLCH intent, shipped as sRGB hex so iOS 15 WebKit renders them.
  * If you change a value here, change the same value in assets/design-tokens.json.

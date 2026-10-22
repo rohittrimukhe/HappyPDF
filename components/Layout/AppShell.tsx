@@ -219,9 +219,9 @@ const SideRail: React.FC = () => {
     className="chef-safe-top chef-safe-x sticky top-0 hidden h-screen w-[13.5rem] shrink-0 flex-col border-e border-[var(--border-hairline)] bg-[var(--surface-raised)] px-3 py-5 md:flex lg:w-[15rem]"
   >
     <Link to="/" replace state={TAB_ENTRY} onClick={pressTab('/', navigate)} className="chef-pressable mb-6 flex items-center gap-3 rounded-[var(--radius-control)] px-2 py-1">
-      <img src="/pdf-chef-logo-exact.webp" alt="" aria-hidden className="h-9 w-9 object-contain" />
+      <img src="/happy-pdf-logo-exact.webp" alt="" aria-hidden className="h-9 w-9 object-contain" />
       <span className="min-w-0">
-        <span className="block font-semibold leading-tight text-[var(--text-primary)]">PDF Chef</span>
+        <span className="block font-semibold leading-tight text-[var(--text-primary)]">Happy PDF</span>
         <span className="type-caption block font-medium normal-case tracking-normal text-[var(--text-secondary)]">{t("app-shell.on.this.device.38b9d8")}</span>
       </span>
     </Link>
@@ -361,7 +361,7 @@ const ROUTE_TITLES: Record<string, string> = {
   get '/help'() { return t("app-shell.help.b79cac"); },
   get '/privacy'() { return t("app-shell.privacy.54a57c"); },
   get '/privacy-policy'() { return t("app-shell.privacy.54a57c"); },
-  get '/pdf-chef-privacy'() { return t("app-shell.privacy.54a57c"); },
+  get '/happy-pdf-privacy'() { return t("app-shell.privacy.54a57c"); },
   get '/terms'() { return t("app-shell.terms.ede548"); },
   get '/licenses'() { return t("settings-page.open.source.licenses.c9f6d0"); },
   get '/terms-and-conditions'() { return t("app-shell.terms.ede548"); },

@@ -1,4 +1,4 @@
-# PDF Chef Design Contract
+# Happy PDF Design Contract
 
 ## Experience direction
 

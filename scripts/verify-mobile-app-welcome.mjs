@@ -2,18 +2,18 @@ import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
 import { chromium, webkit, devices } from 'playwright';
 
-const origin = process.env.PDF_CHEF_URL || 'http://127.0.0.1:4187';
-const output = process.env.PDF_CHEF_WELCOME_OUTPUT || 'output/mobile-app-welcome-20261003/browser';
+const origin = process.env.HAPPY_PDF_URL || 'http://127.0.0.1:4187';
+const output = process.env.HAPPY_PDF_WELCOME_OUTPUT || 'output/mobile-app-welcome-20261003/browser';
 await mkdir(output, { recursive: true });
-const androidLink = 'https://play.google.com/store/apps/details?id=com.dhananjaytech.pdfchef';
-const iosLink = 'https://apps.apple.com/app/pdf-chef/id6811619417';
-const dismissedKey = 'pdfchef.mobile-app-welcome.dismissed.v1';
+const androidLink = 'https://play.google.com/store/apps/details?id=com.rohittrimukhe.happypdf';
+const iosLink = 'https://apps.apple.com/app/happy-pdf/id0000000000';
+const dismissedKey = 'happypdf.mobile-app-welcome.dismissed.v1';
 const browsers = [];
 
 async function prepare(context, { onboardingComplete = true, blockedStorage = false, locale = 'en-US' } = {}) {
   await context.addInitScript(({ onboardingComplete, blockedStorage, locale }) => {
-    localStorage.setItem('pdfchef.workspace.settings.v1', JSON.stringify({ onboardingComplete, keepLocalHistory: false }));
-    localStorage.setItem('pdfchef.locale.v1', locale);
+    localStorage.setItem('happypdf.workspace.settings.v1', JSON.stringify({ onboardingComplete, keepLocalHistory: false }));
+    localStorage.setItem('happypdf.locale.v1', locale);
     if (blockedStorage) Object.defineProperty(window, 'sessionStorage', { get() { throw new DOMException('Unavailable', 'SecurityError'); } });
   }, { onboardingComplete, blockedStorage, locale });
 }
@@ -86,7 +86,7 @@ try {
     await freshPage.waitForURL('**/make-pdf');
     await freshPage.getByRole('button', { name: 'Visit the website', exact: true }).click();
     await freshPage.getByRole('dialog', { name: 'Before you start', exact: true }).waitFor();
-    await freshPage.getByRole('button', { name: 'Start using PDF Chef', exact: true }).click();
+    await freshPage.getByRole('button', { name: 'Start using Happy PDF', exact: true }).click();
     await freshPage.getByRole('heading', { name: 'Create PDF', exact: true }).waitFor();
     assert.equal(new URL(freshPage.url()).pathname, '/make-pdf', 'Legacy deep links are preserved');
     await freshContext.close();

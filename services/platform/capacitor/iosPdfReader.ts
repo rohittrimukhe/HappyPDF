@@ -33,7 +33,7 @@ const TOOL_PATHS = new Set<string>(IOS_PDF_READER_TOOL_PATHS);
 const OPAQUE_REF = /^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$/;
 const FALLBACK_NAME = 'Document.pdf';
 export const IOS_MAXIMUM_WEB_HANDOFF_BYTES = 200 * 1024 * 1024;
-// Keep this preflight limit in sync with PdfChefSignatureVerifier.maximumFileSizeBytes.
+// Keep this preflight limit in sync with HappyPdfSignatureVerifier.maximumFileSizeBytes.
 export const IOS_MAXIMUM_SIGNATURE_VERIFICATION_BYTES = 64 * 1024 * 1024;
 
 export class IOSSignatureVerificationSizeError extends RangeError {
